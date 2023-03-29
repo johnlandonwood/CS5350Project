@@ -1,0 +1,3 @@
+//wsl$/Ubuntu/home/landon/classes/CS5350/project/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+//wsl$/Ubuntu/home/landon/classes/CS5350/project/cmake-build-debug/CMakeFiles/edit_cache.dir
+//wsl$/Ubuntu/home/landon/classes/CS5350/project/cmake-build-debug/CMakeFiles/project.dir
