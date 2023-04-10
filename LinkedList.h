@@ -5,9 +5,11 @@
 // List code acquired from https://www.geeksforgeeks.org/program-to-implement-singly-linked-list-in-c-using-class/.
 
 class LinkedList {
-    Node* head;
 
 public:
+    Node* head;
+    int listSize = 0;
+
     // Default constructor
     LinkedList() {
         head = nullptr;
@@ -15,7 +17,7 @@ public:
 
     // Function to insert in order
     void insert(int);
-
+    int size();
     void print();
 };
 
@@ -26,6 +28,7 @@ void LinkedList::insert(int data) {
     // Assign to head
     if (head == nullptr) {
         head = newNode;
+        this->listSize++;
         return;
     }
 
@@ -36,6 +39,11 @@ void LinkedList::insert(int data) {
     }
 
     temp->next = newNode;
+    this->listSize++;
+}
+
+int LinkedList::size() {
+    return this->listSize;
 }
 
 void LinkedList::print(){
@@ -43,12 +51,15 @@ void LinkedList::print(){
 
     // Check for empty list.
     if (head == nullptr) {
-        std::cout << "List empty" << std::endl;
+        std::cout << "Empty." << std::endl;
         return;
     }
 
     while (temp != nullptr) {
-        std::cout << temp->data << " ";
+        std::cout << temp->data;
+        if (temp->next != nullptr) {
+            std::cout << " --> ";
+        }
         temp = temp->next;
     }
     std::cout << std::endl;

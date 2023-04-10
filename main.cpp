@@ -2,105 +2,123 @@
 #include "LinkedList.h"
 #include <string>
 #include <random>
+
 using namespace std;
 
+// Method to print the adjacency list.
+void printAdjList(LinkedList *adjList, int V) {
+    for (int i = 0; i < V; i++) {
+        cout << i << " --> ";
+        adjList[i].print();
+    }
+}
+
+// Return true if an edge between two vertices exists.
+// Otherwise, return false.
+// Time complexity can get bad here for large graphs - this function is O(2n) I think
+// TODO: Modify this so that if one list doesn't find it, then it has to not exist so just immediately return false?
+// Since every time we are inserting, we have to insert it in both lists anyways
+// Note: this will segfault if v2 >= V. If v1 >= V, it just returns false, idk why that is
+bool edgeExists(LinkedList* adjList, int v1, int v2) {
+    bool v2_in_v1 = false;
+    bool v1_in_v2 = false;
+
+    Node *temp1 = adjList[v1].head;
+    Node *temp2 = adjList[v2].head;
+
+    // Search for v2 in v1's list
+    while (temp1 != nullptr) {
+        if (temp1->data == v2) {
+            v2_in_v1 = true;
+            break;
+        }
+        temp1 = temp1->next;
+    }
+    if (temp1 == nullptr) {
+        return false;
+    }
+
+    // Search for v1 in v2's list
+    while (temp2 != nullptr) {
+        if (temp2->data == v1) {
+            v1_in_v2 = true;
+            break;
+        }
+        temp2 = temp2->next;
+    }
+
+    return (v2_in_v1 && v1_in_v2);
+}
+
+
+
+// Method to generate a graph with the specified command line arguments
+// For complete cycles and graphs, the E and DIST parameters are not needed.
 LinkedList* generateGraph(LinkedList* adjList, const int V, const int E, const string G, const string DIST) {
-    // to generate random graphs:
-    // for i = 1 to E
-    // generate v1 - random number between 0 and V - 1 (here is where uniform vs. skewed. vs yours comes in)
-    // generate v2 - random number between 0 and V - 1 (here is where uniform vs. skewed. vs yours comes in)
-    // the edge goes between those two vertices
-    // add v2 to v1's adjacency list and v1 to v2's adjacency list
 
-    // how to avoid a number being the same?
-    // if we generate  0 twice in a row, we can't add 0 as an edge to itself
-    // add check where if v2 == v1 after generation, then go again?
-    // or just always generate two numbers - if they are equal, go again, if they are not equal add the edge
-
-
-    int zero = 0;
-    int one = 0;
-    int two = 0;
-    int three = 0;
-//    for (int i = 0; i < 1000; i++) {
-//        int rand = dist(rng);
-//        if (rand == 0) zero++;
-//        else if (rand == 1) one++;
-//        else if (rand == 2) two++;
-//        else if (rand == 3) three++;
-//    }
-//    cout << zero << " " << one << " " << two << " " << three << endl;
-
-    //int rand = dist(rng);
-
-
-
-    if (G == "COMPLETE") {
-        // 0 --> 1
-        // 0 --> 2
-        // 0 --> 3
-        // 1 --> 2
-        // 1 --> 3
-        // 2 --> 3
+    int edges_added_ctr = 0;
+    if (G == "COMPLETE") { // Generate a complete graph: |V| = V, |E| = (V * (V - 1))/2;
+        int i, j;
+        for (i = 0; i < V - 1; i++) {
+            for (j = i + 1; j < V; j++) {
+                if (i != j) {
+                    adjList[i].insert(j); // Add the edge to each vertex's adjacency list
+                    adjList[j].insert(i);
+                    edges_added_ctr++;
+                }
+            }
+        }
+        cout << "Edges added: " << edges_added_ctr << ", expected: " << (V * (V - 1))/2 << endl;
     }
-    else if (G == "CYCLE") {
-        // 0 --> 1
-        // 1 --> 2
-        // 2 --> 3
-        // 3 --> 0
+    else if (G == "CYCLE") { // Generate a cycle: |V| = V, |E| = E
+        int i = 0;
+        int j = 1;
+        while (i < E) {
+            if (j == E) {
+                i = j - 1;
+                j = 0;
+                adjList[i].insert(j);
+                adjList[j].insert(i);
+                edges_added_ctr++;
+                break;
+            }
+            adjList[i].insert(j);
+            adjList[j].insert(i);
+            edges_added_ctr++;
+            i++;
+            j++;
+        }
+        cout << "Edges added: " << edges_added_ctr << ", expected: " << E << endl;
     }
-    else if (G == "RANDOM") {
-        if (DIST == "UNIFORM") {
+    else if (G == "RANDOM") { // Randomly generated graph
+        if (DIST == "UNIFORM") { // Uniform distribution
             std::random_device rd;
             std::mt19937 rng(rd());
             std::uniform_int_distribution<int> uniform_distribution(0,V-1);
-            int v1 = 0;
-            int v2 = 0;
-            int i = 0;
-            while (i < E) { // How do we make sure that an edge does not already exist?
-                i++;
-                v1 = uniform_distribution(rng);
+            int v1, v2;
+            while (edges_added_ctr < E) { // Until we have added E edges to the graph:
+                v1 = uniform_distribution(rng); // Generate two random vertices, v1 and v2
                 v2 = uniform_distribution(rng);
-                if (v2 == v1) {
-                    cout << "Edge generation collision: " << v1 << " --> " << v2 << endl;
-                    i--;
-                }
-                // else if () { // if edge does not already exist
-                    // add edge to graph
-                    cout << v1 << " --> " << v2 << endl;
+                // If the edge is not self-referential and does not already exist, add it to the adjacency list.
+                if (v1 != v2 && !edgeExists(adjList, v1, v2)) {
+                    adjList[v1].insert(v2);
+                    adjList[v2].insert(v1);
+                    edges_added_ctr++;
                 }
             }
-
-//            for (int i = 0; i < E; i++) {
-//                v1 = uniform_distribution(rng);
-//                v2 = uniform_distribution(rng);
-//                if (v2 == v1) {
-//                    cout << "Edge generation collision: " << v1 << " --> " << v2 << endl;
-//
-//                }
-//                cout << v1 << "-->" << v2 << endl;
-//            }
-
         }
-        else if (DIST == "SKEWED") {
+        else if (DIST == "SKEWED") { // Skewed distribution
             // use skewed community package
         }
         else if (DIST == "YOURS") {
-
+            // find simple distribution
         }
+        cout << "Edges added: " << edges_added_ctr << ", expected: " << E << endl;
     }
 
-
     return adjList;
 }
 
-LinkedList* test (LinkedList* adjList) {
-
-    cout << "In test" << endl;
-    adjList[0].insert(5);
-
-    return adjList;
-}
 
 int main(int argc, char** argv) {
 
@@ -111,48 +129,14 @@ int main(int argc, char** argv) {
 
     cout << V << " " << E << " " << G << " " << DIST << endl;
 
-    // Adjacency list - array of lists
+    // Adjacency list - array of singly linked lists.
     LinkedList adjList[V] = { };
+
+    // Generate the graph specified by the command line arguments.
     generateGraph(adjList, V, E, G, DIST);
 
-    // Create one list for each vertex
-//    for (int i = 0; i < V; i++) {
-//        LinkedList list;
-//        for (int j = 0; j < 5; j++) {
-//            list.insert(j);
-//        }
-//        adjList[i] = list;
-//    }
-//
-//
-//
-//
-//
-//
-//    for (int i = 0; i < V; i++) {
-//        adjList[i].print();
-//    }
-//
-//    test(adjList);
+    // Display the generated graph.
+    printAdjList(adjList, V);
 
-
-//    for (int i = 0; i < 5; i++) {
-//        list0.insert(i);
-//        list1.insert(i);
-//        list2.insert(i);
-//        list3.insert(i);
-//        list4.insert(i);
-//    }
-
-    // generateCycle(int V)
-    // generateComplete(int V)
-    // generateRandom(int V, int E, string DIST)
-    // method to generate complete graph
-    // method to generate
-
-
-
-
-    cout << "done";
     return 0;
 }
