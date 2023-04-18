@@ -53,7 +53,7 @@ bool edgeExists(LinkedList* adjList, int v1, int v2) {
 
 
 // Method to generate a graph with the specified command line arguments
-// For complete cycles and graphs, the E and DIST parameters are not needed.
+// For complete cycles and graphs, the E and DIST parameters are uneccesary.
 LinkedList* generateGraph(LinkedList* adjList, const int V, const int E, const string G, const string DIST) {
 
     int edges_added_ctr = 0;
@@ -90,7 +90,7 @@ LinkedList* generateGraph(LinkedList* adjList, const int V, const int E, const s
         }
         cout << "Edges added: " << edges_added_ctr << ", expected: " << E << endl;
     }
-    else if (G == "RANDOM") { // Randomly generated graph
+    else if (G == "RANDOM") { // Generate a random graph
         if (DIST == "UNIFORM") { // Uniform distribution
             std::random_device rd;
             std::mt19937 rng(rd());
@@ -110,8 +110,34 @@ LinkedList* generateGraph(LinkedList* adjList, const int V, const int E, const s
         else if (DIST == "SKEWED") { // Skewed distribution
             // use skewed community package
         }
-        else if (DIST == "YOURS") {
-            // find simple distribution
+        else if (DIST == "YOURS") { // C++ std::normal distribution
+            int v1, v2 = 0;
+            std::random_device rd;
+            std::mt19937 rng(rd());
+            int mid = V / 2;
+            cout << "Mean: " << mid << ", stddev: " << mid / 2 << endl;
+            // The normal distribution uses the middle value between 0 and V as the mean,
+            // and uses the (mean / 2) as the standard deviation.
+            std::normal_distribution<float> normal_distribution(mid, mid/2);
+            while (edges_added_ctr < E) { // Until we have added E edges to the graph:
+                v1 = normal_distribution(rng); // Generate two random vertices, v1 and v2
+                v2 = normal_distribution(rng);
+                // Normal distributions have a small chance to generate a number outside of the intended bound [0,V-1].
+                // Adjacency list cannot allow numbers outside those bounds to be added, so if
+
+//                if (v1 < 0 || v1 > V)
+//
+//                if (v1 < 0) v1 = 0;
+//                if (v2 < 0) v2 = 0;
+                // If the edge is not self-referential and does not already exist, add it to the adjacency list.
+                if (v1 != v2 && !edgeExists(adjList, v1, v2)) {
+                    adjList[v1].insert(v2);
+                    adjList[v2].insert(v1);
+                    edges_added_ctr++;
+                    cout << v1 << " --> " << v2 << endl;
+                }
+            }
+
         }
         cout << "Edges added: " << edges_added_ctr << ", expected: " << E << endl;
     }

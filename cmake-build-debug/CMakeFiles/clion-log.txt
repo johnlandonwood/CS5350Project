@@ -1,4 +1,0 @@
-C:\Users\Owner\AppData\Local\JetBrains\CLion2021.2\cygwin_cmake\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -DCMAKE_DEPENDS_USE_COMPILER=FALSE -G "CodeBlocks - Unix Makefiles" //wsl$/Ubuntu/home/landon/classes/CS5350/project
--- Configuring done
--- Generating done
--- Build files have been written to: //wsl$/Ubuntu/home/landon/classes/CS5350/project/cmake-build-debug
