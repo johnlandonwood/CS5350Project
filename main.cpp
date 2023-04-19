@@ -7,13 +7,14 @@
 // TODO: Create struct for vertices with 7 fields
 // TODO: Create array of structs as described
 // TODO: Create doubly linked list, first of ints, then of structs
-//
+// TODO: Redo normal distribution and implement skewed distribution
+// Can redo normal distribution as the community package one?
 
 using namespace std;
 
 struct Vertex {
     int id;
-    // pointer to edge list
+    LinkedList *edges;
     int degree;
     int deleted;
     int color;
@@ -167,13 +168,51 @@ int main(int argc, char** argv) {
     cout << V << " " << E << " " << G << " " << DIST << endl;
 
     // Adjacency list - array of singly linked lists.
-    LinkedList adjList[V] = {};
+//    LinkedList adjList[V] = {};
+//
+//    // Generate the graph specified by the command line arguments.
+//    generateGraph(adjList, V, E, G, DIST);
+//
+//    // Display the generated graph.
+//    printAdjList(adjList, V);
 
-    // Generate the graph specified by the command line arguments.
-    generateGraph(adjList, V, E, G, DIST);
+    // generate V vertex structures
 
-    // Display the generated graph.
-    printAdjList(adjList, V);
+//    Vertex vertices[V];
+//
+//    for (int i = 0; i < V; i++) {
+//        Vertex v; // Initialize
+//        v.id = i;
+//        //v.edges->head = nullptr;
+//        v.degree = 0;
+//        v.color = -1;
+//        v.deleted = 0;
+//        // v.dll-> head = nullptr
+//        // v.order_deleted = nullptr
+//        vertices[i] = v;
+//    }
+//
+//    // From panopto example:
+//    // 0 --> 1
+//    // 1 --> 0 --> 2 --> 3
+//    // 2 --> 1 --> 3
+//    // 3 --> 1 --> 2
+//    vertices[0].edges->insert(1);
+//    vertices[1].edges->insert(0);
+//    vertices[1].edges->insert(2);
+//    vertices[1].edges->insert(3);
+//    vertices[2].edges->insert(1);
+//    vertices[2].edges->insert(3);
+//    vertices[3].edges->insert(1);
+//    vertices[3].edges->insert(2);
+//
+//    for (int i = 0; i < V; i++) {
+//        vertices[i].edges->print();
+//    }
+
+//    for (int i = 0; i < V; i++) {
+//        cout << vertices[i].id << " ";
+//    }
 
     return 0;
 }
