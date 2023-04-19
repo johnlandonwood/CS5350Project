@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "//wsl$/Ubuntu-20.04/home/landonw/classes/CS5350/CS5350Project/cmake-build-debug"
+			"value" : "//wsl$/Ubuntu/home/landon/classes/CS5350/project/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -79,7 +79,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "25"
+			"value" : "20"
 		},
 		{
 			"name" : "CMAKE_CACHE_PATCH_VERSION",
@@ -130,12 +130,16 @@
 			"value" : "-j8"
 		},
 		{
-			"name" : "CMAKE_COLOR_DIAGNOSTICS",
+			"name" : "CMAKE_COLOR_MAKEFILE",
 			"properties" : 
 			[
 				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
 					"name" : "HELPSTRING",
-					"value" : "Enable colored diagnostics throughout."
+					"value" : "Enable/Disable color output during build."
 				}
 			],
 			"type" : "BOOL",
@@ -151,7 +155,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/cygdrive/c/Users/landl/AppData/Local/JetBrains/CLion2023.1/cygwin_cmake/bin/cmake.exe"
+			"value" : "/cygdrive/c/Users/Owner/AppData/Local/JetBrains/CLion2021.2/cygwin_cmake/bin/cmake.exe"
 		},
 		{
 			"name" : "CMAKE_CPACK_COMMAND",
@@ -163,7 +167,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/cygdrive/c/Users/landl/AppData/Local/JetBrains/CLion2023.1/cygwin_cmake/bin/cpack.exe"
+			"value" : "/cygdrive/c/Users/Owner/AppData/Local/JetBrains/CLion2021.2/cygwin_cmake/bin/cpack.exe"
 		},
 		{
 			"name" : "CMAKE_CTEST_COMMAND",
@@ -175,7 +179,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/cygdrive/c/Users/landl/AppData/Local/JetBrains/CLion2023.1/cygwin_cmake/bin/ctest.exe"
+			"value" : "/cygdrive/c/Users/Owner/AppData/Local/JetBrains/CLion2021.2/cygwin_cmake/bin/ctest.exe"
 		},
 		{
 			"name" : "CMAKE_CXX_COMPILER",
@@ -434,6 +438,18 @@
 			"value" : "-O2 -g -DNDEBUG"
 		},
 		{
+			"name" : "CMAKE_DEPENDS_USE_COMPILER",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "No help, variable specified on the command line."
+				}
+			],
+			"type" : "UNINITIALIZED",
+			"value" : "FALSE"
+		},
+		{
 			"name" : "CMAKE_DLLTOOL",
 			"properties" : 
 			[
@@ -618,18 +634,6 @@
 			"value" : "/usr/lib/gcc/x86_64-pc-cygwin/10/include;/usr/include;/usr/lib/gcc/x86_64-pc-cygwin/10/../../../../lib/../include/w32api"
 		},
 		{
-			"name" : "CMAKE_FIND_PACKAGE_REDIRECTS_DIR",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake."
-				}
-			],
-			"type" : "STATIC",
-			"value" : "//wsl$/Ubuntu-20.04/home/landonw/classes/CS5350/CS5350Project/cmake-build-debug/CMakeFiles/pkgRedirects"
-		},
-		{
 			"name" : "CMAKE_GENERATOR",
 			"properties" : 
 			[
@@ -687,7 +691,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "//wsl$/Ubuntu-20.04/home/landonw/classes/CS5350/CS5350Project"
+			"value" : "//wsl$/Ubuntu/home/landon/classes/CS5350/project"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -1071,7 +1075,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/cygdrive/c/Users/landl/AppData/Local/JetBrains/CLion2023.1/cygwin_cmake/share/cmake-3.25.2"
+			"value" : "/cygdrive/c/Users/Owner/AppData/Local/JetBrains/CLion2021.2/cygwin_cmake/share/cmake-3.20.2"
 		},
 		{
 			"name" : "CMAKE_SHARED_LINKER_FLAGS",
@@ -1342,18 +1346,6 @@
 			"value" : "ProcessorCount_cmd_sysctl-NOTFOUND"
 		},
 		{
-			"name" : "_CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "linker supports push/pop state"
-				}
-			],
-			"type" : "INTERNAL",
-			"value" : "TRUE"
-		},
-		{
 			"name" : "project_BINARY_DIR",
 			"properties" : 
 			[
@@ -1363,19 +1355,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "//wsl$/Ubuntu-20.04/home/landonw/classes/CS5350/CS5350Project/cmake-build-debug"
-		},
-		{
-			"name" : "project_IS_TOP_LEVEL",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake"
-				}
-			],
-			"type" : "STATIC",
-			"value" : "ON"
+			"value" : "//wsl$/Ubuntu/home/landon/classes/CS5350/project/cmake-build-debug"
 		},
 		{
 			"name" : "project_SOURCE_DIR",
@@ -1387,7 +1367,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "//wsl$/Ubuntu-20.04/home/landonw/classes/CS5350/CS5350Project"
+			"value" : "//wsl$/Ubuntu/home/landon/classes/CS5350/project"
 		}
 	],
 	"kind" : "cache",

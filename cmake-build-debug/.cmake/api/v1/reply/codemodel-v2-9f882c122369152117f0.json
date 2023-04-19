@@ -6,7 +6,6 @@
 			[
 				{
 					"build" : ".",
-					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.20"
@@ -39,7 +38,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "project::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-project-Debug-832150ae62645e04e6c8.json",
+					"jsonFile" : "target-project-Debug-6d8cc2ecf940ec8f938a.json",
 					"name" : "project",
 					"projectIndex" : 0
 				}
@@ -49,12 +48,12 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "//wsl$/Ubuntu-20.04/home/landonw/classes/CS5350/CS5350Project/cmake-build-debug",
-		"source" : "//wsl$/Ubuntu-20.04/home/landonw/classes/CS5350/CS5350Project"
+		"build" : "//wsl$/Ubuntu/home/landon/classes/CS5350/project/cmake-build-debug",
+		"source" : "//wsl$/Ubuntu/home/landon/classes/CS5350/project"
 	},
 	"version" : 
 	{
 		"major" : 2,
-		"minor" : 4
+		"minor" : 2
 	}
 }

@@ -3,7 +3,23 @@
 #include <string>
 #include <random>
 
+// https://smu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=170f1626-3bb5-4363-966f-afce002b29bb
+// TODO: Create struct for vertices with 7 fields
+// TODO: Create array of structs as described
+// TODO: Create doubly linked list, first of ints, then of structs
+//
+
 using namespace std;
+
+struct Vertex {
+    int id;
+    // pointer to edge list
+    int degree;
+    int deleted;
+    int color;
+    // DLL pointer
+    // order deleted pointer
+};
 
 // Method to print the adjacency list.
 void printAdjList(LinkedList *adjList, int V) {
@@ -16,7 +32,6 @@ void printAdjList(LinkedList *adjList, int V) {
 // Return true if an edge between two vertices exists.
 // Otherwise, return false.
 // Time complexity can get bad here for large graphs - this function is O(2n) I think
-// TODO: Modify this so that if one list doesn't find it, then it has to not exist so just immediately return false?
 // Since every time we are inserting, we have to insert it in both lists anyways
 // Note: this will segfault if v2 >= V. If v1 >= V, it just returns false, idk why that is
 bool edgeExists(LinkedList* adjList, int v1, int v2) {
@@ -53,8 +68,8 @@ bool edgeExists(LinkedList* adjList, int v1, int v2) {
 
 
 // Method to generate a graph with the specified command line arguments
-// For complete cycles and graphs, the E and DIST parameters are uneccesary.
-LinkedList* generateGraph(LinkedList* adjList, const int V, const int E, const string G, const string DIST) {
+// For complete cycles and graphs, the E and DIST parameters are unnecessary.
+LinkedList* generateGraph(LinkedList* adjList, const int V, const int E, const string& G, const string& DIST) {
 
     int edges_added_ctr = 0;
     if (G == "COMPLETE") { // Generate a complete graph: |V| = V, |E| = (V * (V - 1))/2;
@@ -122,22 +137,18 @@ LinkedList* generateGraph(LinkedList* adjList, const int V, const int E, const s
             while (edges_added_ctr < E) { // Until we have added E edges to the graph:
                 v1 = normal_distribution(rng); // Generate two random vertices, v1 and v2
                 v2 = normal_distribution(rng);
-                // Normal distributions have a small chance to generate a number outside of the intended bound [0,V-1].
-                // Adjacency list cannot allow numbers outside those bounds to be added, so if
-
-//                if (v1 < 0 || v1 > V)
-//
-//                if (v1 < 0) v1 = 0;
-//                if (v2 < 0) v2 = 0;
+                // Normal distributions have a  chance to generate a number outside the intended bound [0, V-1].
+                // Adjacency list cannot allow numbers outside those bounds to be added, so if we generate a vertex
+                // outside those bounds, we set it to something else.
+                if (v1 < 0 || v1 > (V-1)) { v1 = 0; } // Arbitrarily set v1 to 0.
+                if (v2 < 0 || v2 > (V-1)) { v2 = V - 1; } // Arbitrarily set v2 to V - 1.
                 // If the edge is not self-referential and does not already exist, add it to the adjacency list.
                 if (v1 != v2 && !edgeExists(adjList, v1, v2)) {
                     adjList[v1].insert(v2);
                     adjList[v2].insert(v1);
                     edges_added_ctr++;
-                    cout << v1 << " --> " << v2 << endl;
                 }
             }
-
         }
         cout << "Edges added: " << edges_added_ctr << ", expected: " << E << endl;
     }
@@ -156,7 +167,7 @@ int main(int argc, char** argv) {
     cout << V << " " << E << " " << G << " " << DIST << endl;
 
     // Adjacency list - array of singly linked lists.
-    LinkedList adjList[V] = { };
+    LinkedList adjList[V] = {};
 
     // Generate the graph specified by the command line arguments.
     generateGraph(adjList, V, E, G, DIST);

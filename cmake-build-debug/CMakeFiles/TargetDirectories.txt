@@ -1,3 +1,3 @@
-//wsl$/Ubuntu-20.04/home/landonw/classes/CS5350/CS5350Project/cmake-build-debug/CMakeFiles/project.dir
-//wsl$/Ubuntu-20.04/home/landonw/classes/CS5350/CS5350Project/cmake-build-debug/CMakeFiles/edit_cache.dir
-//wsl$/Ubuntu-20.04/home/landonw/classes/CS5350/CS5350Project/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+//wsl$/Ubuntu/home/landon/classes/CS5350/project/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+//wsl$/Ubuntu/home/landon/classes/CS5350/project/cmake-build-debug/CMakeFiles/edit_cache.dir
+//wsl$/Ubuntu/home/landon/classes/CS5350/project/cmake-build-debug/CMakeFiles/project.dir
