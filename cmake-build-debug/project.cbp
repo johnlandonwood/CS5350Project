@@ -89,9 +89,6 @@
 		<Unit filename="//wsl$/Ubuntu/home/landon/classes/CS5350/project/main.cpp">
 			<Option target="project"/>
 		</Unit>
-		<Unit filename="//wsl$/Ubuntu/home/landon/classes/CS5350/project/selfsimilar_int_distribution.h">
-			<Option target="project"/>
-		</Unit>
 		<Unit filename="//wsl$/Ubuntu/home/landon/classes/CS5350/project/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

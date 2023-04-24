@@ -21,4 +21,14 @@ string
 -
 random
 -
+iostream
+-
+iomanip
+-
+string
+-
+map
+-
+cmath
+-
 

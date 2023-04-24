@@ -96,8 +96,7 @@
 			"sourceIndexes" : 
 			[
 				1,
-				2,
-				3
+				2
 			]
 		}
 	],
@@ -117,11 +116,6 @@
 		{
 			"backtrace" : 1,
 			"path" : "Node.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"path" : "selfsimilar_int_distribution.h",
 			"sourceGroupIndex" : 1
 		}
 	],

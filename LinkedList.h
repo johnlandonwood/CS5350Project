@@ -51,7 +51,7 @@ void LinkedList::print(){
 
     // Check for empty list.
     if (head == nullptr) {
-        std::cout << "Empty." << std::endl;
+        std::cout << "Empty.";
         return;
     }
 
@@ -62,7 +62,7 @@ void LinkedList::print(){
         }
         temp = temp->next;
     }
-    std::cout << std::endl;
+
 }
 
 #endif //PROJECT_LINKEDLIST_H
