@@ -1,16 +1,10 @@
 #include <iostream>
-#include "LinkedList.h"
 #include <string>
 #include <random>
-
-#include <iostream>
-#include <iomanip>
-#include <string>
-#include <map>
-#include <cmath>
+#include "LinkedList.h"
+#include "DoublyLinkedList.h"
 
 // https://smu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=170f1626-3bb5-4363-966f-afce002b29bb
-// TODO: Create doubly linked list, first of ints, then of structs
 // Change "yours" distribution to triangle distribution
 // Option for final ordering: largest last vertex. should perform worse than smallest last.
 
@@ -18,13 +12,14 @@ using namespace std;
 
 // Vertex struct to hold information for each vertex in the graph.
 struct Vertex {
-    int id;
-    LinkedList edges;
-    int degree;
-    int deleted;
-    int color;
-    // DLL pointer
-    // order deleted pointer
+    int id; // Unique vertex ID
+    LinkedList edges; // List for connected edges
+    int degree; // Current degree of the vertex
+    bool deleted; // true when deleted
+    int color; // Color value
+    int degree_when_deleted;
+    DoublyLinkedList* degree_DLL; // Pointer to DLL of vertices of same current degree
+    LinkedList* order_deleted; // Pointer to order deleted list
 };
 
 // Method to print the adjacency list.
@@ -32,7 +27,19 @@ void printAdjList(Vertex vertices[], int V) {
     for (int i = 0; i < V; i++) {
         cout << i << " --> ";
         vertices[i].edges.print();
-        cout << " | Degree: " << vertices[i].degree << endl;
+        cout << " | degree: " << vertices[i].degree;
+        cout << " | degree_DLL: " << vertices[i].degree_DLL;
+        // cout << " | order deleted ptr: " << vertices[i].order_deleted;
+        cout << endl;
+    }
+    cout << endl;
+}
+
+void printDegreeDLLs(DoublyLinkedList degree_DLLs[], int V) {
+    for (int i = 0; i < V; i++) {
+        cout << i << ": " << &degree_DLLs[i] << " | ";
+        degree_DLLs[i].print();
+        cout << endl;
     }
 }
 
@@ -139,11 +146,9 @@ bool edgeExists(Vertex v1, Vertex v2) {
 //cout << "Edges added: " << edges_added_ctr << ", expected: " << E << endl;
 //}
 
-
-// TODO: Only doing the vertices array for now, need to add DLL support.
 // Method to generate a graph with the specified command line arguments
 // For complete cycles and graphs, the E and DIST parameters are unnecessary.
-Vertex* generateGraph(Vertex vertices[], const int V, const int E, const string& G, const string& DIST) {
+Vertex* generateGraph(Vertex vertices[], DoublyLinkedList degree_DLLs[], const int V, const int E, const string& G, const string& DIST) {
     int edges_added_ctr = 0;
     if (G == "COMPLETE") { // Generate a complete graph: |V| = V, |E| = (V * (V - 1))/2;
         int i, j;
@@ -241,12 +246,20 @@ Vertex* generateGraph(Vertex vertices[], const int V, const int E, const string&
                 }
             }
         }
-        else if (DIST == "YOURS") { // Normal distribution
+        else if (DIST == "YOURS") { // Normal distribution, or reverse skewed? Like skewed going up instead of down
             // https://www.baeldung.com/cs/uniform-to-normal-distribution
             // https://en.wikipedia.org/wiki/Box%E2%80%93Muller_transform
             // Box-muller transform on uniform distribution
 
         }
+    }
+
+    // Now that the graph is done generating, populate the degree-indeed doubly-linked list
+    // with the IDs of each vertex that has the corresponding degree
+    for (int i = 0; i < V; i++) {
+        Vertex v = vertices[i];
+        degree_DLLs[v.degree].insert(v.id);
+        vertices[v.id].degree_DLL = &degree_DLLs[v.degree];
     }
 
     return vertices;
@@ -261,6 +274,17 @@ int main(int argc, char** argv) {
 
     cout << V << " " << E << " " << G << " " << DIST << endl;
 
+    // TODO: This also needs to store the degree when the vertex was deleted.
+    // TODO: Should it also store color? I think so right?
+    // TODO: Actually vertex struct stores color so i think that's fine
+    // TODO: idea for order deleted: actually just make it an array and add the vertices in the reverse order at the end,
+    // so add the first vertex deleted at order_deleted[v], next one at [v-1], etc. so can just color the array
+    // in the order of the array and not have to go to the end.
+    // actually just doing an array would be fine lol,
+    // Linked list to keep track of order vertices are deleted in
+    LinkedList order_deleted;
+
+
     // Array of structs to hold vertex information
     Vertex vertices[V];
 
@@ -271,17 +295,125 @@ int main(int argc, char** argv) {
         v.edges.head = nullptr;
         v.degree = 0;
         v.color = -1;
-        v.deleted = 0;
-        // v.dll-> head = nullptr
-        // v.order_deleted = nullptr
+        v.deleted = false;
+        v.degree_when_deleted = -1;
+        v.degree_DLL = nullptr;
+        v.order_deleted = &order_deleted;
         vertices[i] = v;
     }
 
-    // Generate the graph specified by the command line arguments.
-    generateGraph(vertices, V, E, G, DIST);
+    // Array of doubly linked lists to be indexed by degree
+    // The DLL itself only holds an integer corresponding to the vertex's ID
+    DoublyLinkedList degree_DLLs[V];
+    // Allocate and initialize V doubly linked lists
+    for (int i = 0; i < V; i++) {
+        DoublyLinkedList DLL;
+        degree_DLLs[i] = DLL;
+    }
 
-    // Display the adjacency list describing the graph.
+//    // Generate the graph specified by the command line arguments.
+//    generateGraph(vertices, degree_DLLs, V, E, G, DIST);
+//
+//    // Display the adjacency list describing the graph.
+//    printAdjList(vertices, V);
+
+    // Panopto example
+
+    vertices[0].edges.insert(1);
+    vertices[0].degree = 1;
+    vertices[0].degree_DLL = &degree_DLLs[1];
+
+    vertices[1].edges.insert(0);
+    vertices[1].edges.insert(2);
+    vertices[1].edges.insert(3);
+    vertices[1].degree = 3;
+    vertices[1].degree_DLL = &degree_DLLs[3];
+
+    vertices[2].edges.insert(1);
+    vertices[2].edges.insert(3);
+    vertices[2].degree = 2;
+    vertices[2].degree_DLL = &degree_DLLs[2];
+
+    vertices[3].edges.insert(1);
+    vertices[3].edges.insert(2);
+    vertices[3].degree = 2;
+    vertices[3].degree_DLL = &degree_DLLs[2];
+
+    degree_DLLs[1].insert(0);
+    degree_DLLs[2].insert(3);
+    degree_DLLs[2].insert(2);
+    degree_DLLs[3].insert(1);
+
     printAdjList(vertices, V);
+    printDegreeDLLs(degree_DLLs, V);
+
+    cout << endl;
+    cout << "Smallest Last Vertex Ordering" << endl;
+    int deleted_ctr = 0;
+    int start = 0;
+    int degree_just_deleted;
+    Vertex v, c;
+    while (deleted_ctr != V) { // While the graph is not empty:
+        cout << "----------------Start: " << start << "----------------"<< endl;
+        DLLNode *curr = degree_DLLs[start].head; // Find vertex of smallest degree, v, at start index
+        if (curr != nullptr) {
+            v = vertices[curr->data];
+            cout << "Vertex of smallest degree: " << v.id << endl;
+            vertices[v.id].deleted = true; // Mark v as deleted
+            vertices[v.id].degree_when_deleted = v.degree;
+            degree_just_deleted = v.degree;
+            order_deleted.insert(v.id); // Add v to the order deleted list
+            vertices[v.id].degree_DLL->remove(v.id); // Remove v from its degree_DLL list
+            cout << "Removing " << v.id << " from degree_DLLs[" << v.degree << "]" << endl;
+
+            // For each vertex c connected to v:
+            Node* temp = v.edges.head;
+            while (temp != nullptr) {
+                c = vertices[temp->data];
+                cout << "----Adjusting " << c.id << "----" << endl;
+                if (!c.deleted) { // If c has not already been deleted:
+                    cout << "Removing " << c.id << " from degree_DLLs[" << c.degree << "]" << endl;
+                    vertices[c.id].degree_DLL->remove(c.id); // Remove c from previous degree_DLL list
+
+                    cout << "Degree of " << vertices[c.id].id << " decremented: " << vertices[c.id].degree;
+                    vertices[c.id].degree--;  // Update c's degree
+                    cout << " -> " << vertices[c.id].degree << endl;
+
+                    cout << "degree_DLL pointer updated: " << vertices[c.id].degree_DLL;
+                    vertices[c.id].degree_DLL = &degree_DLLs[vertices[c.id].degree]; // Update c's degree_DLL pointer
+                    cout << " -> " << vertices[c.id].degree_DLL << endl;
+
+                    cout << "Adding " << c.id << " to degree_DLL[" << vertices[c.id].degree << "]" << endl;
+                    vertices[c.id].degree_DLL->insert(c.id); // Add current vertex to updated degree_DLL list
+                    temp = temp->next;
+                }
+                else { // c has already been deleted, so ignore it
+                    cout << c.id << " has already been deleted, skipping" << endl;
+                    temp = temp->next;
+                }
+            }
+
+            start = degree_just_deleted - 1; // Update start index
+            deleted_ctr++;
+            cout << endl;
+            printDegreeDLLs(degree_DLLs, V);
+            cout << endl;
+        }
+        else { // No vertices at current degree list, move on
+            start++;
+        }
+    }
+
+    cout << endl;
+    cout << "Order deleted: " << endl;
+    Node* x = order_deleted.head;
+    while (x != nullptr) {
+        cout << x->data << " | " << vertices[x->data].degree_when_deleted << endl;
+        x = x->next;
+    }
+
+
+
 
 
     cout << '\n' << "Done" << endl;

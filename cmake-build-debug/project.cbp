@@ -80,6 +80,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="//wsl$/Ubuntu/home/landon/classes/CS5350/project/DLLNode.h">
+			<Option target="project"/>
+		</Unit>
+		<Unit filename="//wsl$/Ubuntu/home/landon/classes/CS5350/project/DoublyLinkedList.h">
+			<Option target="project"/>
+		</Unit>
 		<Unit filename="//wsl$/Ubuntu/home/landon/classes/CS5350/project/LinkedList.h">
 			<Option target="project"/>
 		</Unit>

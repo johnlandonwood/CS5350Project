@@ -15,17 +15,16 @@ public:
         head = nullptr;
     }
 
-    // Function to insert in order
     void insert(int);
     int size();
     void print();
 };
 
-// In-order insertion code taken from https://www.youtube.com/watch?v=p0u_SFoZbl8.
+// Method to insert a new node at the end of the list
 void LinkedList::insert(int data) {
     Node* newNode = new Node(data);
 
-    // Assign to head
+    // If list is empty, assign to head
     if (head == nullptr) {
         head = newNode;
         this->listSize++;
@@ -42,19 +41,20 @@ void LinkedList::insert(int data) {
     this->listSize++;
 }
 
+// Method to return size of the list
 int LinkedList::size() {
     return this->listSize;
 }
 
+// Method to print the linked list
 void LinkedList::print(){
-    Node* temp = head;
-
     // Check for empty list.
     if (head == nullptr) {
         std::cout << "Empty.";
         return;
     }
 
+    Node* temp = head;
     while (temp != nullptr) {
         std::cout << temp->data;
         if (temp->next != nullptr) {

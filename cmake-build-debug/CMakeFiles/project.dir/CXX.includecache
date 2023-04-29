@@ -6,6 +6,12 @@
 
 #IncludeRegexTransform: 
 
+//wsl$/Ubuntu/home/landon/classes/CS5350/project/DLLNode.h
+
+//wsl$/Ubuntu/home/landon/classes/CS5350/project/DoublyLinkedList.h
+DLLNode.h
+//wsl$/Ubuntu/home/landon/classes/CS5350/project/DLLNode.h
+
 //wsl$/Ubuntu/home/landon/classes/CS5350/project/LinkedList.h
 Node.h
 //wsl$/Ubuntu/home/landon/classes/CS5350/project/Node.h
@@ -15,20 +21,12 @@ Node.h
 //wsl$/Ubuntu/home/landon/classes/CS5350/project/main.cpp
 iostream
 -
-LinkedList.h
-//wsl$/Ubuntu/home/landon/classes/CS5350/project/LinkedList.h
 string
 -
 random
 -
-iostream
--
-iomanip
--
-string
--
-map
--
-cmath
--
+LinkedList.h
+//wsl$/Ubuntu/home/landon/classes/CS5350/project/LinkedList.h
+DoublyLinkedList.h
+//wsl$/Ubuntu/home/landon/classes/CS5350/project/DoublyLinkedList.h
 
