@@ -19,7 +19,7 @@ struct Vertex {
     int color; // Color value
     int degree_when_deleted;
     DoublyLinkedList* degree_DLL; // Pointer to DLL of vertices of same current degree
-    LinkedList* order_deleted; // Pointer to order deleted list
+    LinkedList* ordering; // Pointer to ordering list
 };
 
 // Method to print the adjacency list.
@@ -29,7 +29,6 @@ void printAdjList(Vertex vertices[], int V) {
         vertices[i].edges.print();
         cout << " | degree: " << vertices[i].degree;
         cout << " | degree_DLL: " << vertices[i].degree_DLL;
-        // cout << " | order deleted ptr: " << vertices[i].order_deleted;
         cout << endl;
     }
     cout << endl;
@@ -41,6 +40,17 @@ void printDegreeDLLs(DoublyLinkedList degree_DLLs[], int V) {
         degree_DLLs[i].print();
         cout << endl;
     }
+    cout << endl;
+}
+
+void printOrdering(Vertex vertices[], LinkedList ordering, int V) {
+    cout << "Ordering | Degree when deleted " << endl;
+    Node* temp = ordering.head;
+    while (temp != nullptr) {
+        cout << temp->data << " | " << vertices[temp->data].degree_when_deleted << endl;
+        temp = temp->next;
+    }
+    cout << endl;
 }
 
 // Method to check if an edge exists between two vertices.
@@ -168,8 +178,8 @@ Vertex* generateGraph(Vertex vertices[], DoublyLinkedList degree_DLLs[], const i
     else if (G == "CYCLE") { // Generate a cycle: |V| = V, |E| = |V|
         int i = 0;
         int j = 1;
-        while (i < E) {
-            if (j == E) {
+        while (i < V) {
+            if (j == V) {
                 i = j - 1;
                 j = 0;
                 vertices[i].edges.insert(j); // Add the edge to each vertex's adjacency list
@@ -246,6 +256,7 @@ Vertex* generateGraph(Vertex vertices[], DoublyLinkedList degree_DLLs[], const i
                 }
             }
         }
+        // TODO: Implement 3rd random distribution
         else if (DIST == "YOURS") { // Normal distribution, or reverse skewed? Like skewed going up instead of down
             // https://www.baeldung.com/cs/uniform-to-normal-distribution
             // https://en.wikipedia.org/wiki/Box%E2%80%93Muller_transform
@@ -265,90 +276,8 @@ Vertex* generateGraph(Vertex vertices[], DoublyLinkedList degree_DLLs[], const i
     return vertices;
 }
 
-int main(int argc, char** argv) {
-
-    const int V = atoi(argv[1]); // MAX = 10,000
-    const int E = atoi(argv[2]); // MAX = 2,000,000
-    const string G = argv[3]; // COMPLETE | CYCLE | RANDOM (with DIST below)
-    const string DIST = argv[4]; // UNIFORM | SKEWED | YOURS
-
-    cout << V << " " << E << " " << G << " " << DIST << endl;
-
-    // TODO: This also needs to store the degree when the vertex was deleted.
-    // TODO: Should it also store color? I think so right?
-    // TODO: Actually vertex struct stores color so i think that's fine
-    // TODO: idea for order deleted: actually just make it an array and add the vertices in the reverse order at the end,
-    // so add the first vertex deleted at order_deleted[v], next one at [v-1], etc. so can just color the array
-    // in the order of the array and not have to go to the end.
-    // actually just doing an array would be fine lol,
-    // Linked list to keep track of order vertices are deleted in
-    LinkedList order_deleted;
-
-
-    // Array of structs to hold vertex information
-    Vertex vertices[V];
-
-    // Allocate and initialize V vertices
-    for (int i = 0; i < V; i++) {
-        Vertex v;
-        v.id = i;
-        v.edges.head = nullptr;
-        v.degree = 0;
-        v.color = -1;
-        v.deleted = false;
-        v.degree_when_deleted = -1;
-        v.degree_DLL = nullptr;
-        v.order_deleted = &order_deleted;
-        vertices[i] = v;
-    }
-
-    // Array of doubly linked lists to be indexed by degree
-    // The DLL itself only holds an integer corresponding to the vertex's ID
-    DoublyLinkedList degree_DLLs[V];
-    // Allocate and initialize V doubly linked lists
-    for (int i = 0; i < V; i++) {
-        DoublyLinkedList DLL;
-        degree_DLLs[i] = DLL;
-    }
-
-//    // Generate the graph specified by the command line arguments.
-//    generateGraph(vertices, degree_DLLs, V, E, G, DIST);
-//
-//    // Display the adjacency list describing the graph.
-//    printAdjList(vertices, V);
-
-    // Panopto example
-
-    vertices[0].edges.insert(1);
-    vertices[0].degree = 1;
-    vertices[0].degree_DLL = &degree_DLLs[1];
-
-    vertices[1].edges.insert(0);
-    vertices[1].edges.insert(2);
-    vertices[1].edges.insert(3);
-    vertices[1].degree = 3;
-    vertices[1].degree_DLL = &degree_DLLs[3];
-
-    vertices[2].edges.insert(1);
-    vertices[2].edges.insert(3);
-    vertices[2].degree = 2;
-    vertices[2].degree_DLL = &degree_DLLs[2];
-
-    vertices[3].edges.insert(1);
-    vertices[3].edges.insert(2);
-    vertices[3].degree = 2;
-    vertices[3].degree_DLL = &degree_DLLs[2];
-
-    degree_DLLs[1].insert(0);
-    degree_DLLs[2].insert(3);
-    degree_DLLs[2].insert(2);
-    degree_DLLs[3].insert(1);
-
-    printAdjList(vertices, V);
-    printDegreeDLLs(degree_DLLs, V);
-
-    cout << endl;
-    cout << "Smallest Last Vertex Ordering" << endl;
+// Method to generate a smallest last vertex ordering.
+void smallestLastVertexOrdering(Vertex vertices[], DoublyLinkedList degree_DLLs[], int V) {
     int deleted_ctr = 0;
     int start = 0;
     int degree_just_deleted;
@@ -362,7 +291,7 @@ int main(int argc, char** argv) {
             vertices[v.id].deleted = true; // Mark v as deleted
             vertices[v.id].degree_when_deleted = v.degree;
             degree_just_deleted = v.degree;
-            order_deleted.insert(v.id); // Add v to the order deleted list
+            vertices[v.id].ordering->insert(v.id); // Add v to the ordering list
             vertices[v.id].degree_DLL->remove(v.id); // Remove v from its degree_DLL list
             cout << "Removing " << v.id << " from degree_DLLs[" << v.degree << "]" << endl;
 
@@ -403,16 +332,178 @@ int main(int argc, char** argv) {
             start++;
         }
     }
+}
 
-    cout << endl;
-    cout << "Order deleted: " << endl;
-    Node* x = order_deleted.head;
-    while (x != nullptr) {
-        cout << x->data << " | " << vertices[x->data].degree_when_deleted << endl;
-        x = x->next;
+// Method to generate a smallest original degree last ordering.
+void smallestOriginalDegreeLastOrdering(Vertex vertices[], DoublyLinkedList degree_DLLs[], int V) {
+    // degree_DLLs, the array of doubly linked lists, already has each vertex stored by degree.
+    // Therefore, we can make a smallest original degree last ordering by simply traversing all of the nodes
+    // in degree_DLLs and adding them in order to the ordering list.
+    Vertex v;
+    for (int i = 0; i < V; i++) {
+        DLLNode* curr = degree_DLLs[i].head;
+        while (curr != nullptr) {
+            v = vertices[curr->data];
+            vertices[v.id].deleted = true;
+            vertices[v.id].degree_when_deleted = v.degree;
+            vertices[v.id].ordering->insert(curr->data);
+            curr = curr->next;
+        }
+    }
+}
+
+// Method to generate a uniform random ordering.
+void uniformRandomOrdering(Vertex vertices[], int V) {
+    std::random_device rd;
+    std::mt19937 rng(rd());
+    std::uniform_int_distribution<int> uniform_distribution(0,V-1);
+    int rand;
+    int ctr = 0;
+    while (ctr != V) { // Until all edges have been added to the ordering:
+        rand = uniform_distribution(rng); // Generate a random vertex id [0, V-1]
+        if (!vertices[rand].deleted) { // If the vertex has not been added to the ordering yet,
+            vertices[rand].deleted = true; // Mark it as deleted
+            vertices[rand].degree_when_deleted = vertices[rand].degree;
+            vertices[rand].ordering->insert(rand); // Add it to the ordering.
+            ctr++;
+        }
+    }
+}
+
+// Method to generate a largest original degree last ordering.
+void largestOriginalDegreeLastOrdering(Vertex vertices[], DoublyLinkedList degree_DLLs[], int V) {
+    // degree_DLLs, the array of doubly linked lists, already has each vertex stored by degree.
+    // Therefore, we can make a largest original degree last ordering by simply traversing all of the nodes
+    // in degree_DLLs in reverse order and adding them to the ordering list.
+    // This ordering is essentially the opposite of the smallest original degree last ordering.
+    Vertex v;
+    for (int i = V; i > 0; i--) {
+        DLLNode* curr = degree_DLLs[i].head;
+        while (curr != nullptr) {
+            v = vertices[curr->data];
+            vertices[v.id].deleted = true;
+            vertices[v.id].degree_when_deleted = v.degree;
+            vertices[v.id].ordering->insert(curr->data);
+            curr = curr->next;
+        }
+    }
+}
+
+void colorGraph(Vertex vertices[], DoublyLinkedList degree_DLLs[], int V) {
+
+}
+
+int main(int argc, char** argv) {
+
+    const int V = atoi(argv[1]); // MAX = 10,000
+    const int E = atoi(argv[2]); // MAX = 2,000,000
+    const string G = argv[3]; // COMPLETE | CYCLE | RANDOM (with DIST below)
+    const string DIST = argv[4]; // UNIFORM | SKEWED | YOURS
+    const string ORDERING = argv[5]; // SMALLEST_LAST| SMALLEST_ORIGINAL_DEGREE_LAST | RANDOM | LARGEST_ORIGINAL_DEGREE_LAST
+    cout << V << " " << E << " " << G << " " << DIST << " " << ORDERING << endl;
+
+    // Array of structs to hold vertex information
+    Vertex vertices[V];
+    // Array of doubly linked lists to be indexed by degree. Each list contains integer IDs
+    // Each DLL node only holds an integer corresponding to the vertex's ID.
+    DoublyLinkedList degree_DLLs[V];
+    // Linked list to keep track of order vertices are deleted in
+    LinkedList ordering;
+
+    // Allocate and initialize V vertices
+    for (int i = 0; i < V; i++) {
+        Vertex v;
+        v.id = i;
+        v.edges.head = nullptr;
+        v.degree = 0;
+        v.color = -1;
+        v.deleted = false;
+        v.degree_when_deleted = -1;
+        v.degree_DLL = nullptr;
+        v.ordering = &ordering;
+        vertices[i] = v;
     }
 
+    // Allocate and initialize V doubly linked lists
+    for (int i = 0; i < V; i++) {
+        DoublyLinkedList DLL;
+        degree_DLLs[i] = DLL;
+    }
 
+    // Generate the graph specified by the command line arguments.
+    generateGraph(vertices, degree_DLLs, V, E, G, DIST);
+
+    // Display the adjacency list describing the graph.
+    printAdjList(vertices, V);
+
+    // Print the degree-indexed doubly linked list for the graph.
+    printDegreeDLLs(degree_DLLs, V);
+
+//    // Panopto example
+//
+//    vertices[0].edges.insert(1);
+//    vertices[0].degree = 1;
+//    vertices[0].degree_DLL = &degree_DLLs[1];
+//
+//    vertices[1].edges.insert(0);
+//    vertices[1].edges.insert(2);
+//    vertices[1].edges.insert(3);
+//    vertices[1].degree = 3;
+//    vertices[1].degree_DLL = &degree_DLLs[3];
+//
+//    vertices[2].edges.insert(1);
+//    vertices[2].edges.insert(3);
+//    vertices[2].degree = 2;
+//    vertices[2].degree_DLL = &degree_DLLs[2];
+//
+//    vertices[3].edges.insert(1);
+//    vertices[3].edges.insert(2);
+//    vertices[3].degree = 2;
+//    vertices[3].degree_DLL = &degree_DLLs[2];
+//
+//    degree_DLLs[1].insert(0);
+//    degree_DLLs[2].insert(3);
+//    degree_DLLs[2].insert(2);
+//    degree_DLLs[3].insert(1);
+//
+//    printAdjList(vertices, V);
+//    printDegreeDLLs(degree_DLLs, V);
+
+
+    // Perform the ordering algorithm specified by the command line argument.
+    if (ORDERING == "SMALLEST_LAST") {
+        smallestLastVertexOrdering(vertices, degree_DLLs, V);
+    }
+    else if (ORDERING == "SMALLEST_ORIGINAL_DEGREE_LAST") {
+        smallestOriginalDegreeLastOrdering(vertices, degree_DLLs, V);
+    }
+    else if (ORDERING == "RANDOM") {
+        uniformRandomOrdering(vertices, V);
+    }
+    else if (ORDERING == "LARGEST_ORIGINAL_DEGREE_LAST") {
+        largestOriginalDegreeLastOrdering(vertices, degree_DLLs, V);
+    }
+
+    // Display the order deleted and degree when deleted for each vertex.
+    printOrdering(vertices, ordering, V);
+
+    // TODO: Implement coloring algorithm
+
+    // TODO: stats to keep track of:
+    // for all orderings:
+        // for each vertex:
+            // color
+            // original degree
+            // (smallest last only) degree when deleted
+        // total number of colors used
+        // average original degree
+        // for smallest last vertex:
+            // maximum degree when deleted value
+            // size of terminal clique
+            // graph of y vs. x: degree_when_deleted vs. order colored
+            // runtime analysis
+
+    // TODO: output file: VERTEX_NUMBER, COLOR_NUMBER
 
 
 
