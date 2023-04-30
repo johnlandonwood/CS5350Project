@@ -6,18 +6,18 @@
 
 // https://smu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=170f1626-3bb5-4363-966f-afce002b29bb
 // Change "yours" distribution to triangle distribution
-// Option for final ordering: largest last vertex. should perform worse than smallest last.
 
 using namespace std;
 
 // Vertex struct to hold information for each vertex in the graph.
 struct Vertex {
     int id; // Unique vertex ID
-    LinkedList edges; // List for connected edges
+    LinkedList edges; // Edge list for connected vertices
     int degree; // Current degree of the vertex
-    bool deleted; // true when deleted
+    bool deleted; // True when vertex is deleted from graph, false otherwise
     int color; // Color value
-    int degree_when_deleted;
+    int degree_when_deleted; // Degree when deleted from graph (only applicable in smallest last vertex ordering)
+    int original_degree; // Original degree of the vertex upon creation
     DoublyLinkedList* degree_DLL; // Pointer to DLL of vertices of same current degree
     LinkedList* ordering; // Pointer to ordering list
 };
@@ -28,12 +28,13 @@ void printAdjList(Vertex vertices[], int V) {
         cout << i << " --> ";
         vertices[i].edges.print();
         cout << " | degree: " << vertices[i].degree;
-        cout << " | degree_DLL: " << vertices[i].degree_DLL;
+        cout << " | original_degree: " << vertices[i].original_degree;
         cout << endl;
     }
     cout << endl;
 }
 
+// Method to print the degree-indexed doubly linked lists.
 void printDegreeDLLs(DoublyLinkedList degree_DLLs[], int V) {
     for (int i = 0; i < V; i++) {
         cout << i << ": " << &degree_DLLs[i] << " | ";
@@ -43,14 +44,22 @@ void printDegreeDLLs(DoublyLinkedList degree_DLLs[], int V) {
     cout << endl;
 }
 
-void printOrdering(Vertex vertices[], LinkedList ordering, int V) {
-    cout << "Ordering | Degree when deleted " << endl;
-    Node* temp = ordering.head;
-    while (temp != nullptr) {
-        cout << temp->data << " | " << vertices[temp->data].degree_when_deleted << endl;
-        temp = temp->next;
-    }
+void printOrderingAndColoring(Vertex vertices[], LinkedList ordering, int coloring_order[], int V, const string& ORDERING) {
+
+    cout << "Vertex, Color, Original degree";
+    if (ORDERING == "SMALLEST_LAST") cout << ", Degree when deleted";
     cout << endl;
+    for (int i = 0; i < V; i++) {
+        cout << vertices[i].id << ", " << vertices[i].color << ", " << vertices[i].original_degree;
+        if (ORDERING == "SMALLEST_LAST") cout << ", " << vertices[i].degree_when_deleted;
+        cout << endl;
+    }
+    cout << "Total colors used: " << endl;
+    cout << "Average original degree: " << endl;
+    if (ORDERING == "SMALLEST_LAST")  {
+        cout << "Maximum degree_when_deleted: " << endl;
+        cout << "Terminal clique size: " << endl;
+    }
 }
 
 // Method to check if an edge exists between two vertices.
@@ -158,7 +167,7 @@ bool edgeExists(Vertex v1, Vertex v2) {
 
 // Method to generate a graph with the specified command line arguments
 // For complete cycles and graphs, the E and DIST parameters are unnecessary.
-Vertex* generateGraph(Vertex vertices[], DoublyLinkedList degree_DLLs[], const int V, const int E, const string& G, const string& DIST) {
+void generateGraph(Vertex vertices[], DoublyLinkedList degree_DLLs[], const int V, const int E, const string& G, const string& DIST) {
     int edges_added_ctr = 0;
     if (G == "COMPLETE") { // Generate a complete graph: |V| = V, |E| = (V * (V - 1))/2;
         int i, j;
@@ -269,11 +278,12 @@ Vertex* generateGraph(Vertex vertices[], DoublyLinkedList degree_DLLs[], const i
     // with the IDs of each vertex that has the corresponding degree
     for (int i = 0; i < V; i++) {
         Vertex v = vertices[i];
+        vertices[i].original_degree = v.degree; // Capture the original degree of the vertex, as degree may change while ordering
         degree_DLLs[v.degree].insert(v.id);
         vertices[v.id].degree_DLL = &degree_DLLs[v.degree];
     }
 
-    return vertices;
+    // return vertices;
 }
 
 // Method to generate a smallest last vertex ordering.
@@ -389,8 +399,72 @@ void largestOriginalDegreeLastOrdering(Vertex vertices[], DoublyLinkedList degre
     }
 }
 
-void colorGraph(Vertex vertices[], DoublyLinkedList degree_DLLs[], int V) {
+// Greedy coloring algorithm.
+// For each vertex, picks the lowest integer available in the range [0, V-1] that is not adjacent to the vertex.
+// Implementation modified from https://www.geeksforgeeks.org/graph-coloring-set-2-greedy-algorithm/
+void colorVertices(Vertex vertices[], int coloring_order[], int V) {
 
+    cout << "Coloring order: ";
+    for (int i = 0; i < V; i++) {
+        cout << coloring_order[i] << " ";
+    }
+    cout << endl;
+
+    // Set the first vertex in the ordering to the first color
+    // All other vertices in the graph already had their colors initialized to -1 when first allocating the structs
+    vertices[coloring_order[0]].color = 0;
+    cout << "----------------Colored " << coloring_order[0] << " with color 0----------------" << endl;
+
+    // color_adjacent array denotes whether or not a color [0, V-1] is adjacent to the current vertex
+    // If color_adjacent[i] == true, then that color has been assigned to an adjacent vertex,
+    // so we cannot pick it for the current vertex.
+    // Initialize all colors' adjacency to false
+    bool color_adjacent[V];
+    for (int i = 0; i < V; i++) {
+        color_adjacent[i] = false;
+    }
+
+    // For each vertex in the graph (except the first one already colored):
+    for (int i = 1; i < V; i++) {
+        cout << "----------------Coloring " << vertices[coloring_order[i]].id << "----------------" << endl;
+        // Check if any of the adjacent vertices have been colored
+        Node* temp = vertices[coloring_order[i]].edges.head;
+        while (temp != nullptr) {
+            cout << "--------Adjacent: " << temp->data << "--------" << endl;
+            if (vertices[temp->data].color != -1) { // If the adjacent vertex has already been colored,
+                cout << vertices[temp->data].id << " has already been colored with color " << vertices[temp->data].color << endl;
+                color_adjacent[vertices[temp->data].color] = true; // Mark its color as adjacent
+            }
+            else { // The adjacent vertex has not been colored, so we may ignore it
+                cout << vertices[temp->data].id << " has not yet been colored, skipping " << endl;
+            }
+            temp = temp->next;
+        }
+
+        // Find the first non-adjacent color in the color_adjacent matrix
+        // If an index in color_adjacent is false, that means that that color is not adjacent to the current vertex
+        // Therefore, we take the first color we can find that is false and assign it to the vertex
+        int c;
+        for (c = 0; c < V; c++) {
+            if (!color_adjacent[c]) {
+                break;
+            }
+        }
+
+        // Color v with the first non-adjacent color
+        vertices[coloring_order[i]].color = c;
+        cout << "Colored " << vertices[coloring_order[i]].id << " with color " << vertices[coloring_order[i]].color << endl;
+
+        // Reset all of the adjacent colors to false for next iteration
+        temp = vertices[coloring_order[i]].edges.head;
+        while (temp != nullptr) {
+            if (vertices[temp->data].color != -1) {
+                cout << vertices[temp->data].id << " was already colored; resetting color_adjacent["<< vertices[temp->data].color << "] to false" << endl;
+                color_adjacent[vertices[temp->data].color] = false;
+            }
+            temp = temp->next;
+        }
+    }
 }
 
 int main(int argc, char** argv) {
@@ -419,6 +493,7 @@ int main(int argc, char** argv) {
         v.color = -1;
         v.deleted = false;
         v.degree_when_deleted = -1;
+        v.original_degree = 0;
         v.degree_DLL = nullptr;
         v.ordering = &ordering;
         vertices[i] = v;
@@ -430,44 +505,48 @@ int main(int argc, char** argv) {
         degree_DLLs[i] = DLL;
     }
 
-    // Generate the graph specified by the command line arguments.
-    generateGraph(vertices, degree_DLLs, V, E, G, DIST);
-
-    // Display the adjacency list describing the graph.
-    printAdjList(vertices, V);
-
-    // Print the degree-indexed doubly linked list for the graph.
-    printDegreeDLLs(degree_DLLs, V);
-
-//    // Panopto example
+//    // Generate the graph specified by the command line arguments.
+//    generateGraph(vertices, degree_DLLs, V, E, G, DIST);
 //
-//    vertices[0].edges.insert(1);
-//    vertices[0].degree = 1;
-//    vertices[0].degree_DLL = &degree_DLLs[1];
-//
-//    vertices[1].edges.insert(0);
-//    vertices[1].edges.insert(2);
-//    vertices[1].edges.insert(3);
-//    vertices[1].degree = 3;
-//    vertices[1].degree_DLL = &degree_DLLs[3];
-//
-//    vertices[2].edges.insert(1);
-//    vertices[2].edges.insert(3);
-//    vertices[2].degree = 2;
-//    vertices[2].degree_DLL = &degree_DLLs[2];
-//
-//    vertices[3].edges.insert(1);
-//    vertices[3].edges.insert(2);
-//    vertices[3].degree = 2;
-//    vertices[3].degree_DLL = &degree_DLLs[2];
-//
-//    degree_DLLs[1].insert(0);
-//    degree_DLLs[2].insert(3);
-//    degree_DLLs[2].insert(2);
-//    degree_DLLs[3].insert(1);
-//
+//    // Display the adjacency list describing the graph.
 //    printAdjList(vertices, V);
+//
+//    // Print the degree-indexed doubly linked list for the graph.
 //    printDegreeDLLs(degree_DLLs, V);
+//
+//    // Panopto example
+
+    vertices[0].edges.insert(1);
+    vertices[0].degree = 1;
+    vertices[0].original_degree = 1;
+    vertices[0].degree_DLL = &degree_DLLs[1];
+
+    vertices[1].edges.insert(0);
+    vertices[1].edges.insert(2);
+    vertices[1].edges.insert(3);
+    vertices[1].degree = 3;
+    vertices[1].original_degree = 3;
+    vertices[1].degree_DLL = &degree_DLLs[3];
+
+    vertices[2].edges.insert(1);
+    vertices[2].edges.insert(3);
+    vertices[2].degree = 2;
+    vertices[2].original_degree = 2;
+    vertices[2].degree_DLL = &degree_DLLs[2];
+
+    vertices[3].edges.insert(1);
+    vertices[3].edges.insert(2);
+    vertices[3].degree = 2;
+    vertices[3].original_degree = 2;
+    vertices[3].degree_DLL = &degree_DLLs[2];
+
+    degree_DLLs[1].insert(0);
+    degree_DLLs[2].insert(3);
+    degree_DLLs[2].insert(2);
+    degree_DLLs[3].insert(1);
+
+    printAdjList(vertices, V);
+    printDegreeDLLs(degree_DLLs, V);
 
 
     // Perform the ordering algorithm specified by the command line argument.
@@ -484,27 +563,22 @@ int main(int argc, char** argv) {
         largestOriginalDegreeLastOrdering(vertices, degree_DLLs, V);
     }
 
-    // Display the order deleted and degree when deleted for each vertex.
-    printOrdering(vertices, ordering, V);
+    // Generate array for coloring order (reverse of ordering).
+    int coloring_order[V];
+    Node* temp = vertices[0].ordering->head;
+    for (int i = V-1; i >= 0; i--) {
+        coloring_order[i] = temp->data;
+        temp = temp->next;
+    }
 
-    // TODO: Implement coloring algorithm
+    // Perform greedy coloring algorithm on the graph.
+    colorVertices(vertices, coloring_order, V);
 
-    // TODO: stats to keep track of:
-    // for all orderings:
-        // for each vertex:
-            // color
-            // original degree
-            // (smallest last only) degree when deleted
-        // total number of colors used
-        // average original degree
-        // for smallest last vertex:
-            // maximum degree when deleted value
-            // size of terminal clique
-            // graph of y vs. x: degree_when_deleted vs. order colored
-            // runtime analysis
+    cout << endl;
 
-    // TODO: output file: VERTEX_NUMBER, COLOR_NUMBER
 
+    // Print ordering, coloring order, and colors assigned to the graph.
+    printOrderingAndColoring(vertices, ordering, coloring_order, V, ORDERING);
 
 
     cout << '\n' << "Done" << endl;
