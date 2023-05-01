@@ -1,6 +1,9 @@
 #include <iostream>
 #include <string>
 #include <random>
+#include <climits>
+#include <iomanip>
+#include <fstream>
 #include "LinkedList.h"
 #include "DoublyLinkedList.h"
 
@@ -21,6 +24,10 @@ struct Vertex {
     DoublyLinkedList* degree_DLL; // Pointer to DLL of vertices of same current degree
     LinkedList* ordering; // Pointer to ordering list
 };
+
+// Global array to hold, in order:
+// total colors used, average original degree, maximum degree when deleted, and terminal clique size
+double stats[4] = { 0.0, 0.0, 0.0, 0.0 };
 
 // Method to print the adjacency list.
 void printAdjList(Vertex vertices[], int V) {
@@ -44,21 +51,30 @@ void printDegreeDLLs(DoublyLinkedList degree_DLLs[], int V) {
     cout << endl;
 }
 
-void printOrderingAndColoring(Vertex vertices[], LinkedList ordering, int coloring_order[], int V, const string& ORDERING) {
+void printOrderingAndColoring(ofstream& output, Vertex vertices[], LinkedList ordering, int coloring_order[], int V, const string& ORDERING) {
 
-    cout << "Vertex, Color, Original degree";
-    if (ORDERING == "SMALLEST_LAST") cout << ", Degree when deleted";
-    cout << endl;
-    for (int i = 0; i < V; i++) {
-        cout << vertices[i].id << ", " << vertices[i].color << ", " << vertices[i].original_degree;
-        if (ORDERING == "SMALLEST_LAST") cout << ", " << vertices[i].degree_when_deleted;
-        cout << endl;
-    }
-    cout << "Total colors used: " << endl;
-    cout << "Average original degree: " << endl;
+    output << "Vertex, Color, Original degree";
     if (ORDERING == "SMALLEST_LAST")  {
-        cout << "Maximum degree_when_deleted: " << endl;
-        cout << "Terminal clique size: " << endl;
+        output << ", Degree when deleted, Total colors used, Average degree when deleted, Max degree when deleted, Terminal clique size";
+    }
+    else {
+        output << ", Total colors used, Average degree when deleted";
+    }
+    output << '\n';
+    for (int i = 0; i < V; i++) {
+        output << vertices[i].id << ", " << vertices[i].color << ", " << vertices[i].original_degree;
+        if (ORDERING == "SMALLEST_LAST") {
+            output << ", " << vertices[i].degree_when_deleted;
+        }
+        if (i == 0) {
+            output << setprecision(1) << ", " << stats[0] << ", ";
+            output << setprecision(3) <<  stats[1];
+            if (ORDERING == "SMALLEST_LAST") {
+                output  << setprecision(1) << ", " << stats[2] << ", ";
+                output << setprecision(1) << stats[3];
+            }
+        }
+        output << '\n';
     }
 }
 
@@ -273,7 +289,6 @@ void generateGraph(Vertex vertices[], DoublyLinkedList degree_DLLs[], const int 
 
         }
     }
-
     // Now that the graph is done generating, populate the degree-indeed doubly-linked list
     // with the IDs of each vertex that has the corresponding degree
     for (int i = 0; i < V; i++) {
@@ -283,11 +298,11 @@ void generateGraph(Vertex vertices[], DoublyLinkedList degree_DLLs[], const int 
         vertices[v.id].degree_DLL = &degree_DLLs[v.degree];
     }
 
-    // return vertices;
 }
 
 // Method to generate a smallest last vertex ordering.
 void smallestLastVertexOrdering(Vertex vertices[], DoublyLinkedList degree_DLLs[], int V) {
+    int max_degree_when_deleted = INT_MIN;
     int deleted_ctr = 0;
     int start = 0;
     int degree_just_deleted;
@@ -300,6 +315,9 @@ void smallestLastVertexOrdering(Vertex vertices[], DoublyLinkedList degree_DLLs[
             cout << "Vertex of smallest degree: " << v.id << endl;
             vertices[v.id].deleted = true; // Mark v as deleted
             vertices[v.id].degree_when_deleted = v.degree;
+            if (vertices[v.id].degree_when_deleted > max_degree_when_deleted) { // Update max_degree_when_deleted if necessary
+                max_degree_when_deleted = vertices[v.id].degree_when_deleted;
+            }
             degree_just_deleted = v.degree;
             vertices[v.id].ordering->insert(v.id); // Add v to the ordering list
             vertices[v.id].degree_DLL->remove(v.id); // Remove v from its degree_DLL list
@@ -342,6 +360,9 @@ void smallestLastVertexOrdering(Vertex vertices[], DoublyLinkedList degree_DLLs[
             start++;
         }
     }
+
+    // Record max degree when deleted
+    stats[2] = static_cast<double>(max_degree_when_deleted);
 }
 
 // Method to generate a smallest original degree last ordering.
@@ -401,8 +422,10 @@ void largestOriginalDegreeLastOrdering(Vertex vertices[], DoublyLinkedList degre
 
 // Greedy coloring algorithm.
 // For each vertex, picks the lowest integer available in the range [0, V-1] that is not adjacent to the vertex.
+// Returns an int designating the highest color value used to keep track of the number of colors needed to color.
 // Implementation modified from https://www.geeksforgeeks.org/graph-coloring-set-2-greedy-algorithm/
 void colorVertices(Vertex vertices[], int coloring_order[], int V) {
+    int max_color = INT_MIN;
 
     cout << "Coloring order: ";
     for (int i = 0; i < V; i++) {
@@ -455,6 +478,11 @@ void colorVertices(Vertex vertices[], int coloring_order[], int V) {
         vertices[coloring_order[i]].color = c;
         cout << "Colored " << vertices[coloring_order[i]].id << " with color " << vertices[coloring_order[i]].color << endl;
 
+        // Update max_color used if necessary
+        if (c > max_color) {
+            max_color = c;
+        }
+
         // Reset all of the adjacent colors to false for next iteration
         temp = vertices[coloring_order[i]].edges.head;
         while (temp != nullptr) {
@@ -465,6 +493,9 @@ void colorVertices(Vertex vertices[], int coloring_order[], int V) {
             temp = temp->next;
         }
     }
+
+    // Record total colors used
+    stats[0] = static_cast<double>(max_color + 1);
 }
 
 int main(int argc, char** argv) {
@@ -513,8 +544,8 @@ int main(int argc, char** argv) {
 //
 //    // Print the degree-indexed doubly linked list for the graph.
 //    printDegreeDLLs(degree_DLLs, V);
-//
-//    // Panopto example
+
+//     Panopto example
 
     vertices[0].edges.insert(1);
     vertices[0].degree = 1;
@@ -549,6 +580,7 @@ int main(int argc, char** argv) {
     printDegreeDLLs(degree_DLLs, V);
 
 
+    // TODO: Getting segfaults on some random graphs after the first ordering vertex.
     // Perform the ordering algorithm specified by the command line argument.
     if (ORDERING == "SMALLEST_LAST") {
         smallestLastVertexOrdering(vertices, degree_DLLs, V);
@@ -565,22 +597,43 @@ int main(int argc, char** argv) {
 
     // Generate array for coloring order (reverse of ordering).
     int coloring_order[V];
-    Node* temp = vertices[0].ordering->head;
+    Node* temp = ordering.head; // orde
     for (int i = V-1; i >= 0; i--) {
         coloring_order[i] = temp->data;
         temp = temp->next;
     }
 
-    // Perform greedy coloring algorithm on the graph.
+    // Perform greedy coloring algorithm on the graph and get the highest color value used.
     colorVertices(vertices, coloring_order, V);
-
     cout << endl;
 
+    // Calculate average original degree.
+    double sum = 0.0;
+    for (int i = 0; i < V; i++) {
+        sum += static_cast<double>(vertices[i].original_degree);
+    }
+    double avg_original_degree = sum / static_cast<double>(V);
+    stats[1] = avg_original_degree;
+
+    // Calculate size of terminal clique for smallest last vertex ordering.
+    if (ORDERING == "SMALLEST_LAST") {
+        int terminal_clique_size = 1;
+        for (int i = 0; i < V; i++) {
+            // TODO: at risk of segfault here from indexing 1 past coloring_order bound?
+            if (vertices[coloring_order[i]].degree_when_deleted >= vertices[coloring_order[i + 1]].degree_when_deleted) {
+                break;
+            }
+            terminal_clique_size++;
+        }
+        stats[3] = static_cast<double>(terminal_clique_size);
+    }
+
+    ofstream output("output.csv");
 
     // Print ordering, coloring order, and colors assigned to the graph.
-    printOrderingAndColoring(vertices, ordering, coloring_order, V, ORDERING);
+    printOrderingAndColoring(output, vertices, ordering, coloring_order, V, ORDERING);
 
-
+    output.close();
     cout << '\n' << "Done" << endl;
     return 0;
 }

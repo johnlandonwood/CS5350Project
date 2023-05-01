@@ -1,0 +1,5 @@
+Vertex, Color, Original degree, Degree when deleted, Total colors used, Average degree when deleted, Max degree when deleted, Terminal clique size
+0, 0, 1, 1, 3, 2, 2, 3
+1, 2, 3, 2
+2, 0, 2, 0
+3, 1, 2, 1
