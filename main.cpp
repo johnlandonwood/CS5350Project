@@ -4,6 +4,7 @@
 #include <climits>
 #include <iomanip>
 #include <fstream>
+#include <chrono>
 #include "LinkedList.h"
 #include "DoublyLinkedList.h"
 
@@ -51,14 +52,15 @@ void printDegreeDLLs(DoublyLinkedList degree_DLLs[], int V) {
     cout << endl;
 }
 
-void printOrderingAndColoring(ofstream& output, Vertex vertices[], LinkedList ordering, int coloring_order[], int V, const string& ORDERING) {
+// Method to write the final information of the graph and its coloring
+void recordOrderingAndColoring(ofstream& output, Vertex vertices[], LinkedList ordering, int coloring_order[], int V, const string& ORDERING) {
 
     output << "Vertex, Color, Original degree";
     if (ORDERING == "SMALLEST_LAST")  {
-        output << ", Degree when deleted, Total colors used, Average degree when deleted, Max degree when deleted, Terminal clique size";
+        output << ", Degree when deleted, Total colors used, Avg. original degree, Max degree when deleted, Terminal clique size";
     }
     else {
-        output << ", Total colors used, Average degree when deleted";
+        output << ", Total colors used, Avg. original degree";
     }
     output << '\n';
     for (int i = 0; i < V; i++) {
@@ -184,6 +186,8 @@ bool edgeExists(Vertex v1, Vertex v2) {
 // Method to generate a graph with the specified command line arguments
 // For complete cycles and graphs, the E and DIST parameters are unnecessary.
 void generateGraph(Vertex vertices[], DoublyLinkedList degree_DLLs[], const int V, const int E, const string& G, const string& DIST) {
+    auto start = std::chrono::high_resolution_clock::now();
+
     int edges_added_ctr = 0;
     if (G == "COMPLETE") { // Generate a complete graph: |V| = V, |E| = (V * (V - 1))/2;
         int i, j;
@@ -289,6 +293,13 @@ void generateGraph(Vertex vertices[], DoublyLinkedList degree_DLLs[], const int 
 
         }
     }
+
+
+    auto stop = std::chrono::high_resolution_clock::now();
+    auto time_elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(stop - start).count();
+    cout << "Graph generation time_elapsed: " << time_elapsed << endl;
+    // TODO: Write graph generation time elapsed to global array
+
     // Now that the graph is done generating, populate the degree-indeed doubly-linked list
     // with the IDs of each vertex that has the corresponding degree
     for (int i = 0; i < V; i++) {
@@ -350,7 +361,12 @@ void smallestLastVertexOrdering(Vertex vertices[], DoublyLinkedList degree_DLLs[
                 }
             }
 
-            start = degree_just_deleted - 1; // Update start index
+            // Update index to start looking for vertices of smallest degree
+            // Start looking at the degree_just_deleted -1, since no vertex can have its degree reduced by more than 1
+            if (start != 0) {
+                start = degree_just_deleted - 1;
+            }
+
             deleted_ctr++;
             cout << endl;
             printDegreeDLLs(degree_DLLs, V);
@@ -408,7 +424,7 @@ void largestOriginalDegreeLastOrdering(Vertex vertices[], DoublyLinkedList degre
     // in degree_DLLs in reverse order and adding them to the ordering list.
     // This ordering is essentially the opposite of the smallest original degree last ordering.
     Vertex v;
-    for (int i = V; i > 0; i--) {
+    for (int i = V - 1; i >= 0; i--) {
         DLLNode* curr = degree_DLLs[i].head;
         while (curr != nullptr) {
             v = vertices[curr->data];
@@ -536,51 +552,49 @@ int main(int argc, char** argv) {
         degree_DLLs[i] = DLL;
     }
 
-//    // Generate the graph specified by the command line arguments.
-//    generateGraph(vertices, degree_DLLs, V, E, G, DIST);
-//
-//    // Display the adjacency list describing the graph.
-//    printAdjList(vertices, V);
-//
-//    // Print the degree-indexed doubly linked list for the graph.
-//    printDegreeDLLs(degree_DLLs, V);
+    // Generate the graph specified by the command line arguments.
+    generateGraph(vertices, degree_DLLs, V, E, G, DIST);
 
-//     Panopto example
-
-    vertices[0].edges.insert(1);
-    vertices[0].degree = 1;
-    vertices[0].original_degree = 1;
-    vertices[0].degree_DLL = &degree_DLLs[1];
-
-    vertices[1].edges.insert(0);
-    vertices[1].edges.insert(2);
-    vertices[1].edges.insert(3);
-    vertices[1].degree = 3;
-    vertices[1].original_degree = 3;
-    vertices[1].degree_DLL = &degree_DLLs[3];
-
-    vertices[2].edges.insert(1);
-    vertices[2].edges.insert(3);
-    vertices[2].degree = 2;
-    vertices[2].original_degree = 2;
-    vertices[2].degree_DLL = &degree_DLLs[2];
-
-    vertices[3].edges.insert(1);
-    vertices[3].edges.insert(2);
-    vertices[3].degree = 2;
-    vertices[3].original_degree = 2;
-    vertices[3].degree_DLL = &degree_DLLs[2];
-
-    degree_DLLs[1].insert(0);
-    degree_DLLs[2].insert(3);
-    degree_DLLs[2].insert(2);
-    degree_DLLs[3].insert(1);
-
+    // Display the adjacency list describing the graph.
     printAdjList(vertices, V);
+
+    // Print the degree-indexed doubly linked list for the graph.
     printDegreeDLLs(degree_DLLs, V);
 
+//   //  Panopto example
 
-    // TODO: Getting segfaults on some random graphs after the first ordering vertex.
+//    vertices[0].edges.insert(1);
+//    vertices[0].degree = 1;
+//    vertices[0].original_degree = 1;
+//    vertices[0].degree_DLL = &degree_DLLs[1];
+//
+//    vertices[1].edges.insert(0);
+//    vertices[1].edges.insert(2);
+//    vertices[1].edges.insert(3);
+//    vertices[1].degree = 3;
+//    vertices[1].original_degree = 3;
+//    vertices[1].degree_DLL = &degree_DLLs[3];
+//
+//    vertices[2].edges.insert(1);
+//    vertices[2].edges.insert(3);
+//    vertices[2].degree = 2;
+//    vertices[2].original_degree = 2;
+//    vertices[2].degree_DLL = &degree_DLLs[2];
+//
+//    vertices[3].edges.insert(1);
+//    vertices[3].edges.insert(2);
+//    vertices[3].degree = 2;
+//    vertices[3].original_degree = 2;
+//    vertices[3].degree_DLL = &degree_DLLs[2];
+//
+//    degree_DLLs[1].insert(0);
+//    degree_DLLs[2].insert(3);
+//    degree_DLLs[2].insert(2);
+//    degree_DLLs[3].insert(1);
+//
+//    printAdjList(vertices, V);
+//    printDegreeDLLs(degree_DLLs, V);
+
     // Perform the ordering algorithm specified by the command line argument.
     if (ORDERING == "SMALLEST_LAST") {
         smallestLastVertexOrdering(vertices, degree_DLLs, V);
@@ -597,9 +611,11 @@ int main(int argc, char** argv) {
 
     // Generate array for coloring order (reverse of ordering).
     int coloring_order[V];
-    Node* temp = ordering.head; // orde
+    Node* temp = ordering.head;
     for (int i = V-1; i >= 0; i--) {
-        coloring_order[i] = temp->data;
+        if (temp != nullptr) {
+            coloring_order[i] = temp->data;
+        }
         temp = temp->next;
     }
 
@@ -615,25 +631,36 @@ int main(int argc, char** argv) {
     double avg_original_degree = sum / static_cast<double>(V);
     stats[1] = avg_original_degree;
 
+    // TODO: Ask McFearin if this is the proper way to find the terminal clique?
+    // TODO: It feels right intuitively, but i'm getting small terminal cliques for large graphs.
     // Calculate size of terminal clique for smallest last vertex ordering.
     if (ORDERING == "SMALLEST_LAST") {
         int terminal_clique_size = 1;
-        for (int i = 0; i < V; i++) {
-            // TODO: at risk of segfault here from indexing 1 past coloring_order bound?
-            if (vertices[coloring_order[i]].degree_when_deleted >= vertices[coloring_order[i + 1]].degree_when_deleted) {
+        for (int i = 1; i < V; i++) {
+            cout << "Comparing " << vertices[coloring_order[i-1]].degree_when_deleted << ", " << vertices[coloring_order[i]].degree_when_deleted << endl;
+            if (vertices[coloring_order[i]].degree_when_deleted <= vertices[coloring_order[i-1]].degree_when_deleted) {
                 break;
             }
-            terminal_clique_size++;
+            else {
+                terminal_clique_size++;
+            }
         }
         stats[3] = static_cast<double>(terminal_clique_size);
     }
 
     ofstream output("output.csv");
+    output << V << ", " << E << ", " << G << ", " << DIST << ", " << ORDERING << '\n';
+    // Record ordering, coloring order, and colors assigned to the graph.
+    recordOrderingAndColoring(output, vertices, ordering, coloring_order, V, ORDERING);
 
-    // Print ordering, coloring order, and colors assigned to the graph.
-    printOrderingAndColoring(output, vertices, ordering, coloring_order, V, ORDERING);
+
+    //TODO: Graph generation runtime - Maybe a global long array for runtimes of graph generation and ordering method?
+    // TODO: Graph generation histogram
+
+    // TODO: SMALLEST_LAST runtime
 
     output.close();
     cout << '\n' << "Done" << endl;
+    // Sometimes <ntdll!RtlRaiseException> disassembler signal when freeing G?
     return 0;
 }
