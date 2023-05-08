@@ -34,6 +34,9 @@ struct Vertex {
 // total colors used, average original degree, maximum degree when deleted, and terminal clique size
 double stats[4] = { 0.0, 0.0, 0.0, 0.0 };
 
+// Global array to hold graph generation runtime and smallest last vertex ordering runtime if applicable
+long runtimes[2] = {0, 0};
+
 // Method to print the adjacency list.
 void printAdjList(Vertex vertices[], int V) {
     for (int i = 0; i < V; i++) {
@@ -61,7 +64,7 @@ void recordOrderingAndColoring(ofstream& output, Vertex vertices[], LinkedList o
 
     output << "Vertex, Color, Original degree";
     if (ORDERING == "SMALLEST_LAST")  {
-        output << ", Degree when deleted, Total colors used, Avg. original degree, Max degree when deleted, Terminal clique size";
+        output << ", Degree when deleted, Total colors used, Avg. original degree, Max degree when deleted, Terminal clique size, Ordering runtime";
     }
     else {
         output << ", Total colors used, Avg. original degree, Graph generation";
@@ -77,7 +80,8 @@ void recordOrderingAndColoring(ofstream& output, Vertex vertices[], LinkedList o
             output << setprecision(3) <<  stats[1];
             if (ORDERING == "SMALLEST_LAST") {
                 output  << setprecision(1) << ", " << stats[2] << ", ";
-                output << setprecision(1) << stats[3];
+                output << setprecision(1) << stats[3] << ", ";
+                output << runtimes[1];
             }
         }
         output << '\n';
@@ -315,11 +319,28 @@ void generateGraph(Vertex vertices[], DoublyLinkedList degree_DLLs[], const int 
         cout << "Edges added: " << edges_added_ctr << ", expected: " << E << endl;
     }
 
+    // Finish timing and record
     auto time_stop = std::chrono::high_resolution_clock::now();
     auto time_elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(time_stop - time_start).count();
     cout << "Graph generation time_elapsed: " << time_elapsed << endl;
-    // TODO: Record graph generation time_elapsed
+    runtimes[0] = time_elapsed;
 
+    // Record an output .csv with the histogram of vertices chosen for conflict
+    ofstream hist("histogram.csv");
+    hist << "Vertex, Times chosen, Generation runtime" << '\n';
+    for (int i = 0; i < V; i++) {
+        if (histogram.count(i) != 0) {
+            hist  << i << ", " << histogram[i];
+            if (i == 0) {
+                hist << ", " << runtimes[0];
+            }
+            hist << '\n';
+        }
+        else {
+            hist  << i << ", " << 0 << '\n';
+        }
+    }
+    hist.close();
 
     // Now that the graph is done generating, populate the degree-indeed doubly-linked list
     // with the IDs of each vertex that has the corresponding degree
@@ -330,13 +351,6 @@ void generateGraph(Vertex vertices[], DoublyLinkedList degree_DLLs[], const int 
         vertices[v.id].degree_DLL = &degree_DLLs[v.degree];
     }
 
-    // Record an output .csv with the histogram of vertices chosen for conflict
-    ofstream hist("histogram.csv");
-    hist << "Vertex, Times chosen" << '\n';
-    for (auto & it : histogram) {
-        hist << it.first << ", " << it.second << '\n';
-    }
-    hist.close();
 }
 
 // Method to generate a smallest last vertex ordering.
@@ -398,7 +412,7 @@ void smallestLastVertexOrdering(Vertex vertices[], DoublyLinkedList degree_DLLs[
 
             deleted_ctr++;
             cout << endl;
-            printDegreeDLLs(degree_DLLs, V);
+            // printDegreeDLLs(degree_DLLs, V);
             cout << endl;
         }
         else { // No vertices at current degree list, move on
@@ -410,8 +424,9 @@ void smallestLastVertexOrdering(Vertex vertices[], DoublyLinkedList degree_DLLs[
     auto time_stop = std::chrono::high_resolution_clock::now();
     auto time_elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(time_stop - time_start).count();
     cout << "SMALLEST_LAST time_elapsed: " << time_elapsed << endl << endl;
-    // Record max degree when deleted
+    // Record max degree when deleted and runtime
     stats[2] = static_cast<double>(max_degree_when_deleted);
+    runtimes[1] = time_elapsed;
 }
 
 // Method to generate a smallest original degree last ordering.
@@ -550,6 +565,28 @@ void colorVertices(Vertex vertices[], int coloring_order[], int V) {
 void graphGenerationRuntime() {
     // function to get runtime tables of various graph methods
     // by doing the step loop like in HW2
+    // 1000 - 10,000
+    // E =
+    // CYCLE 1000, 2000, ... 10,000
+    // COMPLETE 1000, 2000, ... 10,000
+    // RANDOM
+    // // UNIFORM
+    // // // 1000, 2000, ... 10,000
+    // // // 200,000, 400,000, ... 2,000,000
+    // // SKEWED
+    // // // 1000, 2000, ... 10,000
+    // // // 200,000, 400,000, ... 2,000,000
+    // // YOURS
+    // // // 1000, 2000, ... 10,000
+    // // // 200,000, 400,000, ... 2,000,000
+
+    int V_values[10] = { 1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000};
+    int E_values[10] = { 200000, 400000, 600000, 800000, 1000000, 1200000, 1400000, 1600000, 1800000, 2000000 };
+
+    for (int i = 0; i < 10; i++) {
+        // generateGraph(vertices, degree_DLLs, V, E, G, DIST);
+    }
+
 }
 
 int main(int argc, char** argv) {
@@ -633,69 +670,66 @@ int main(int argc, char** argv) {
 //    printAdjList(vertices, V);
 //    printDegreeDLLs(degree_DLLs, V);
 //
-//    // Perform the ordering algorithm specified by the command line argument.
-//    if (ORDERING == "SMALLEST_LAST") {
-//        smallestLastVertexOrdering(vertices, degree_DLLs, V);
-//    }
-//    else if (ORDERING == "SMALLEST_ORIGINAL_DEGREE_LAST") {
-//        smallestOriginalDegreeLastOrdering(vertices, degree_DLLs, V);
-//    }
-//    else if (ORDERING == "RANDOM") {
-//        uniformRandomOrdering(vertices, V);
-//    }
-//    else if (ORDERING == "LARGEST_ORIGINAL_DEGREE_LAST") {
-//        largestOriginalDegreeLastOrdering(vertices, degree_DLLs, V);
-//    }
-//
-//    // Generate array for coloring order (reverse of ordering).
-//    int coloring_order[V];
-//    Node* temp = ordering.head;
-//    for (int i = V-1; i >= 0; i--) {
-//        if (temp != nullptr) {
-//            coloring_order[i] = temp->data;
-//        }
-//        temp = temp->next;
-//    }
-//
-//    // Perform greedy coloring algorithm on the graph and get the highest color value used.
-//    colorVertices(vertices, coloring_order, V);
-//    cout << endl;
-//
-//    // Calculate average original degree.
-//    double sum = 0.0;
-//    for (int i = 0; i < V; i++) {
-//        sum += static_cast<double>(vertices[i].original_degree);
-//    }
-//    double avg_original_degree = sum / static_cast<double>(V);
-//    stats[1] = avg_original_degree;
-//
-//    // Calculate size of terminal clique for smallest last vertex ordering.
-//    if (ORDERING == "SMALLEST_LAST") {
-//        int terminal_clique_size = 1;
-//        for (int i = 1; i < V; i++) {
-//            cout << "Comparing " << vertices[coloring_order[i-1]].degree_when_deleted << ", " << vertices[coloring_order[i]].degree_when_deleted << endl;
-//            if (vertices[coloring_order[i]].degree_when_deleted <= vertices[coloring_order[i-1]].degree_when_deleted) {
-//                break;
-//            }
-//            else {
-//                terminal_clique_size++;
-//            }
-//        }
-//        stats[3] = static_cast<double>(terminal_clique_size);
-//    }
-//
-//    ofstream output("output.csv");
-//    output << V << ", " << E << ", " << G << ", " << DIST << ", " << ORDERING << '\n';
-//    // Record ordering, coloring order, and colors assigned to the graph.
-//    recordOrderingAndColoring(output, vertices, ordering, coloring_order, V, ORDERING);
-//
-//
-//    // TODO: Graph generation runtime - Maybe a global long array for runtimes of graph generation and ordering method?
-//    // TODO: Graph generation histogram
-//
-//    // TODO: SMALLEST_LAST runtime
-//
-//    output.close();
+    // Perform the ordering algorithm specified by the command line argument.
+    if (ORDERING == "SMALLEST_LAST") {
+        smallestLastVertexOrdering(vertices, degree_DLLs, V);
+    }
+    else if (ORDERING == "SMALLEST_ORIGINAL_DEGREE_LAST") {
+        smallestOriginalDegreeLastOrdering(vertices, degree_DLLs, V);
+    }
+    else if (ORDERING == "RANDOM") {
+        uniformRandomOrdering(vertices, V);
+    }
+    else if (ORDERING == "LARGEST_ORIGINAL_DEGREE_LAST") {
+        largestOriginalDegreeLastOrdering(vertices, degree_DLLs, V);
+    }
+
+    // Generate array for coloring order (reverse of ordering).
+    int coloring_order[V];
+    Node* temp = ordering.head;
+    for (int i = V-1; i >= 0; i--) {
+        if (temp != nullptr) {
+            coloring_order[i] = temp->data;
+        }
+        temp = temp->next;
+    }
+
+    // Perform greedy coloring algorithm on the graph and get the highest color value used.
+    colorVertices(vertices, coloring_order, V);
+    cout << endl;
+
+    // Calculate average original degree.
+    double sum = 0.0;
+    for (int i = 0; i < V; i++) {
+        sum += static_cast<double>(vertices[i].original_degree);
+    }
+    double avg_original_degree = sum / static_cast<double>(V);
+    stats[1] = avg_original_degree;
+
+    // Calculate size of terminal clique for smallest last vertex ordering.
+    if (ORDERING == "SMALLEST_LAST") {
+        int terminal_clique_size = 1;
+        for (int i = 1; i < V; i++) {
+            cout << "Comparing " << vertices[coloring_order[i-1]].degree_when_deleted << ", " << vertices[coloring_order[i]].degree_when_deleted << endl;
+            if (vertices[coloring_order[i]].degree_when_deleted <= vertices[coloring_order[i-1]].degree_when_deleted) {
+                break;
+            }
+            else {
+                terminal_clique_size++;
+            }
+        }
+        stats[3] = static_cast<double>(terminal_clique_size);
+    }
+
+    ofstream output("output.csv");
+    output << V << ", " << E << ", " << G << ", " << DIST << ", " << ORDERING << '\n';
+    // Record ordering, coloring order, and colors assigned to the graph.
+    recordOrderingAndColoring(output, vertices, ordering, coloring_order, V, ORDERING);
+
+
+    // TODO: Graph generation runtime - Maybe a global long array for runtimes of graph generation and ordering method?
+
+    output.close();
     cout << '\n' << "Done" << endl;
     // Sometimes <ntdll!RtlRaiseException> disassembler signal when freeing G?
     return 0;
