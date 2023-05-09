@@ -1,0 +1,150 @@
+\\wsl$\Ubuntu\home\landon\classes\CS5350\project\cmake-build-debug\project.exe 10000 2000000 RANDOM YOURS SMALLEST_LAST
+****************************************************************  10 10 CYCLE UNIFORM ****************************************************************
+Generating graph...
+-------------------------------- SMALLEST_LAST --------------------------------
+Ordering...
+Coloring...
+Ordering: 9 0 1 2 3 4 5 6 7 8
+Coloring order: 8 7 6 5 4 3 2 1 0 9
+----------------Colored 8 with color 0----------------
+----------------Coloring 7----------------
+--------Adjacent: 6--------
+6 has not yet been colored, skipping
+--------Adjacent: 8--------
+8 has already been colored with color 0
+Colored 7 with color 1
+8 was already colored; resetting color_adjacent[0] to false
+----------------Coloring 6----------------
+--------Adjacent: 5--------
+5 has not yet been colored, skipping
+--------Adjacent: 7--------
+7 has already been colored with color 1
+Colored 6 with color 0
+7 was already colored; resetting color_adjacent[1] to false
+----------------Coloring 5----------------
+--------Adjacent: 4--------
+4 has not yet been colored, skipping
+--------Adjacent: 6--------
+6 has already been colored with color 0
+Colored 5 with color 1
+6 was already colored; resetting color_adjacent[0] to false
+----------------Coloring 4----------------
+--------Adjacent: 3--------
+3 has not yet been colored, skipping
+--------Adjacent: 5--------
+5 has already been colored with color 1
+Colored 4 with color 0
+5 was already colored; resetting color_adjacent[1] to false
+----------------Coloring 3----------------
+--------Adjacent: 2--------
+2 has not yet been colored, skipping
+--------Adjacent: 4--------
+4 has already been colored with color 0
+Colored 3 with color 1
+4 was already colored; resetting color_adjacent[0] to false
+----------------Coloring 2----------------
+--------Adjacent: 1--------
+1 has not yet been colored, skipping
+--------Adjacent: 3--------
+3 has already been colored with color 1
+Colored 2 with color 0
+3 was already colored; resetting color_adjacent[1] to false
+----------------Coloring 1----------------
+--------Adjacent: 0--------
+0 has not yet been colored, skipping
+--------Adjacent: 2--------
+2 has already been colored with color 0
+Colored 1 with color 1
+2 was already colored; resetting color_adjacent[0] to false
+----------------Coloring 0----------------
+--------Adjacent: 1--------
+1 has already been colored with color 1
+--------Adjacent: 9--------
+9 has not yet been colored, skipping
+Colored 0 with color 0
+1 was already colored; resetting color_adjacent[1] to false
+----------------Coloring 9----------------
+--------Adjacent: 8--------
+8 has already been colored with color 0
+--------Adjacent: 0--------
+0 has already been colored with color 0
+Colored 9 with color 1
+8 was already colored; resetting color_adjacent[0] to false
+0 was already colored; resetting color_adjacent[0] to false
+Calculating stats & recording...
+-------------------------------- RANDOM --------------------------------
+Ordering...
+Coloring...
+Ordering: 7 6 2 9 5 3 0 8 4 1
+Coloring order: 1 4 8 0 3 5 9 2 6 7
+----------------Colored 1 with color 0----------------
+----------------Coloring 4----------------
+--------Adjacent: 3--------
+3 has not yet been colored, skipping
+--------Adjacent: 5--------
+5 has not yet been colored, skipping
+Colored 4 with color 0
+----------------Coloring 8----------------
+--------Adjacent: 7--------
+7 has not yet been colored, skipping
+--------Adjacent: 9--------
+9 has not yet been colored, skipping
+Colored 8 with color 0
+----------------Coloring 0----------------
+--------Adjacent: 1--------
+1 has already been colored with color 0
+--------Adjacent: 9--------
+9 has not yet been colored, skipping
+Colored 0 with color 1
+1 was already colored; resetting color_adjacent[0] to false
+----------------Coloring 3----------------
+--------Adjacent: 2--------
+2 has not yet been colored, skipping
+--------Adjacent: 4--------
+4 has already been colored with color 0
+Colored 3 with color 1
+4 was already colored; resetting color_adjacent[0] to false
+----------------Coloring 5----------------
+--------Adjacent: 4--------
+4 has already been colored with color 0
+--------Adjacent: 6--------
+6 has not yet been colored, skipping
+Colored 5 with color 1
+4 was already colored; resetting color_adjacent[0] to false
+----------------Coloring 9----------------
+--------Adjacent: 8--------
+8 has already been colored with color 0
+--------Adjacent: 0--------
+0 has already been colored with color 1
+Colored 9 with color 2
+8 was already colored; resetting color_adjacent[0] to false
+0 was already colored; resetting color_adjacent[1] to false
+----------------Coloring 2----------------
+--------Adjacent: 1--------
+1 has already been colored with color 0
+--------Adjacent: 3--------
+3 has already been colored with color 1
+Colored 2 with color 2
+1 was already colored; resetting color_adjacent[0] to false
+3 was already colored; resetting color_adjacent[1] to false
+----------------Coloring 6----------------
+--------Adjacent: 5--------
+5 has already been colored with color 1
+--------Adjacent: 7--------
+7 has not yet been colored, skipping
+Colored 6 with color 0
+5 was already colored; resetting color_adjacent[1] to false
+----------------Coloring 7----------------
+--------Adjacent: 6--------
+6 has already been colored with color 0
+--------Adjacent: 8--------
+8 has already been colored with color 0
+Colored 7 with color 1
+6 was already colored; resetting color_adjacent[0] to false
+8 was already colored; resetting color_adjacent[0] to false
+Calculating stats & recording...
+
+
+Done
+
+Process finished with exit code 0
