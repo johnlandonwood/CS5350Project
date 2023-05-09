@@ -598,6 +598,21 @@ void colorVertices(Vertex vertices[], int coloring_order[], int V) {
     stats[0] = static_cast<double>(max_color + 1);
 }
 
+// Need:
+
+// // SMALLEST_LAST Runtime
+// // SMALLEST_LAST Total colors used
+// // SMALLEST_LAST Avg. original degree
+// // SMALLEST_LAST Max degree when deleted
+// // SMALLEST_LAST Terminal clique size
+// // SMALLEST_ORIGINAL_DEGREE_LAST Total colors used
+// // RANDOM Total colors used
+// // LARGEST_ORIGINAL_DEGREE_LAST Total colors used
+
+// x5 SRN: 1000 125000	RANDOM	YOURS
+// x5 MRN: 1000 250000	RANDOM	YOURS
+// x6 LRN: 1000 400000	RANDOM	YOURS
+
 
 int main(int argc, char** argv) {
 
@@ -643,17 +658,17 @@ int main(int argc, char** argv) {
     string orderings[4] = {"SMALLEST_LAST", "SMALLEST_ORIGINAL_DEGREE_LAST", "RANDOM", "LARGEST_ORIGINAL_DEGREE_LAST"};
 
     int n;
-    for (n = 0; n < 12; n++) {
+    for (n = 4; n < 5; n++) { // n = 4,5; 7,8; 10,11
         int V = V_values[n];
         int E = E_values[n];
         string G = G_values[n];
         string DIST = DIST_values[n];
 
         //Skip normal graphs for now and get timing data for them later
-        if (DIST == "YOURS") { // TODO: Change yours to normal, i dont like it
-            cout << "**************************************************************** Skipping normal ****************************************************************" << endl;
-            continue;
-        }
+//        if (DIST == "YOURS") { // TODO: Change yours to normal, i dont like it
+//            cout << "**************************************************************** Skipping normal ****************************************************************" << endl;
+//            continue;
+//        }
         cout << "****************************************************************  " << V << " " << E << " " << G << " " << DIST << " ****************************************************************" << endl;
 
         Vertex vertices[V];
@@ -740,23 +755,36 @@ int main(int argc, char** argv) {
                 stats[3] = static_cast<double>(terminal_clique_size);
             }
 
+//
+
+            // // SMALLEST_LAST Runtime
+            // // SMALLEST_LAST Total colors used
+            // // SMALLEST_LAST Avg. original degree
+            // // SMALLEST_LAST Max degree when deleted
+            // // SMALLEST_LAST Terminal clique size
+            // // SMALLEST_ORIGINAL_DEGREE_LAST Total colors used
+            // // RANDOM Total colors used
+            // // LARGEST_ORIGINAL_DEGREE_LAST Total colors used
+
+
+
             // arrays for convenient data recording
-            if (ORDERING == "SMALLEST_LAST") {
-                smallest_last_runtimes[n] = runtimes[1];
-                smallest_last_total_colors_used[n] = stats[0];
-                smallest_last_avg_original_degree[n] = stats[1];
-                smallest_last_max_degree_when_deleted[n] = stats[2];
-                smallest_last_terminal_clique_size[n] = stats[3];
-            }
-            else if (ORDERING == "SMALLEST_ORIGINAL_DEGREE_LAST") {
-                smallest_original_degree_last_total_colors_used[n] = stats[0];
-            }
-            else if (ORDERING == "RANDOM") {
-                random_total_colors_used[n] = stats[0];
-            }
-            else if (ORDERING == "LARGEST_ORIGINAL_DEGREE_LAST") {
-                largest_original_degree_last_total_colors_used[n] = stats[0];
-            }
+            //            if (ORDERING == "SMALLEST_LAST") {
+            //                smallest_last_runtimes[n] = runtimes[1];
+            //                smallest_last_total_colors_used[n] = stats[0];
+            //                smallest_last_avg_original_degree[n] = stats[1];
+            //                smallest_last_max_degree_when_deleted[n] = stats[2];
+            //                smallest_last_terminal_clique_size[n] = stats[3];
+            //            }
+            //            else if (ORDERING == "SMALLEST_ORIGINAL_DEGREE_LAST") {
+            //                smallest_original_degree_last_total_colors_used[n] = stats[0];
+            //            }
+            //            else if (ORDERING == "RANDOM") {
+            //                random_total_colors_used[n] = stats[0];
+            //            }
+            //            else if (ORDERING == "LARGEST_ORIGINAL_DEGREE_LAST") {
+            //                largest_original_degree_last_total_colors_used[n] = stats[0];
+            //            }
 
 
             // Record final information in corresponding output file.
@@ -771,51 +799,21 @@ int main(int argc, char** argv) {
                 resetDegreeDLLs(vertices, degree_DLLs, V);
             }
 
+            string stats_cout[4] = {"Total colors used", "Avg. original degree", "Max degree when deleted", "Terminal clique size"};
+            if (ORDERING == "SMALLEST_LAST") {
+                cout << "Runtime: " << runtimes[1] << endl;
+                for (int i = 0; i < 4; i++) {
+                    cout << stats_cout[i] << ": " << stats[i] << endl;
+                }
+            }
+            else {
+                cout << "Total colors used: " << stats[0] << endl;
+            }
+
         }
     }
 
-    // now make program do 1 normal run at a time, printing stats a different line
-    cout << endl;
-    cout << "------------ SMALLEST_LAST RUNTIMES ------------" << endl;
-    for (int i = 0; i < 12; i++) {
-        cout << smallest_last_runtimes[i] << endl;
-    }
-    cout << "------------------------------------------------------------" << endl;
-    cout << "------------ SMALLEST_LAST TOTAL COLORS USED ------------" << endl;
-    for (int i = 0; i < 12; i++) {
-        cout << smallest_last_total_colors_used[i] << endl;
-    }
-    cout << "------------------------------------------------------------" << endl;
-    cout << "------------ SMALLEST_LAST AVG ORIGINAL DEGREE ------------" << endl;
-    for (int i = 0; i < 12; i++) {
-        cout << smallest_last_avg_original_degree[i] << endl;
-    }
-    cout << "------------------------------------------------------------" << endl;
-    cout << "------------ SMALLEST_LAST MAX DEGREE WHEN DELETED ------------" << endl;
-    for (int i = 0; i < 12; i++) {
-        cout << smallest_last_max_degree_when_deleted[i] << endl;
-    }
-    cout << "------------------------------------------------------------" << endl;
-    cout << "------------ SMALLEST_LAST TERMINAL CLIQUE SIZE ------------" << endl;
-    for (int i = 0; i < 12; i++) {
-        cout << smallest_last_terminal_clique_size[i] << endl;
-    }
-    cout << "------------------------------------------------------------" << endl;
-    cout << "------------ SMALLEST_ORIGINAL_DEGREE_LAST TOTAL COLORS USED ------------" << endl;
-    for (int i = 0; i < 12; i++) {
-        cout << smallest_original_degree_last_total_colors_used[i] << endl;
-    }
-    cout << "------------------------------------------------------------" << endl;
-    cout << "------------ RANDOM TOTAL COLORS USED------------" << endl;
-    for (int i = 0; i < 12; i++) {
-        cout << random_total_colors_used[i] << endl;
-    }
-    cout << "------------------------------------------------------------" << endl;
-    cout << "------------ LARGEST_ORIGINAL_DEGREE_LAST TOTAL COLORS USED ------------" << endl;
-    for (int i = 0; i < 12; i++) {
-        cout << largest_original_degree_last_total_colors_used[i] << endl;
-    }
-    cout << "------------------------------------------------------------" << endl;
+
 
     cout << '\n' << "Done" << endl;
     return 0;
