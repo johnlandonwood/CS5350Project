@@ -1,0 +1,4568 @@
+edgeExists(2,5): 0
+2 --> 5 does not exist
+Adding 2 -- > 5
+edgeExists(3,8): 0
+3 --> 8 does not exist
+Adding 3 -- > 8
+edgeExists(4,3): 0
+4 --> 3 does not exist
+Adding 4 -- > 3
+edgeExists(8,1): 0
+8 --> 1 does not exist
+Adding 8 -- > 1
+edgeExists(0,1): 0
+0 --> 1 does not exist
+Adding 0 -- > 1
+edgeExists(8,1): 1
+8 --> 1 are equal or edge already exists
+edgeExists(4,3): 1
+4 --> 3 are equal or edge already exists
+edgeExists(6,6): 0
+6 --> 6 does not exist
+6 --> 6 are equal or edge already exists
+edgeExists(0,4): 0
+0 --> 4 does not exist
+Adding 0 -- > 4
+edgeExists(2,9): 0
+2 --> 9 does not exist
+Adding 2 -- > 9
+edgeExists(6,9): 0
+6 --> 9 does not exist
+Adding 6 -- > 9
+edgeExists(6,5): 0
+6 --> 5 does not exist
+Adding 6 -- > 5
+edgeExists(3,3): 0
+3 --> 3 does not exist
+3 --> 3 are equal or edge already exists
+edgeExists(8,1): 1
+8 --> 1 are equal or edge already exists
+edgeExists(3,2): 0
+3 --> 2 does not exist
+Adding 3 -- > 2
+edgeExists(3,2): 1
+3 --> 2 are equal or edge already exists
+edgeExists(1,6): 0
+1 --> 6 does not exist
+Adding 1 -- > 6
+edgeExists(3,8): 1
+3 --> 8 are equal or edge already exists
+edgeExists(8,7): 0
+8 --> 7 does not exist
+Adding 8 -- > 7
+edgeExists(3,6): 0
+3 --> 6 does not exist
+Adding 3 -- > 6
+edgeExists(0,4): 1
+0 --> 4 are equal or edge already exists
+edgeExists(2,9): 1
+2 --> 9 are equal or edge already exists
+edgeExists(6,4): 0
+6 --> 4 does not exist
+Adding 6 -- > 4
+edgeExists(7,2): 0
+7 --> 2 does not exist
+Adding 7 -- > 2
+edgeExists(0,7): 0
+0 --> 7 does not exist
+Adding 0 -- > 7
+edgeExists(8,1): 1
+8 --> 1 are equal or edge already exists
+Couldn't add 2 or -1 (bounds: [0, 9])
+edgeExists(2,6): 0
+2 --> 6 does not exist
+Adding 2 -- > 6
+edgeExists(3,0): 0
+3 --> 0 does not exist
+Adding 3 -- > 0
+edgeExists(5,4): 0
+5 --> 4 does not exist
+Adding 5 -- > 4
+Couldn't add 2 or 10 (bounds: [0, 9])
+Couldn't add -2 or 4 (bounds: [0, 9])
+edgeExists(1,6): 1
+1 --> 6 are equal or edge already exists
+edgeExists(1,4): 0
+1 --> 4 does not exist
+Adding 1 -- > 4
+Edges added: 20, expected: 20
+36789100 ns
+---------------------------------------------- ADJ LIST ----------------------------------------------
+0 --> 1 --> 4 --> 7 --> 3 | degree: 4 | original_degree: 4
+1 --> 8 --> 0 --> 6 --> 4 | degree: 4 | original_degree: 4
+2 --> 5 --> 9 --> 3 --> 7 --> 6 | degree: 5 | original_degree: 5
+3 --> 8 --> 4 --> 2 --> 6 --> 0 | degree: 5 | original_degree: 5
+4 --> 3 --> 0 --> 6 --> 5 --> 1 | degree: 5 | original_degree: 5
+5 --> 2 --> 6 --> 4 | degree: 3 | original_degree: 3
+6 --> 9 --> 5 --> 1 --> 3 --> 4 --> 2 | degree: 6 | original_degree: 6
+7 --> 8 --> 2 --> 0 | degree: 3 | original_degree: 3
+8 --> 3 --> 1 --> 7 | degree: 3 | original_degree: 3
+9 --> 2 --> 6 | degree: 2 | original_degree: 2
+
+0: 0xffffc640 | Empty.
+1: 0xffffc650 | Empty.
+2: 0xffffc660 | 9
+3: 0xffffc670 | 8 --> 7 --> 5
+4: 0xffffc680 | 1 --> 0
+5: 0xffffc690 | 4 --> 3 --> 2
+6: 0xffffc6a0 | 6
+7: 0xffffc6b0 | Empty.
+8: 0xffffc6c0 | Empty.
+9: 0xffffc6d0 | Empty.
+
+edgeExists(2,19): 0
+2 --> 19 does not exist
+Adding 2 -- > 19
+edgeExists(4,16): 0
+4 --> 16 does not exist
+Adding 4 -- > 16
+edgeExists(4,16): 1
+4 --> 16 are equal or edge already exists
+edgeExists(2,11): 0
+2 --> 11 does not exist
+Adding 2 -- > 11
+edgeExists(18,12): 0
+18 --> 12 does not exist
+Adding 18 -- > 12
+edgeExists(9,16): 0
+9 --> 16 does not exist
+Adding 9 -- > 16
+edgeExists(17,15): 0
+17 --> 15 does not exist
+Adding 17 -- > 15
+edgeExists(9,19): 0
+9 --> 19 does not exist
+Adding 9 -- > 19
+Couldn't add 5 or 22 (bounds: [0, 19])
+Couldn't add 9 or 20 (bounds: [0, 19])
+edgeExists(6,17): 0
+6 --> 17 does not exist
+Adding 6 -- > 17
+edgeExists(2,11): 1
+2 --> 11 are equal or edge already exists
+edgeExists(16,11): 0
+16 --> 11 does not exist
+Adding 16 -- > 11
+edgeExists(17,9): 0
+17 --> 9 does not exist
+Adding 17 -- > 9
+Couldn't add 22 or 13 (bounds: [0, 19])
+edgeExists(6,18): 0
+6 --> 18 does not exist
+Adding 6 -- > 18
+edgeExists(6,18): 1
+6 --> 18 are equal or edge already exists
+edgeExists(16,9): 1
+16 --> 9 are equal or edge already exists
+edgeExists(19,16): 0
+19 --> 16 does not exist
+Adding 19 -- > 16
+Couldn't add 9 or 20 (bounds: [0, 19])
+Couldn't add 20 or 9 (bounds: [0, 19])
+edgeExists(9,18): 0
+9 --> 18 does not exist
+Adding 9 -- > 18
+edgeExists(18,12): 1
+18 --> 12 are equal or edge already exists
+edgeExists(16,19): 1
+16 --> 19 are equal or edge already exists
+Couldn't add -3 or 13 (bounds: [0, 19])
+edgeExists(7,16): 0
+7 --> 16 does not exist
+Adding 7 -- > 16
+edgeExists(2,14): 0
+2 --> 14 does not exist
+Adding 2 -- > 14
+edgeExists(1,15): 0
+1 --> 15 does not exist
+Adding 1 -- > 15
+edgeExists(6,18): 1
+6 --> 18 are equal or edge already exists
+edgeExists(6,17): 1
+6 --> 17 are equal or edge already exists
+Couldn't add 20 or 12 (bounds: [0, 19])
+edgeExists(6,18): 1
+6 --> 18 are equal or edge already exists
+edgeExists(12,19): 0
+12 --> 19 does not exist
+Adding 12 -- > 19
+Couldn't add 21 or 13 (bounds: [0, 19])
+edgeExists(14,15): 0
+14 --> 15 does not exist
+Adding 14 -- > 15
+edgeExists(7,16): 1
+7 --> 16 are equal or edge already exists
+edgeExists(2,14): 1
+2 --> 14 are equal or edge already exists
+edgeExists(0,12): 0
+0 --> 12 does not exist
+Adding 0 -- > 12
+edgeExists(16,14): 0
+16 --> 14 does not exist
+Adding 16 -- > 14
+Couldn't add 21 or 9 (bounds: [0, 19])
+edgeExists(9,19): 1
+9 --> 19 are equal or edge already exists
+edgeExists(6,18): 1
+6 --> 18 are equal or edge already exists
+Couldn't add 13 or 21 (bounds: [0, 19])
+Couldn't add -3 or 13 (bounds: [0, 19])
+Couldn't add 21 or 13 (bounds: [0, 19])
+edgeExists(9,19): 1
+9 --> 19 are equal or edge already exists
+Couldn't add 12 or 20 (bounds: [0, 19])
+Couldn't add 21 or 13 (bounds: [0, 19])
+edgeExists(0,16): 0
+0 --> 16 does not exist
+Adding 0 -- > 16
+edgeExists(12,18): 1
+12 --> 18 are equal or edge already exists
+edgeExists(14,16): 1
+14 --> 16 are equal or edge already exists
+Couldn't add 5 or 22 (bounds: [0, 19])
+edgeExists(15,13): 0
+15 --> 13 does not exist
+Adding 15 -- > 13
+edgeExists(9,19): 1
+9 --> 19 are equal or edge already exists
+edgeExists(17,15): 1
+17 --> 15 are equal or edge already exists
+edgeExists(17,9): 1
+17 --> 9 are equal or edge already exists
+edgeExists(19,16): 1
+19 --> 16 are equal or edge already exists
+edgeExists(16,14): 1
+16 --> 14 are equal or edge already exists
+edgeExists(6,19): 0
+6 --> 19 does not exist
+Adding 6 -- > 19
+edgeExists(2,14): 1
+2 --> 14 are equal or edge already exists
+edgeExists(6,18): 1
+6 --> 18 are equal or edge already exists
+edgeExists(9,18): 1
+9 --> 18 are equal or edge already exists
+edgeExists(11,16): 1
+11 --> 16 are equal or edge already exists
+edgeExists(16,14): 1
+16 --> 14 are equal or edge already exists
+edgeExists(15,17): 1
+15 --> 17 are equal or edge already exists
+Couldn't add 20 or 9 (bounds: [0, 19])
+Couldn't add 9 or 21 (bounds: [0, 19])
+edgeExists(15,14): 1
+15 --> 14 are equal or edge already exists
+edgeExists(3,13): 0
+3 --> 13 does not exist
+Adding 3 -- > 13
+edgeExists(7,16): 1
+7 --> 16 are equal or edge already exists
+edgeExists(4,16): 1
+4 --> 16 are equal or edge already exists
+edgeExists(9,17): 1
+9 --> 17 are equal or edge already exists
+edgeExists(2,11): 1
+2 --> 11 are equal or edge already exists
+Couldn't add -4 or 13 (bounds: [0, 19])
+edgeExists(6,17): 1
+6 --> 17 are equal or edge already exists
+edgeExists(12,19): 1
+12 --> 19 are equal or edge already exists
+edgeExists(1,12): 0
+1 --> 12 does not exist
+Adding 1 -- > 12
+edgeExists(6,18): 1
+6 --> 18 are equal or edge already exists
+Couldn't add -2 or 17 (bounds: [0, 19])
+Couldn't add -2 or 12 (bounds: [0, 19])
+Couldn't add 9 or 23 (bounds: [0, 19])
+edgeExists(18,12): 1
+18 --> 12 are equal or edge already exists
+Couldn't add 5 or 22 (bounds: [0, 19])
+edgeExists(15,14): 1
+15 --> 14 are equal or edge already exists
+edgeExists(2,19): 1
+2 --> 19 are equal or edge already exists
+Couldn't add 13 or 22 (bounds: [0, 19])
+edgeExists(16,9): 1
+16 --> 9 are equal or edge already exists
+edgeExists(0,16): 1
+0 --> 16 are equal or edge already exists
+edgeExists(9,18): 1
+9 --> 18 are equal or edge already exists
+edgeExists(18,16): 0
+18 --> 16 does not exist
+Adding 18 -- > 16
+edgeExists(12,18): 1
+12 --> 18 are equal or edge already exists
+edgeExists(9,19): 1
+9 --> 19 are equal or edge already exists
+edgeExists(6,17): 1
+6 --> 17 are equal or edge already exists
+edgeExists(17,9): 1
+17 --> 9 are equal or edge already exists
+edgeExists(15,17): 1
+15 --> 17 are equal or edge already exists
+Couldn't add -4 or 13 (bounds: [0, 19])
+edgeExists(6,19): 1
+6 --> 19 are equal or edge already exists
+edgeExists(4,15): 0
+4 --> 15 does not exist
+Adding 4 -- > 15
+edgeExists(16,9): 1
+16 --> 9 are equal or edge already exists
+Couldn't add 13 or 22 (bounds: [0, 19])
+Couldn't add 6 or 20 (bounds: [0, 19])
+edgeExists(16,14): 1
+16 --> 14 are equal or edge already exists
+edgeExists(16,9): 1
+16 --> 9 are equal or edge already exists
+edgeExists(0,16): 1
+0 --> 16 are equal or edge already exists
+edgeExists(9,16): 1
+9 --> 16 are equal or edge already exists
+Couldn't add 21 or 13 (bounds: [0, 19])
+Couldn't add -2 or 12 (bounds: [0, 19])
+edgeExists(7,16): 1
+7 --> 16 are equal or edge already exists
+edgeExists(7,16): 1
+7 --> 16 are equal or edge already exists
+edgeExists(16,14): 1
+16 --> 14 are equal or edge already exists
+Couldn't add 20 or 17 (bounds: [0, 19])
+edgeExists(11,16): 1
+11 --> 16 are equal or edge already exists
+Couldn't add -1 or 16 (bounds: [0, 19])
+Couldn't add -3 or 13 (bounds: [0, 19])
+edgeExists(9,16): 1
+9 --> 16 are equal or edge already exists
+edgeExists(4,16): 1
+4 --> 16 are equal or edge already exists
+edgeExists(16,14): 1
+16 --> 14 are equal or edge already exists
+edgeExists(4,16): 1
+4 --> 16 are equal or edge already exists
+edgeExists(11,16): 1
+11 --> 16 are equal or edge already exists
+Couldn't add 5 or 21 (bounds: [0, 19])
+Couldn't add 21 or 13 (bounds: [0, 19])
+edgeExists(12,18): 1
+12 --> 18 are equal or edge already exists
+edgeExists(7,16): 1
+7 --> 16 are equal or edge already exists
+edgeExists(2,11): 1
+2 --> 11 are equal or edge already exists
+edgeExists(0,16): 1
+0 --> 16 are equal or edge already exists
+edgeExists(16,14): 1
+16 --> 14 are equal or edge already exists
+Couldn't add -1 or 16 (bounds: [0, 19])
+edgeExists(15,17): 1
+15 --> 17 are equal or edge already exists
+edgeExists(3,14): 0
+3 --> 14 does not exist
+Adding 3 -- > 14
+Couldn't add 20 or 17 (bounds: [0, 19])
+edgeExists(7,16): 1
+7 --> 16 are equal or edge already exists
+Couldn't add -4 or 13 (bounds: [0, 19])
+edgeExists(1,15): 1
+1 --> 15 are equal or edge already exists
+edgeExists(16,19): 1
+16 --> 19 are equal or edge already exists
+edgeExists(17,9): 1
+17 --> 9 are equal or edge already exists
+Couldn't add -1 or 12 (bounds: [0, 19])
+edgeExists(12,18): 1
+12 --> 18 are equal or edge already exists
+edgeExists(4,15): 1
+4 --> 15 are equal or edge already exists
+Couldn't add 17 or 20 (bounds: [0, 19])
+edgeExists(15,17): 1
+15 --> 17 are equal or edge already exists
+edgeExists(6,17): 1
+6 --> 17 are equal or edge already exists
+edgeExists(9,17): 1
+9 --> 17 are equal or edge already exists
+Couldn't add 13 or 22 (bounds: [0, 19])
+edgeExists(13,15): 1
+13 --> 15 are equal or edge already exists
+Couldn't add 9 or 21 (bounds: [0, 19])
+edgeExists(7,16): 1
+7 --> 16 are equal or edge already exists
+edgeExists(0,12): 1
+0 --> 12 are equal or edge already exists
+edgeExists(16,19): 1
+16 --> 19 are equal or edge already exists
+edgeExists(2,14): 1
+2 --> 14 are equal or edge already exists
+Couldn't add -3 or 13 (bounds: [0, 19])
+Couldn't add 20 or 12 (bounds: [0, 19])
+edgeExists(16,14): 1
+16 --> 14 are equal or edge already exists
+edgeExists(15,14): 1
+15 --> 14 are equal or edge already exists
+edgeExists(2,19): 1
+2 --> 19 are equal or edge already exists
+edgeExists(17,15): 1
+17 --> 15 are equal or edge already exists
+edgeExists(5,15): 0
+5 --> 15 does not exist
+Adding 5 -- > 15
+edgeExists(1,15): 1
+1 --> 15 are equal or edge already exists
+edgeExists(2,14): 1
+2 --> 14 are equal or edge already exists
+edgeExists(12,17): 0
+12 --> 17 does not exist
+Adding 12 -- > 17
+Couldn't add 13 or 22 (bounds: [0, 19])
+edgeExists(1,15): 1
+1 --> 15 are equal or edge already exists
+Couldn't add 5 or 22 (bounds: [0, 19])
+edgeExists(11,16): 1
+11 --> 16 are equal or edge already exists
+edgeExists(19,9): 1
+19 --> 9 are equal or edge already exists
+edgeExists(9,18): 1
+9 --> 18 are equal or edge already exists
+Couldn't add -2 or 12 (bounds: [0, 19])
+edgeExists(12,19): 1
+12 --> 19 are equal or edge already exists
+edgeExists(18,9): 1
+18 --> 9 are equal or edge already exists
+Couldn't add 9 or 23 (bounds: [0, 19])
+edgeExists(0,16): 1
+0 --> 16 are equal or edge already exists
+edgeExists(18,12): 1
+18 --> 12 are equal or edge already exists
+edgeExists(16,9): 1
+16 --> 9 are equal or edge already exists
+Couldn't add 12 or 20 (bounds: [0, 19])
+edgeExists(18,12): 1
+18 --> 12 are equal or edge already exists
+edgeExists(16,11): 1
+16 --> 11 are equal or edge already exists
+edgeExists(16,14): 1
+16 --> 14 are equal or edge already exists
+edgeExists(16,9): 1
+16 --> 9 are equal or edge already exists
+edgeExists(2,11): 1
+2 --> 11 are equal or edge already exists
+edgeExists(3,17): 0
+3 --> 17 does not exist
+Adding 3 -- > 17
+edgeExists(14,15): 1
+14 --> 15 are equal or edge already exists
+edgeExists(3,13): 1
+3 --> 13 are equal or edge already exists
+Couldn't add -2 or 12 (bounds: [0, 19])
+Couldn't add 21 or 13 (bounds: [0, 19])
+edgeExists(16,14): 1
+16 --> 14 are equal or edge already exists
+Couldn't add 12 or 20 (bounds: [0, 19])
+edgeExists(1,12): 1
+1 --> 12 are equal or edge already exists
+edgeExists(3,17): 1
+3 --> 17 are equal or edge already exists
+edgeExists(12,19): 1
+12 --> 19 are equal or edge already exists
+edgeExists(18,12): 1
+18 --> 12 are equal or edge already exists
+edgeExists(14,15): 1
+14 --> 15 are equal or edge already exists
+Couldn't add -1 or 16 (bounds: [0, 19])
+edgeExists(19,9): 1
+19 --> 9 are equal or edge already exists
+edgeExists(19,12): 1
+19 --> 12 are equal or edge already exists
+edgeExists(14,15): 1
+14 --> 15 are equal or edge already exists
+edgeExists(4,15): 1
+4 --> 15 are equal or edge already exists
+edgeExists(13,15): 1
+13 --> 15 are equal or edge already exists
+edgeExists(4,15): 1
+4 --> 15 are equal or edge already exists
+edgeExists(7,16): 1
+7 --> 16 are equal or edge already exists
+edgeExists(4,16): 1
+4 --> 16 are equal or edge already exists
+edgeExists(7,16): 1
+7 --> 16 are equal or edge already exists
+edgeExists(2,18): 0
+2 --> 18 does not exist
+Adding 2 -- > 18
+edgeExists(19,12): 1
+19 --> 12 are equal or edge already exists
+edgeExists(0,12): 1
+0 --> 12 are equal or edge already exists
+edgeExists(18,16): 1
+18 --> 16 are equal or edge already exists
+edgeExists(9,19): 1
+9 --> 19 are equal or edge already exists
+edgeExists(6,18): 1
+6 --> 18 are equal or edge already exists
+Couldn't add 17 or 20 (bounds: [0, 19])
+Couldn't add 9 or 21 (bounds: [0, 19])
+edgeExists(9,16): 1
+9 --> 16 are equal or edge already exists
+Couldn't add 22 or 13 (bounds: [0, 19])
+Couldn't add -2 or 12 (bounds: [0, 19])
+edgeExists(9,18): 1
+9 --> 18 are equal or edge already exists
+edgeExists(3,17): 1
+3 --> 17 are equal or edge already exists
+edgeExists(16,18): 1
+16 --> 18 are equal or edge already exists
+edgeExists(3,14): 1
+3 --> 14 are equal or edge already exists
+Couldn't add 17 or 20 (bounds: [0, 19])
+edgeExists(14,16): 1
+14 --> 16 are equal or edge already exists
+edgeExists(16,11): 1
+16 --> 11 are equal or edge already exists
+edgeExists(19,9): 1
+19 --> 9 are equal or edge already exists
+edgeExists(9,16): 1
+9 --> 16 are equal or edge already exists
+edgeExists(6,17): 1
+6 --> 17 are equal or edge already exists
+edgeExists(5,15): 1
+5 --> 15 are equal or edge already exists
+Couldn't add 5 or 21 (bounds: [0, 19])
+Couldn't add 5 or 22 (bounds: [0, 19])
+edgeExists(0,12): 1
+0 --> 12 are equal or edge already exists
+Couldn't add -3 or 13 (bounds: [0, 19])
+edgeExists(14,16): 1
+14 --> 16 are equal or edge already exists
+edgeExists(17,9): 1
+17 --> 9 are equal or edge already exists
+Couldn't add 20 or 9 (bounds: [0, 19])
+edgeExists(2,19): 1
+2 --> 19 are equal or edge already exists
+Couldn't add 20 or 17 (bounds: [0, 19])
+edgeExists(18,16): 1
+18 --> 16 are equal or edge already exists
+edgeExists(16,18): 1
+16 --> 18 are equal or edge already exists
+edgeExists(2,11): 1
+2 --> 11 are equal or edge already exists
+edgeExists(6,17): 1
+6 --> 17 are equal or edge already exists
+Couldn't add 9 or 23 (bounds: [0, 19])
+edgeExists(12,17): 1
+12 --> 17 are equal or edge already exists
+edgeExists(7,16): 1
+7 --> 16 are equal or edge already exists
+Couldn't add -2 or 12 (bounds: [0, 19])
+edgeExists(2,19): 1
+2 --> 19 are equal or edge already exists
+edgeExists(3,17): 1
+3 --> 17 are equal or edge already exists
+edgeExists(9,16): 1
+9 --> 16 are equal or edge already exists
+edgeExists(0,16): 1
+0 --> 16 are equal or edge already exists
+edgeExists(9,17): 1
+9 --> 17 are equal or edge already exists
+Couldn't add 13 or 21 (bounds: [0, 19])
+edgeExists(18,9): 1
+18 --> 9 are equal or edge already exists
+edgeExists(17,15): 1
+17 --> 15 are equal or edge already exists
+edgeExists(3,13): 1
+3 --> 13 are equal or edge already exists
+Couldn't add 20 or 17 (bounds: [0, 19])
+Couldn't add 5 or 21 (bounds: [0, 19])
+edgeExists(18,16): 1
+18 --> 16 are equal or edge already exists
+Couldn't add -1 or 16 (bounds: [0, 19])
+Couldn't add 5 or 21 (bounds: [0, 19])
+edgeExists(0,16): 1
+0 --> 16 are equal or edge already exists
+edgeExists(2,14): 1
+2 --> 14 are equal or edge already exists
+edgeExists(14,15): 1
+14 --> 15 are equal or edge already exists
+edgeExists(3,17): 1
+3 --> 17 are equal or edge already exists
+Couldn't add 13 or 21 (bounds: [0, 19])
+Couldn't add 13 or 21 (bounds: [0, 19])
+Couldn't add -2 or 12 (bounds: [0, 19])
+edgeExists(12,19): 1
+12 --> 19 are equal or edge already exists
+edgeExists(18,12): 1
+18 --> 12 are equal or edge already exists
+edgeExists(12,18): 1
+12 --> 18 are equal or edge already exists
+edgeExists(3,13): 1
+3 --> 13 are equal or edge already exists
+edgeExists(15,17): 1
+15 --> 17 are equal or edge already exists
+edgeExists(2,18): 1
+2 --> 18 are equal or edge already exists
+edgeExists(2,19): 1
+2 --> 19 are equal or edge already exists
+edgeExists(3,17): 1
+3 --> 17 are equal or edge already exists
+edgeExists(1,15): 1
+1 --> 15 are equal or edge already exists
+edgeExists(1,15): 1
+1 --> 15 are equal or edge already exists
+edgeExists(14,15): 1
+14 --> 15 are equal or edge already exists
+edgeExists(15,17): 1
+15 --> 17 are equal or edge already exists
+edgeExists(16,11): 1
+16 --> 11 are equal or edge already exists
+edgeExists(12,18): 1
+12 --> 18 are equal or edge already exists
+edgeExists(7,16): 1
+7 --> 16 are equal or edge already exists
+edgeExists(19,9): 1
+19 --> 9 are equal or edge already exists
+edgeExists(4,15): 1
+4 --> 15 are equal or edge already exists
+Couldn't add 6 or 20 (bounds: [0, 19])
+Couldn't add 9 or 23 (bounds: [0, 19])
+edgeExists(16,19): 1
+16 --> 19 are equal or edge already exists
+edgeExists(4,15): 1
+4 --> 15 are equal or edge already exists
+edgeExists(16,14): 1
+16 --> 14 are equal or edge already exists
+Couldn't add 13 or 22 (bounds: [0, 19])
+Couldn't add -4 or 13 (bounds: [0, 19])
+edgeExists(14,16): 1
+14 --> 16 are equal or edge already exists
+edgeExists(9,19): 1
+9 --> 19 are equal or edge already exists
+edgeExists(12,18): 1
+12 --> 18 are equal or edge already exists
+edgeExists(3,14): 1
+3 --> 14 are equal or edge already exists
+edgeExists(13,15): 1
+13 --> 15 are equal or edge already exists
+Couldn't add 20 or 12 (bounds: [0, 19])
+edgeExists(12,17): 1
+12 --> 17 are equal or edge already exists
+Couldn't add -1 or 16 (bounds: [0, 19])
+edgeExists(17,15): 1
+17 --> 15 are equal or edge already exists
+edgeExists(16,14): 1
+16 --> 14 are equal or edge already exists
+edgeExists(18,12): 1
+18 --> 12 are equal or edge already exists
+edgeExists(16,11): 1
+16 --> 11 are equal or edge already exists
+Couldn't add 6 or 20 (bounds: [0, 19])
+Couldn't add -4 or 13 (bounds: [0, 19])
+edgeExists(12,19): 1
+12 --> 19 are equal or edge already exists
+edgeExists(17,9): 1
+17 --> 9 are equal or edge already exists
+Couldn't add -4 or 13 (bounds: [0, 19])
+Couldn't add 6 or 20 (bounds: [0, 19])
+edgeExists(2,14): 1
+2 --> 14 are equal or edge already exists
+Couldn't add 20 or 12 (bounds: [0, 19])
+edgeExists(15,17): 1
+15 --> 17 are equal or edge already exists
+edgeExists(4,15): 1
+4 --> 15 are equal or edge already exists
+edgeExists(3,13): 1
+3 --> 13 are equal or edge already exists
+Couldn't add -1 or 12 (bounds: [0, 19])
+Couldn't add 20 or 17 (bounds: [0, 19])
+edgeExists(16,9): 1
+16 --> 9 are equal or edge already exists
+edgeExists(2,11): 1
+2 --> 11 are equal or edge already exists
+edgeExists(12,18): 1
+12 --> 18 are equal or edge already exists
+edgeExists(16,14): 1
+16 --> 14 are equal or edge already exists
+edgeExists(9,19): 1
+9 --> 19 are equal or edge already exists
+edgeExists(2,11): 1
+2 --> 11 are equal or edge already exists
+edgeExists(9,16): 1
+9 --> 16 are equal or edge already exists
+edgeExists(19,16): 1
+19 --> 16 are equal or edge already exists
+Couldn't add 5 or 21 (bounds: [0, 19])
+Couldn't add 17 or 20 (bounds: [0, 19])
+edgeExists(5,15): 1
+5 --> 15 are equal or edge already exists
+Couldn't add 6 or 20 (bounds: [0, 19])
+edgeExists(6,17): 1
+6 --> 17 are equal or edge already exists
+edgeExists(3,13): 1
+3 --> 13 are equal or edge already exists
+Couldn't add -3 or 13 (bounds: [0, 19])
+Couldn't add 20 or 9 (bounds: [0, 19])
+edgeExists(16,14): 1
+16 --> 14 are equal or edge already exists
+Couldn't add 5 or 21 (bounds: [0, 19])
+edgeExists(6,19): 1
+6 --> 19 are equal or edge already exists
+edgeExists(18,9): 1
+18 --> 9 are equal or edge already exists
+edgeExists(18,12): 1
+18 --> 12 are equal or edge already exists
+edgeExists(3,13): 1
+3 --> 13 are equal or edge already exists
+edgeExists(4,16): 1
+4 --> 16 are equal or edge already exists
+edgeExists(3,13): 1
+3 --> 13 are equal or edge already exists
+Couldn't add -2 or 17 (bounds: [0, 19])
+edgeExists(11,16): 1
+11 --> 16 are equal or edge already exists
+edgeExists(17,15): 1
+17 --> 15 are equal or edge already exists
+Couldn't add 17 or 20 (bounds: [0, 19])
+edgeExists(18,9): 1
+18 --> 9 are equal or edge already exists
+edgeExists(19,12): 1
+19 --> 12 are equal or edge already exists
+Couldn't add 12 or 20 (bounds: [0, 19])
+edgeExists(1,15): 1
+1 --> 15 are equal or edge already exists
+edgeExists(1,12): 1
+1 --> 12 are equal or edge already exists
+edgeExists(16,11): 1
+16 --> 11 are equal or edge already exists
+edgeExists(16,11): 1
+16 --> 11 are equal or edge already exists
+edgeExists(7,16): 1
+7 --> 16 are equal or edge already exists
+edgeExists(6,17): 1
+6 --> 17 are equal or edge already exists
+Couldn't add 20 or 17 (bounds: [0, 19])
+Couldn't add 22 or 13 (bounds: [0, 19])
+edgeExists(19,12): 1
+19 --> 12 are equal or edge already exists
+edgeExists(19,16): 1
+19 --> 16 are equal or edge already exists
+edgeExists(9,18): 1
+9 --> 18 are equal or edge already exists
+edgeExists(17,15): 1
+17 --> 15 are equal or edge already exists
+Couldn't add 5 or 21 (bounds: [0, 19])
+Couldn't add 20 or 9 (bounds: [0, 19])
+edgeExists(12,18): 1
+12 --> 18 are equal or edge already exists
+edgeExists(16,14): 1
+16 --> 14 are equal or edge already exists
+edgeExists(2,14): 1
+2 --> 14 are equal or edge already exists
+Couldn't add 13 or 22 (bounds: [0, 19])
+edgeExists(2,14): 1
+2 --> 14 are equal or edge already exists
+Couldn't add 6 or 20 (bounds: [0, 19])
+edgeExists(9,16): 1
+9 --> 16 are equal or edge already exists
+edgeExists(17,15): 1
+17 --> 15 are equal or edge already exists
+edgeExists(15,17): 1
+15 --> 17 are equal or edge already exists
+edgeExists(9,18): 1
+9 --> 18 are equal or edge already exists
+edgeExists(17,9): 1
+17 --> 9 are equal or edge already exists
+Couldn't add -2 or 12 (bounds: [0, 19])
+edgeExists(12,19): 1
+12 --> 19 are equal or edge already exists
+edgeExists(4,16): 1
+4 --> 16 are equal or edge already exists
+edgeExists(1,12): 1
+1 --> 12 are equal or edge already exists
+Couldn't add 13 or 22 (bounds: [0, 19])
+edgeExists(18,12): 1
+18 --> 12 are equal or edge already exists
+edgeExists(17,9): 1
+17 --> 9 are equal or edge already exists
+Couldn't add 17 or 20 (bounds: [0, 19])
+edgeExists(16,11): 1
+16 --> 11 are equal or edge already exists
+edgeExists(17,9): 1
+17 --> 9 are equal or edge already exists
+edgeExists(12,17): 1
+12 --> 17 are equal or edge already exists
+edgeExists(18,16): 1
+18 --> 16 are equal or edge already exists
+edgeExists(18,12): 1
+18 --> 12 are equal or edge already exists
+Couldn't add 22 or 13 (bounds: [0, 19])
+edgeExists(3,14): 1
+3 --> 14 are equal or edge already exists
+edgeExists(14,15): 1
+14 --> 15 are equal or edge already exists
+Couldn't add 20 or 17 (bounds: [0, 19])
+Couldn't add 20 or 17 (bounds: [0, 19])
+edgeExists(4,16): 1
+4 --> 16 are equal or edge already exists
+edgeExists(15,17): 1
+15 --> 17 are equal or edge already exists
+edgeExists(6,17): 1
+6 --> 17 are equal or edge already exists
+edgeExists(12,18): 1
+12 --> 18 are equal or edge already exists
+edgeExists(2,18): 1
+2 --> 18 are equal or edge already exists
+edgeExists(3,13): 1
+3 --> 13 are equal or edge already exists
+edgeExists(16,9): 1
+16 --> 9 are equal or edge already exists
+edgeExists(4,16): 1
+4 --> 16 are equal or edge already exists
+edgeExists(0,12): 1
+0 --> 12 are equal or edge already exists
+edgeExists(5,15): 1
+5 --> 15 are equal or edge already exists
+edgeExists(17,15): 1
+17 --> 15 are equal or edge already exists
+edgeExists(16,19): 1
+16 --> 19 are equal or edge already exists
+edgeExists(15,17): 1
+15 --> 17 are equal or edge already exists
+edgeExists(17,9): 1
+17 --> 9 are equal or edge already exists
+edgeExists(17,9): 1
+17 --> 9 are equal or edge already exists
+edgeExists(17,15): 1
+17 --> 15 are equal or edge already exists
+Couldn't add 13 or 22 (bounds: [0, 19])
+edgeExists(17,15): 1
+17 --> 15 are equal or edge already exists
+edgeExists(2,11): 1
+2 --> 11 are equal or edge already exists
+edgeExists(3,13): 1
+3 --> 13 are equal or edge already exists
+Couldn't add 9 or 23 (bounds: [0, 19])
+edgeExists(1,15): 1
+1 --> 15 are equal or edge already exists
+edgeExists(16,18): 1
+16 --> 18 are equal or edge already exists
+edgeExists(19,16): 1
+19 --> 16 are equal or edge already exists
+Couldn't add 23 or 9 (bounds: [0, 19])
+edgeExists(2,11): 1
+2 --> 11 are equal or edge already exists
+Couldn't add 12 or 20 (bounds: [0, 19])
+Couldn't add 12 or 20 (bounds: [0, 19])
+edgeExists(7,16): 1
+7 --> 16 are equal or edge already exists
+edgeExists(16,14): 1
+16 --> 14 are equal or edge already exists
+Couldn't add 12 or 20 (bounds: [0, 19])
+edgeExists(6,19): 1
+6 --> 19 are equal or edge already exists
+edgeExists(4,15): 1
+4 --> 15 are equal or edge already exists
+edgeExists(19,9): 1
+19 --> 9 are equal or edge already exists
+Couldn't add 9 or 20 (bounds: [0, 19])
+edgeExists(6,17): 1
+6 --> 17 are equal or edge already exists
+edgeExists(17,9): 1
+17 --> 9 are equal or edge already exists
+Couldn't add -2 or 12 (bounds: [0, 19])
+edgeExists(19,9): 1
+19 --> 9 are equal or edge already exists
+edgeExists(18,16): 1
+18 --> 16 are equal or edge already exists
+Couldn't add 13 or 22 (bounds: [0, 19])
+edgeExists(15,13): 1
+15 --> 13 are equal or edge already exists
+edgeExists(19,16): 1
+19 --> 16 are equal or edge already exists
+Couldn't add 17 or 20 (bounds: [0, 19])
+edgeExists(9,18): 1
+9 --> 18 are equal or edge already exists
+edgeExists(12,19): 1
+12 --> 19 are equal or edge already exists
+Couldn't add 17 or 20 (bounds: [0, 19])
+edgeExists(11,16): 1
+11 --> 16 are equal or edge already exists
+edgeExists(17,9): 1
+17 --> 9 are equal or edge already exists
+Couldn't add 21 or 9 (bounds: [0, 19])
+edgeExists(17,9): 1
+17 --> 9 are equal or edge already exists
+Couldn't add -1 or 16 (bounds: [0, 19])
+edgeExists(2,19): 1
+2 --> 19 are equal or edge already exists
+edgeExists(12,17): 1
+12 --> 17 are equal or edge already exists
+edgeExists(6,18): 1
+6 --> 18 are equal or edge already exists
+edgeExists(12,17): 1
+12 --> 17 are equal or edge already exists
+edgeExists(17,12): 1
+17 --> 12 are equal or edge already exists
+edgeExists(16,14): 1
+16 --> 14 are equal or edge already exists
+Couldn't add 9 or 23 (bounds: [0, 19])
+edgeExists(3,17): 1
+3 --> 17 are equal or edge already exists
+edgeExists(6,18): 1
+6 --> 18 are equal or edge already exists
+edgeExists(4,15): 1
+4 --> 15 are equal or edge already exists
+Couldn't add 21 or 13 (bounds: [0, 19])
+edgeExists(15,14): 1
+15 --> 14 are equal or edge already exists
+Couldn't add 13 or 21 (bounds: [0, 19])
+edgeExists(19,12): 1
+19 --> 12 are equal or edge already exists
+edgeExists(19,9): 1
+19 --> 9 are equal or edge already exists
+edgeExists(19,9): 1
+19 --> 9 are equal or edge already exists
+Couldn't add 9 or 23 (bounds: [0, 19])
+Couldn't add -1 or 16 (bounds: [0, 19])
+Couldn't add -1 or 12 (bounds: [0, 19])
+Couldn't add 22 or 13 (bounds: [0, 19])
+Couldn't add -1 or 16 (bounds: [0, 19])
+edgeExists(9,17): 1
+9 --> 17 are equal or edge already exists
+edgeExists(16,19): 1
+16 --> 19 are equal or edge already exists
+Couldn't add -4 or 13 (bounds: [0, 19])
+edgeExists(12,18): 1
+12 --> 18 are equal or edge already exists
+edgeExists(16,18): 1
+16 --> 18 are equal or edge already exists
+edgeExists(6,18): 1
+6 --> 18 are equal or edge already exists
+Couldn't add 23 or 9 (bounds: [0, 19])
+Couldn't add -1 or 16 (bounds: [0, 19])
+Couldn't add 5 or 22 (bounds: [0, 19])
+edgeExists(17,15): 1
+17 --> 15 are equal or edge already exists
+edgeExists(4,16): 1
+4 --> 16 are equal or edge already exists
+Couldn't add 20 or 12 (bounds: [0, 19])
+edgeExists(18,12): 1
+18 --> 12 are equal or edge already exists
+edgeExists(14,15): 1
+14 --> 15 are equal or edge already exists
+edgeExists(16,14): 1
+16 --> 14 are equal or edge already exists
+edgeExists(9,19): 1
+9 --> 19 are equal or edge already exists
+edgeExists(18,12): 1
+18 --> 12 are equal or edge already exists
+edgeExists(17,12): 1
+17 --> 12 are equal or edge already exists
+Couldn't add 21 or 9 (bounds: [0, 19])
+edgeExists(16,14): 1
+16 --> 14 are equal or edge already exists
+Couldn't add -2 or 17 (bounds: [0, 19])
+edgeExists(3,13): 1
+3 --> 13 are equal or edge already exists
+edgeExists(19,16): 1
+19 --> 16 are equal or edge already exists
+edgeExists(6,18): 1
+6 --> 18 are equal or edge already exists
+edgeExists(14,16): 1
+14 --> 16 are equal or edge already exists
+Couldn't add 20 or 12 (bounds: [0, 19])
+edgeExists(0,12): 1
+0 --> 12 are equal or edge already exists
+Couldn't add 20 or 12 (bounds: [0, 19])
+edgeExists(17,9): 1
+17 --> 9 are equal or edge already exists
+edgeExists(18,16): 1
+18 --> 16 are equal or edge already exists
+edgeExists(2,14): 1
+2 --> 14 are equal or edge already exists
+edgeExists(16,18): 1
+16 --> 18 are equal or edge already exists
+Couldn't add 13 or 21 (bounds: [0, 19])
+edgeExists(18,12): 1
+18 --> 12 are equal or edge already exists
+Couldn't add 20 or 17 (bounds: [0, 19])
+Couldn't add 17 or 20 (bounds: [0, 19])
+edgeExists(1,15): 1
+1 --> 15 are equal or edge already exists
+Couldn't add 9 or 23 (bounds: [0, 19])
+edgeExists(9,18): 1
+9 --> 18 are equal or edge already exists
+Couldn't add -3 or 13 (bounds: [0, 19])
+Couldn't add 13 or 22 (bounds: [0, 19])
+edgeExists(3,17): 1
+3 --> 17 are equal or edge already exists
+edgeExists(18,9): 1
+18 --> 9 are equal or edge already exists
+Couldn't add 23 or 9 (bounds: [0, 19])
+edgeExists(19,12): 1
+19 --> 12 are equal or edge already exists
+Couldn't add 9 or 20 (bounds: [0, 19])
+edgeExists(6,18): 1
+6 --> 18 are equal or edge already exists
+edgeExists(16,9): 1
+16 --> 9 are equal or edge already exists
+Couldn't add -4 or 13 (bounds: [0, 19])
+edgeExists(19,9): 1
+19 --> 9 are equal or edge already exists
+edgeExists(2,14): 1
+2 --> 14 are equal or edge already exists
+edgeExists(6,18): 1
+6 --> 18 are equal or edge already exists
+Couldn't add 13 or 21 (bounds: [0, 19])
+edgeExists(9,18): 1
+9 --> 18 are equal or edge already exists
+Couldn't add 20 or 17 (bounds: [0, 19])
+edgeExists(13,15): 1
+13 --> 15 are equal or edge already exists
+edgeExists(16,14): 1
+16 --> 14 are equal or edge already exists
+edgeExists(16,11): 1
+16 --> 11 are equal or edge already exists
+edgeExists(17,15): 1
+17 --> 15 are equal or edge already exists
+edgeExists(3,13): 1
+3 --> 13 are equal or edge already exists
+edgeExists(3,13): 1
+3 --> 13 are equal or edge already exists
+edgeExists(0,16): 1
+0 --> 16 are equal or edge already exists
+Couldn't add 21 or 9 (bounds: [0, 19])
+Couldn't add 20 or 17 (bounds: [0, 19])
+edgeExists(18,9): 1
+18 --> 9 are equal or edge already exists
+edgeExists(17,12): 1
+17 --> 12 are equal or edge already exists
+edgeExists(3,17): 1
+3 --> 17 are equal or edge already exists
+edgeExists(3,13): 1
+3 --> 13 are equal or edge already exists
+Couldn't add 5 or 22 (bounds: [0, 19])
+edgeExists(16,14): 1
+16 --> 14 are equal or edge already exists
+edgeExists(16,14): 1
+16 --> 14 are equal or edge already exists
+edgeExists(9,19): 1
+9 --> 19 are equal or edge already exists
+edgeExists(16,11): 1
+16 --> 11 are equal or edge already exists
+edgeExists(0,12): 1
+0 --> 12 are equal or edge already exists
+edgeExists(2,11): 1
+2 --> 11 are equal or edge already exists
+edgeExists(12,18): 1
+12 --> 18 are equal or edge already exists
+edgeExists(2,14): 1
+2 --> 14 are equal or edge already exists
+Couldn't add 1 or 20 (bounds: [0, 19])
+edgeExists(11,16): 1
+11 --> 16 are equal or edge already exists
+edgeExists(3,13): 1
+3 --> 13 are equal or edge already exists
+edgeExists(18,16): 1
+18 --> 16 are equal or edge already exists
+edgeExists(14,16): 1
+14 --> 16 are equal or edge already exists
+edgeExists(15,17): 1
+15 --> 17 are equal or edge already exists
+edgeExists(9,18): 1
+9 --> 18 are equal or edge already exists
+edgeExists(4,16): 1
+4 --> 16 are equal or edge already exists
+edgeExists(6,18): 1
+6 --> 18 are equal or edge already exists
+edgeExists(14,16): 1
+14 --> 16 are equal or edge already exists
+Couldn't add 9 or 21 (bounds: [0, 19])
+edgeExists(7,16): 1
+7 --> 16 are equal or edge already exists
+Couldn't add 13 or 21 (bounds: [0, 19])
+edgeExists(16,14): 1
+16 --> 14 are equal or edge already exists
+edgeExists(2,14): 1
+2 --> 14 are equal or edge already exists
+edgeExists(11,16): 1
+11 --> 16 are equal or edge already exists
+edgeExists(14,15): 1
+14 --> 15 are equal or edge already exists
+edgeExists(17,15): 1
+17 --> 15 are equal or edge already exists
+edgeExists(2,19): 1
+2 --> 19 are equal or edge already exists
+edgeExists(15,17): 1
+15 --> 17 are equal or edge already exists
+edgeExists(9,18): 1
+9 --> 18 are equal or edge already exists
+edgeExists(1,12): 1
+1 --> 12 are equal or edge already exists
+edgeExists(2,11): 1
+2 --> 11 are equal or edge already exists
+edgeExists(2,14): 1
+2 --> 14 are equal or edge already exists
+Couldn't add 13 or 21 (bounds: [0, 19])
+edgeExists(2,14): 1
+2 --> 14 are equal or edge already exists
+edgeExists(11,16): 1
+11 --> 16 are equal or edge already exists
+Couldn't add -4 or 13 (bounds: [0, 19])
+edgeExists(2,14): 1
+2 --> 14 are equal or edge already exists
+edgeExists(16,19): 1
+16 --> 19 are equal or edge already exists
+edgeExists(15,17): 1
+15 --> 17 are equal or edge already exists
+edgeExists(4,16): 1
+4 --> 16 are equal or edge already exists
+edgeExists(19,9): 1
+19 --> 9 are equal or edge already exists
+edgeExists(2,14): 1
+2 --> 14 are equal or edge already exists
+Couldn't add 20 or 12 (bounds: [0, 19])
+edgeExists(16,19): 1
+16 --> 19 are equal or edge already exists
+edgeExists(9,16): 1
+9 --> 16 are equal or edge already exists
+Couldn't add 13 or 22 (bounds: [0, 19])
+edgeExists(12,18): 1
+12 --> 18 are equal or edge already exists
+edgeExists(19,9): 1
+19 --> 9 are equal or edge already exists
+edgeExists(15,17): 1
+15 --> 17 are equal or edge already exists
+edgeExists(3,17): 1
+3 --> 17 are equal or edge already exists
+edgeExists(12,18): 1
+12 --> 18 are equal or edge already exists
+Couldn't add 20 or 12 (bounds: [0, 19])
+edgeExists(9,17): 1
+9 --> 17 are equal or edge already exists
+edgeExists(3,17): 1
+3 --> 17 are equal or edge already exists
+edgeExists(9,18): 1
+9 --> 18 are equal or edge already exists
+edgeExists(3,17): 1
+3 --> 17 are equal or edge already exists
+edgeExists(1,15): 1
+1 --> 15 are equal or edge already exists
+edgeExists(6,19): 1
+6 --> 19 are equal or edge already exists
+Couldn't add 13 or 21 (bounds: [0, 19])
+edgeExists(16,11): 1
+16 --> 11 are equal or edge already exists
+Couldn't add 9 or 21 (bounds: [0, 19])
+Couldn't add 20 or 12 (bounds: [0, 19])
+Couldn't add 17 or 20 (bounds: [0, 19])
+edgeExists(2,18): 1
+2 --> 18 are equal or edge already exists
+Couldn't add 13 or 22 (bounds: [0, 19])
+Couldn't add 20 or 9 (bounds: [0, 19])
+Couldn't add 21 or 13 (bounds: [0, 19])
+edgeExists(7,16): 1
+7 --> 16 are equal or edge already exists
+edgeExists(0,12): 1
+0 --> 12 are equal or edge already exists
+edgeExists(17,15): 1
+17 --> 15 are equal or edge already exists
+Couldn't add 9 or 23 (bounds: [0, 19])
+edgeExists(2,14): 1
+2 --> 14 are equal or edge already exists
+Couldn't add 6 or 20 (bounds: [0, 19])
+edgeExists(3,13): 1
+3 --> 13 are equal or edge already exists
+edgeExists(19,12): 1
+19 --> 12 are equal or edge already exists
+edgeExists(1,12): 1
+1 --> 12 are equal or edge already exists
+edgeExists(3,17): 1
+3 --> 17 are equal or edge already exists
+edgeExists(17,9): 1
+17 --> 9 are equal or edge already exists
+edgeExists(4,15): 1
+4 --> 15 are equal or edge already exists
+Couldn't add -1 or 12 (bounds: [0, 19])
+edgeExists(6,18): 1
+6 --> 18 are equal or edge already exists
+Couldn't add 13 or 21 (bounds: [0, 19])
+edgeExists(17,15): 1
+17 --> 15 are equal or edge already exists
+edgeExists(1,15): 1
+1 --> 15 are equal or edge already exists
+edgeExists(1,15): 1
+1 --> 15 are equal or edge already exists
+Couldn't add 5 or 21 (bounds: [0, 19])
+Couldn't add 21 or 13 (bounds: [0, 19])
+Couldn't add -3 or 13 (bounds: [0, 19])
+Couldn't add -4 or 13 (bounds: [0, 19])
+edgeExists(7,16): 1
+7 --> 16 are equal or edge already exists
+edgeExists(4,15): 1
+4 --> 15 are equal or edge already exists
+edgeExists(7,16): 1
+7 --> 16 are equal or edge already exists
+Couldn't add -1 or 12 (bounds: [0, 19])
+Couldn't add 12 or 20 (bounds: [0, 19])
+edgeExists(16,19): 1
+16 --> 19 are equal or edge already exists
+edgeExists(12,18): 1
+12 --> 18 are equal or edge already exists
+edgeExists(5,15): 1
+5 --> 15 are equal or edge already exists
+edgeExists(17,15): 1
+17 --> 15 are equal or edge already exists
+edgeExists(11,16): 1
+11 --> 16 are equal or edge already exists
+edgeExists(4,15): 1
+4 --> 15 are equal or edge already exists
+edgeExists(16,11): 1
+16 --> 11 are equal or edge already exists
+Couldn't add 9 or 21 (bounds: [0, 19])
+Couldn't add 17 or 20 (bounds: [0, 19])
+edgeExists(2,11): 1
+2 --> 11 are equal or edge already exists
+edgeExists(16,11): 1
+16 --> 11 are equal or edge already exists
+edgeExists(3,17): 1
+3 --> 17 are equal or edge already exists
+edgeExists(18,12): 1
+18 --> 12 are equal or edge already exists
+edgeExists(4,16): 1
+4 --> 16 are equal or edge already exists
+edgeExists(0,12): 1
+0 --> 12 are equal or edge already exists
+Couldn't add -1 or 16 (bounds: [0, 19])
+Couldn't add 12 or 20 (bounds: [0, 19])
+edgeExists(12,18): 1
+12 --> 18 are equal or edge already exists
+edgeExists(18,12): 1
+18 --> 12 are equal or edge already exists
+Couldn't add -1 or 12 (bounds: [0, 19])
+edgeExists(0,12): 1
+0 --> 12 are equal or edge already exists
+edgeExists(7,16): 1
+7 --> 16 are equal or edge already exists
+edgeExists(0,12): 1
+0 --> 12 are equal or edge already exists
+edgeExists(0,12): 1
+0 --> 12 are equal or edge already exists
+edgeExists(16,14): 1
+16 --> 14 are equal or edge already exists
+edgeExists(4,15): 1
+4 --> 15 are equal or edge already exists
+edgeExists(9,17): 1
+9 --> 17 are equal or edge already exists
+edgeExists(0,16): 1
+0 --> 16 are equal or edge already exists
+edgeExists(14,16): 1
+14 --> 16 are equal or edge already exists
+edgeExists(16,11): 1
+16 --> 11 are equal or edge already exists
+edgeExists(16,14): 1
+16 --> 14 are equal or edge already exists
+Couldn't add 9 or 23 (bounds: [0, 19])
+Couldn't add -1 or 16 (bounds: [0, 19])
+edgeExists(3,17): 1
+3 --> 17 are equal or edge already exists
+edgeExists(17,15): 1
+17 --> 15 are equal or edge already exists
+edgeExists(16,18): 1
+16 --> 18 are equal or edge already exists
+edgeExists(11,16): 1
+11 --> 16 are equal or edge already exists
+Couldn't add 17 or 20 (bounds: [0, 19])
+edgeExists(16,14): 1
+16 --> 14 are equal or edge already exists
+Couldn't add -1 or 12 (bounds: [0, 19])
+edgeExists(2,11): 1
+2 --> 11 are equal or edge already exists
+Couldn't add -1 or 12 (bounds: [0, 19])
+Couldn't add -2 or 12 (bounds: [0, 19])
+edgeExists(4,16): 1
+4 --> 16 are equal or edge already exists
+Couldn't add 6 or 20 (bounds: [0, 19])
+Couldn't add 20 or 9 (bounds: [0, 19])
+Couldn't add 12 or 20 (bounds: [0, 19])
+Couldn't add 5 or 22 (bounds: [0, 19])
+edgeExists(16,18): 1
+16 --> 18 are equal or edge already exists
+Couldn't add 22 or 13 (bounds: [0, 19])
+Couldn't add 21 or 9 (bounds: [0, 19])
+Couldn't add 13 or 21 (bounds: [0, 19])
+edgeExists(19,16): 1
+19 --> 16 are equal or edge already exists
+edgeExists(12,18): 1
+12 --> 18 are equal or edge already exists
+edgeExists(15,13): 1
+15 --> 13 are equal or edge already exists
+edgeExists(14,16): 1
+14 --> 16 are equal or edge already exists
+edgeExists(17,15): 1
+17 --> 15 are equal or edge already exists
+edgeExists(3,14): 1
+3 --> 14 are equal or edge already exists
+edgeExists(9,17): 1
+9 --> 17 are equal or edge already exists
+edgeExists(16,11): 1
+16 --> 11 are equal or edge already exists
+edgeExists(14,15): 1
+14 --> 15 are equal or edge already exists
+edgeExists(15,17): 1
+15 --> 17 are equal or edge already exists
+edgeExists(9,17): 1
+9 --> 17 are equal or edge already exists
+Couldn't add 5 or 22 (bounds: [0, 19])
+edgeExists(6,18): 1
+6 --> 18 are equal or edge already exists
+edgeExists(12,19): 1
+12 --> 19 are equal or edge already exists
+Couldn't add 20 or 9 (bounds: [0, 19])
+edgeExists(6,18): 1
+6 --> 18 are equal or edge already exists
+Couldn't add 13 or 21 (bounds: [0, 19])
+edgeExists(9,16): 1
+9 --> 16 are equal or edge already exists
+edgeExists(18,12): 1
+18 --> 12 are equal or edge already exists
+edgeExists(15,17): 1
+15 --> 17 are equal or edge already exists
+edgeExists(6,18): 1
+6 --> 18 are equal or edge already exists
+edgeExists(16,11): 1
+16 --> 11 are equal or edge already exists
+Couldn't add -1 or 16 (bounds: [0, 19])
+edgeExists(16,14): 1
+16 --> 14 are equal or edge already exists
+Couldn't add -2 or 17 (bounds: [0, 19])
+edgeExists(14,16): 1
+14 --> 16 are equal or edge already exists
+edgeExists(9,17): 1
+9 --> 17 are equal or edge already exists
+edgeExists(17,9): 1
+17 --> 9 are equal or edge already exists
+edgeExists(15,17): 1
+15 --> 17 are equal or edge already exists
+Couldn't add 9 or 20 (bounds: [0, 19])
+edgeExists(6,18): 1
+6 --> 18 are equal or edge already exists
+Couldn't add -2 or 17 (bounds: [0, 19])
+edgeExists(0,12): 1
+0 --> 12 are equal or edge already exists
+edgeExists(12,18): 1
+12 --> 18 are equal or edge already exists
+edgeExists(17,12): 1
+17 --> 12 are equal or edge already exists
+Couldn't add 23 or 9 (bounds: [0, 19])
+edgeExists(2,14): 1
+2 --> 14 are equal or edge already exists
+edgeExists(4,16): 1
+4 --> 16 are equal or edge already exists
+edgeExists(1,15): 1
+1 --> 15 are equal or edge already exists
+edgeExists(11,16): 1
+11 --> 16 are equal or edge already exists
+edgeExists(6,18): 1
+6 --> 18 are equal or edge already exists
+edgeExists(5,15): 1
+5 --> 15 are equal or edge already exists
+edgeExists(4,15): 1
+4 --> 15 are equal or edge already exists
+edgeExists(18,12): 1
+18 --> 12 are equal or edge already exists
+edgeExists(12,18): 1
+12 --> 18 are equal or edge already exists
+edgeExists(15,17): 1
+15 --> 17 are equal or edge already exists
+edgeExists(17,15): 1
+17 --> 15 are equal or edge already exists
+edgeExists(14,16): 1
+14 --> 16 are equal or edge already exists
+Couldn't add 9 or 20 (bounds: [0, 19])
+Couldn't add 17 or 20 (bounds: [0, 19])
+edgeExists(16,14): 1
+16 --> 14 are equal or edge already exists
+Couldn't add 6 or 20 (bounds: [0, 19])
+Couldn't add 6 or 20 (bounds: [0, 19])
+edgeExists(15,17): 1
+15 --> 17 are equal or edge already exists
+edgeExists(9,19): 1
+9 --> 19 are equal or edge already exists
+edgeExists(18,9): 1
+18 --> 9 are equal or edge already exists
+edgeExists(15,13): 1
+15 --> 13 are equal or edge already exists
+edgeExists(3,14): 1
+3 --> 14 are equal or edge already exists
+Couldn't add -3 or 13 (bounds: [0, 19])
+edgeExists(14,16): 1
+14 --> 16 are equal or edge already exists
+edgeExists(15,13): 1
+15 --> 13 are equal or edge already exists
+Couldn't add 9 or 20 (bounds: [0, 19])
+edgeExists(9,17): 1
+9 --> 17 are equal or edge already exists
+Couldn't add 20 or 12 (bounds: [0, 19])
+Couldn't add 5 or 22 (bounds: [0, 19])
+edgeExists(6,18): 1
+6 --> 18 are equal or edge already exists
+Couldn't add 9 or 21 (bounds: [0, 19])
+edgeExists(16,14): 1
+16 --> 14 are equal or edge already exists
+Couldn't add 1 or 20 (bounds: [0, 19])
+edgeExists(16,18): 1
+16 --> 18 are equal or edge already exists
+Couldn't add 20 or 17 (bounds: [0, 19])
+edgeExists(9,19): 1
+9 --> 19 are equal or edge already exists
+edgeExists(3,14): 1
+3 --> 14 are equal or edge already exists
+edgeExists(1,12): 1
+1 --> 12 are equal or edge already exists
+edgeExists(1,15): 1
+1 --> 15 are equal or edge already exists
+Couldn't add -1 or 16 (bounds: [0, 19])
+edgeExists(18,12): 1
+18 --> 12 are equal or edge already exists
+edgeExists(2,14): 1
+2 --> 14 are equal or edge already exists
+edgeExists(1,15): 1
+1 --> 15 are equal or edge already exists
+edgeExists(6,18): 1
+6 --> 18 are equal or edge already exists
+Couldn't add 13 or 22 (bounds: [0, 19])
+Couldn't add 5 or 22 (bounds: [0, 19])
+edgeExists(5,15): 1
+5 --> 15 are equal or edge already exists
+edgeExists(16,14): 1
+16 --> 14 are equal or edge already exists
+Couldn't add -2 or 17 (bounds: [0, 19])
+edgeExists(1,15): 1
+1 --> 15 are equal or edge already exists
+edgeExists(5,15): 1
+5 --> 15 are equal or edge already exists
+edgeExists(12,17): 1
+12 --> 17 are equal or edge already exists
+edgeExists(15,14): 1
+15 --> 14 are equal or edge already exists
+edgeExists(19,9): 1
+19 --> 9 are equal or edge already exists
+edgeExists(19,9): 1
+19 --> 9 are equal or edge already exists
+edgeExists(11,16): 1
+11 --> 16 are equal or edge already exists
+Couldn't add -1 or 12 (bounds: [0, 19])
+edgeExists(12,18): 1
+12 --> 18 are equal or edge already exists
+edgeExists(3,17): 1
+3 --> 17 are equal or edge already exists
+edgeExists(18,9): 1
+18 --> 9 are equal or edge already exists
+Couldn't add -3 or 13 (bounds: [0, 19])
+Couldn't add -2 or 17 (bounds: [0, 19])
+edgeExists(17,9): 1
+17 --> 9 are equal or edge already exists
+Couldn't add -4 or 13 (bounds: [0, 19])
+edgeExists(15,17): 1
+15 --> 17 are equal or edge already exists
+edgeExists(14,16): 1
+14 --> 16 are equal or edge already exists
+edgeExists(5,15): 1
+5 --> 15 are equal or edge already exists
+Couldn't add 20 or 17 (bounds: [0, 19])
+edgeExists(7,16): 1
+7 --> 16 are equal or edge already exists
+edgeExists(7,16): 1
+7 --> 16 are equal or edge already exists
+edgeExists(13,15): 1
+13 --> 15 are equal or edge already exists
+Couldn't add 12 or 20 (bounds: [0, 19])
+edgeExists(7,16): 1
+7 --> 16 are equal or edge already exists
+Couldn't add 9 or 23 (bounds: [0, 19])
+edgeExists(12,19): 1
+12 --> 19 are equal or edge already exists
+edgeExists(1,15): 1
+1 --> 15 are equal or edge already exists
+edgeExists(16,18): 1
+16 --> 18 are equal or edge already exists
+edgeExists(14,16): 1
+14 --> 16 are equal or edge already exists
+edgeExists(19,9): 1
+19 --> 9 are equal or edge already exists
+edgeExists(2,11): 1
+2 --> 11 are equal or edge already exists
+edgeExists(16,11): 1
+16 --> 11 are equal or edge already exists
+edgeExists(6,18): 1
+6 --> 18 are equal or edge already exists
+edgeExists(4,15): 1
+4 --> 15 are equal or edge already exists
+Couldn't add 22 or 13 (bounds: [0, 19])
+Couldn't add 13 or 22 (bounds: [0, 19])
+edgeExists(17,9): 1
+17 --> 9 are equal or edge already exists
+Couldn't add -2 or 12 (bounds: [0, 19])
+Couldn't add -4 or 13 (bounds: [0, 19])
+edgeExists(17,9): 1
+17 --> 9 are equal or edge already exists
+edgeExists(12,18): 1
+12 --> 18 are equal or edge already exists
+Couldn't add 21 or 9 (bounds: [0, 19])
+Couldn't add 13 or 22 (bounds: [0, 19])
+Couldn't add 22 or 13 (bounds: [0, 19])
+Couldn't add 1 or 20 (bounds: [0, 19])
+edgeExists(16,19): 1
+16 --> 19 are equal or edge already exists
+edgeExists(17,12): 1
+17 --> 12 are equal or edge already exists
+edgeExists(9,17): 1
+9 --> 17 are equal or edge already exists
+edgeExists(15,17): 1
+15 --> 17 are equal or edge already exists
+edgeExists(9,19): 1
+9 --> 19 are equal or edge already exists
+edgeExists(17,15): 1
+17 --> 15 are equal or edge already exists
+edgeExists(4,16): 1
+4 --> 16 are equal or edge already exists
+edgeExists(15,14): 1
+15 --> 14 are equal or edge already exists
+edgeExists(9,19): 1
+9 --> 19 are equal or edge already exists
+edgeExists(7,16): 1
+7 --> 16 are equal or edge already exists
+Couldn't add 21 or 13 (bounds: [0, 19])
+Couldn't add -2 or 12 (bounds: [0, 19])
+edgeExists(0,12): 1
+0 --> 12 are equal or edge already exists
+edgeExists(7,16): 1
+7 --> 16 are equal or edge already exists
+edgeExists(7,16): 1
+7 --> 16 are equal or edge already exists
+edgeExists(0,12): 1
+0 --> 12 are equal or edge already exists
+Couldn't add 6 or 20 (bounds: [0, 19])
+Couldn't add 12 or 20 (bounds: [0, 19])
+edgeExists(0,12): 1
+0 --> 12 are equal or edge already exists
+edgeExists(9,16): 1
+9 --> 16 are equal or edge already exists
+edgeExists(5,15): 1
+5 --> 15 are equal or edge already exists
+edgeExists(19,12): 1
+19 --> 12 are equal or edge already exists
+edgeExists(12,17): 1
+12 --> 17 are equal or edge already exists
+edgeExists(13,15): 1
+13 --> 15 are equal or edge already exists
+edgeExists(0,16): 1
+0 --> 16 are equal or edge already exists
+edgeExists(14,16): 1
+14 --> 16 are equal or edge already exists
+edgeExists(17,12): 1
+17 --> 12 are equal or edge already exists
+Couldn't add 13 or 21 (bounds: [0, 19])
+edgeExists(0,12): 1
+0 --> 12 are equal or edge already exists
+edgeExists(2,18): 1
+2 --> 18 are equal or edge already exists
+edgeExists(4,16): 1
+4 --> 16 are equal or edge already exists
+edgeExists(16,11): 1
+16 --> 11 are equal or edge already exists
+edgeExists(12,17): 1
+12 --> 17 are equal or edge already exists
+edgeExists(15,13): 1
+15 --> 13 are equal or edge already exists
+Couldn't add 13 or 22 (bounds: [0, 19])
+Couldn't add 13 or 21 (bounds: [0, 19])
+edgeExists(14,16): 1
+14 --> 16 are equal or edge already exists
+edgeExists(6,18): 1
+6 --> 18 are equal or edge already exists
+edgeExists(1,12): 1
+1 --> 12 are equal or edge already exists
+Couldn't add 17 or 20 (bounds: [0, 19])
+edgeExists(4,15): 1
+4 --> 15 are equal or edge already exists
+Couldn't add 9 or 23 (bounds: [0, 19])
+edgeExists(6,18): 1
+6 --> 18 are equal or edge already exists
+Couldn't add 23 or 9 (bounds: [0, 19])
+edgeExists(3,17): 1
+3 --> 17 are equal or edge already exists
+edgeExists(2,18): 1
+2 --> 18 are equal or edge already exists
+Couldn't add 21 or 9 (bounds: [0, 19])
+edgeExists(16,11): 1
+16 --> 11 are equal or edge already exists
+edgeExists(3,17): 1
+3 --> 17 are equal or edge already exists
+Couldn't add 17 or 20 (bounds: [0, 19])
+Couldn't add 13 or 22 (bounds: [0, 19])
+Couldn't add 5 or 21 (bounds: [0, 19])
+Couldn't add 5 or 22 (bounds: [0, 19])
+edgeExists(11,16): 1
+11 --> 16 are equal or edge already exists
+Couldn't add 9 or 23 (bounds: [0, 19])
+edgeExists(19,9): 1
+19 --> 9 are equal or edge already exists
+edgeExists(17,15): 1
+17 --> 15 are equal or edge already exists
+Couldn't add 9 or 20 (bounds: [0, 19])
+edgeExists(12,17): 1
+12 --> 17 are equal or edge already exists
+Couldn't add -2 or 12 (bounds: [0, 19])
+edgeExists(18,12): 1
+18 --> 12 are equal or edge already exists
+edgeExists(6,18): 1
+6 --> 18 are equal or edge already exists
+edgeExists(18,12): 1
+18 --> 12 are equal or edge already exists
+edgeExists(19,9): 1
+19 --> 9 are equal or edge already exists
+edgeExists(3,14): 1
+3 --> 14 are equal or edge already exists
+Couldn't add 9 or 21 (bounds: [0, 19])
+edgeExists(4,15): 1
+4 --> 15 are equal or edge already exists
+Couldn't add 22 or 13 (bounds: [0, 19])
+edgeExists(16,19): 1
+16 --> 19 are equal or edge already exists
+edgeExists(14,15): 1
+14 --> 15 are equal or edge already exists
+edgeExists(0,12): 1
+0 --> 12 are equal or edge already exists
+edgeExists(9,16): 1
+9 --> 16 are equal or edge already exists
+edgeExists(4,15): 1
+4 --> 15 are equal or edge already exists
+edgeExists(17,12): 1
+17 --> 12 are equal or edge already exists
+edgeExists(12,18): 1
+12 --> 18 are equal or edge already exists
+edgeExists(17,9): 1
+17 --> 9 are equal or edge already exists
+edgeExists(1,15): 1
+1 --> 15 are equal or edge already exists
+Couldn't add 20 or 12 (bounds: [0, 19])
+edgeExists(9,17): 1
+9 --> 17 are equal or edge already exists
+Couldn't add 21 or 9 (bounds: [0, 19])
+edgeExists(18,12): 1
+18 --> 12 are equal or edge already exists
+Couldn't add -2 or 17 (bounds: [0, 19])
+edgeExists(14,16): 1
+14 --> 16 are equal or edge already exists
+edgeExists(2,14): 1
+2 --> 14 are equal or edge already exists
+edgeExists(3,17): 1
+3 --> 17 are equal or edge already exists
+Couldn't add 20 or 9 (bounds: [0, 19])
+Couldn't add 20 or 17 (bounds: [0, 19])
+edgeExists(11,16): 1
+11 --> 16 are equal or edge already exists
+edgeExists(3,17): 1
+3 --> 17 are equal or edge already exists
+edgeExists(0,16): 1
+0 --> 16 are equal or edge already exists
+edgeExists(9,17): 1
+9 --> 17 are equal or edge already exists
+edgeExists(4,15): 1
+4 --> 15 are equal or edge already exists
+Couldn't add -3 or 13 (bounds: [0, 19])
+edgeExists(0,12): 1
+0 --> 12 are equal or edge already exists
+Couldn't add 1 or 20 (bounds: [0, 19])
+edgeExists(18,16): 1
+18 --> 16 are equal or edge already exists
+edgeExists(3,17): 1
+3 --> 17 are equal or edge already exists
+edgeExists(3,17): 1
+3 --> 17 are equal or edge already exists
+Couldn't add 9 or 23 (bounds: [0, 19])
+edgeExists(5,15): 1
+5 --> 15 are equal or edge already exists
+edgeExists(16,18): 1
+16 --> 18 are equal or edge already exists
+Couldn't add -3 or 13 (bounds: [0, 19])
+edgeExists(17,12): 1
+17 --> 12 are equal or edge already exists
+Couldn't add 22 or 13 (bounds: [0, 19])
+edgeExists(2,14): 1
+2 --> 14 are equal or edge already exists
+edgeExists(19,9): 1
+19 --> 9 are equal or edge already exists
+edgeExists(9,18): 1
+9 --> 18 are equal or edge already exists
+edgeExists(9,19): 1
+9 --> 19 are equal or edge already exists
+Couldn't add 23 or 9 (bounds: [0, 19])
+edgeExists(11,16): 1
+11 --> 16 are equal or edge already exists
+edgeExists(7,16): 1
+7 --> 16 are equal or edge already exists
+edgeExists(2,19): 1
+2 --> 19 are equal or edge already exists
+Couldn't add 9 or 23 (bounds: [0, 19])
+edgeExists(1,15): 1
+1 --> 15 are equal or edge already exists
+Couldn't add -4 or 13 (bounds: [0, 19])
+edgeExists(17,9): 1
+17 --> 9 are equal or edge already exists
+edgeExists(15,17): 1
+15 --> 17 are equal or edge already exists
+Couldn't add 9 or 20 (bounds: [0, 19])
+Couldn't add -3 or 13 (bounds: [0, 19])
+edgeExists(2,14): 1
+2 --> 14 are equal or edge already exists
+edgeExists(2,11): 1
+2 --> 11 are equal or edge already exists
+Couldn't add 21 or 13 (bounds: [0, 19])
+edgeExists(4,16): 1
+4 --> 16 are equal or edge already exists
+Couldn't add -2 or 12 (bounds: [0, 19])
+edgeExists(12,17): 1
+12 --> 17 are equal or edge already exists
+edgeExists(2,18): 1
+2 --> 18 are equal or edge already exists
+edgeExists(4,16): 1
+4 --> 16 are equal or edge already exists
+Couldn't add -4 or 13 (bounds: [0, 19])
+edgeExists(12,17): 1
+12 --> 17 are equal or edge already exists
+edgeExists(15,14): 1
+15 --> 14 are equal or edge already exists
+edgeExists(9,16): 1
+9 --> 16 are equal or edge already exists
+edgeExists(13,15): 1
+13 --> 15 are equal or edge already exists
+edgeExists(9,17): 1
+9 --> 17 are equal or edge already exists
+edgeExists(7,16): 1
+7 --> 16 are equal or edge already exists
+edgeExists(7,16): 1
+7 --> 16 are equal or edge already exists
+Couldn't add -2 or 17 (bounds: [0, 19])
+edgeExists(0,12): 1
+0 --> 12 are equal or edge already exists
+edgeExists(3,17): 1
+3 --> 17 are equal or edge already exists
+edgeExists(18,12): 1
+18 --> 12 are equal or edge already exists
+Couldn't add 5 or 22 (bounds: [0, 19])
+edgeExists(11,16): 1
+11 --> 16 are equal or edge already exists
+Couldn't add 12 or 20 (bounds: [0, 19])
+edgeExists(9,19): 1
+9 --> 19 are equal or edge already exists
+edgeExists(18,12): 1
+18 --> 12 are equal or edge already exists
+edgeExists(5,15): 1
+5 --> 15 are equal or edge already exists
+edgeExists(12,17): 1
+12 --> 17 are equal or edge already exists
+Couldn't add 5 or 21 (bounds: [0, 19])
+edgeExists(18,12): 1
+18 --> 12 are equal or edge already exists
+Couldn't add 6 or 20 (bounds: [0, 19])
+edgeExists(1,12): 1
+1 --> 12 are equal or edge already exists
+Couldn't add 21 or 13 (bounds: [0, 19])
+edgeExists(6,18): 1
+6 --> 18 are equal or edge already exists
+edgeExists(9,18): 1
+9 --> 18 are equal or edge already exists
+edgeExists(17,15): 1
+17 --> 15 are equal or edge already exists
+Couldn't add -2 or 12 (bounds: [0, 19])
+Couldn't add -1 or 16 (bounds: [0, 19])
+Couldn't add -2 or 17 (bounds: [0, 19])
+edgeExists(2,18): 1
+2 --> 18 are equal or edge already exists
+edgeExists(16,11): 1
+16 --> 11 are equal or edge already exists
+Couldn't add 21 or 9 (bounds: [0, 19])
+Couldn't add 9 or 20 (bounds: [0, 19])
+Couldn't add 5 or 22 (bounds: [0, 19])
+edgeExists(12,17): 1
+12 --> 17 are equal or edge already exists
+edgeExists(4,16): 1
+4 --> 16 are equal or edge already exists
+edgeExists(12,18): 1
+12 --> 18 are equal or edge already exists
+edgeExists(2,11): 1
+2 --> 11 are equal or edge already exists
+edgeExists(17,15): 1
+17 --> 15 are equal or edge already exists
+Couldn't add 21 or 13 (bounds: [0, 19])
+edgeExists(2,14): 1
+2 --> 14 are equal or edge already exists
+edgeExists(3,14): 1
+3 --> 14 are equal or edge already exists
+edgeExists(18,9): 1
+18 --> 9 are equal or edge already exists
+edgeExists(12,19): 1
+12 --> 19 are equal or edge already exists
+Couldn't add -4 or 13 (bounds: [0, 19])
+edgeExists(15,13): 1
+15 --> 13 are equal or edge already exists
+Couldn't add 1 or 20 (bounds: [0, 19])
+Couldn't add 20 or 12 (bounds: [0, 19])
+Couldn't add 5 or 21 (bounds: [0, 19])
+edgeExists(16,19): 1
+16 --> 19 are equal or edge already exists
+edgeExists(1,15): 1
+1 --> 15 are equal or edge already exists
+edgeExists(18,12): 1
+18 --> 12 are equal or edge already exists
+edgeExists(6,17): 1
+6 --> 17 are equal or edge already exists
+edgeExists(2,11): 1
+2 --> 11 are equal or edge already exists
+edgeExists(9,18): 1
+9 --> 18 are equal or edge already exists
+edgeExists(0,12): 1
+0 --> 12 are equal or edge already exists
+Couldn't add 17 or 20 (bounds: [0, 19])
+edgeExists(0,12): 1
+0 --> 12 are equal or edge already exists
+edgeExists(4,16): 1
+4 --> 16 are equal or edge already exists
+edgeExists(6,18): 1
+6 --> 18 are equal or edge already exists
+edgeExists(4,16): 1
+4 --> 16 are equal or edge already exists
+edgeExists(2,14): 1
+2 --> 14 are equal or edge already exists
+edgeExists(15,17): 1
+15 --> 17 are equal or edge already exists
+edgeExists(2,18): 1
+2 --> 18 are equal or edge already exists
+Couldn't add 21 or 13 (bounds: [0, 19])
+edgeExists(13,15): 1
+13 --> 15 are equal or edge already exists
+edgeExists(16,18): 1
+16 --> 18 are equal or edge already exists
+Couldn't add 9 or 23 (bounds: [0, 19])
+edgeExists(18,9): 1
+18 --> 9 are equal or edge already exists
+Couldn't add 20 or 17 (bounds: [0, 19])
+edgeExists(2,14): 1
+2 --> 14 are equal or edge already exists
+Couldn't add 12 or 20 (bounds: [0, 19])
+edgeExists(16,14): 1
+16 --> 14 are equal or edge already exists
+edgeExists(4,15): 1
+4 --> 15 are equal or edge already exists
+Couldn't add 6 or 20 (bounds: [0, 19])
+Couldn't add -3 or 13 (bounds: [0, 19])
+edgeExists(1,15): 1
+1 --> 15 are equal or edge already exists
+Couldn't add 5 or 21 (bounds: [0, 19])
+edgeExists(4,16): 1
+4 --> 16 are equal or edge already exists
+edgeExists(12,19): 1
+12 --> 19 are equal or edge already exists
+edgeExists(2,19): 1
+2 --> 19 are equal or edge already exists
+edgeExists(16,14): 1
+16 --> 14 are equal or edge already exists
+Couldn't add 23 or 9 (bounds: [0, 19])
+edgeExists(1,15): 1
+1 --> 15 are equal or edge already exists
+Couldn't add 12 or 20 (bounds: [0, 19])
+edgeExists(7,16): 1
+7 --> 16 are equal or edge already exists
+edgeExists(16,11): 1
+16 --> 11 are equal or edge already exists
+edgeExists(2,14): 1
+2 --> 14 are equal or edge already exists
+Couldn't add 13 or 21 (bounds: [0, 19])
+edgeExists(18,16): 1
+18 --> 16 are equal or edge already exists
+edgeExists(18,16): 1
+18 --> 16 are equal or edge already exists
+edgeExists(2,18): 1
+2 --> 18 are equal or edge already exists
+edgeExists(2,18): 1
+2 --> 18 are equal or edge already exists
+edgeExists(0,12): 1
+0 --> 12 are equal or edge already exists
+edgeExists(17,9): 1
+17 --> 9 are equal or edge already exists
+edgeExists(2,18): 1
+2 --> 18 are equal or edge already exists
+edgeExists(16,19): 1
+16 --> 19 are equal or edge already exists
+Couldn't add 21 or 13 (bounds: [0, 19])
+edgeExists(18,9): 1
+18 --> 9 are equal or edge already exists
+Couldn't add -1 or 16 (bounds: [0, 19])
+edgeExists(3,14): 1
+3 --> 14 are equal or edge already exists
+edgeExists(17,12): 1
+17 --> 12 are equal or edge already exists
+Couldn't add 9 or 21 (bounds: [0, 19])
+Couldn't add 22 or 13 (bounds: [0, 19])
+Couldn't add -2 or 17 (bounds: [0, 19])
+Couldn't add 13 or 22 (bounds: [0, 19])
+Couldn't add 13 or 21 (bounds: [0, 19])
+Couldn't add 21 or 13 (bounds: [0, 19])
+edgeExists(11,16): 1
+11 --> 16 are equal or edge already exists
+Couldn't add -1 or 12 (bounds: [0, 19])
+edgeExists(16,11): 1
+16 --> 11 are equal or edge already exists
+edgeExists(16,14): 1
+16 --> 14 are equal or edge already exists
+edgeExists(15,14): 1
+15 --> 14 are equal or edge already exists
+edgeExists(9,17): 1
+9 --> 17 are equal or edge already exists
+edgeExists(15,17): 1
+15 --> 17 are equal or edge already exists
+edgeExists(4,15): 1
+4 --> 15 are equal or edge already exists
+edgeExists(16,11): 1
+16 --> 11 are equal or edge already exists
+edgeExists(6,19): 1
+6 --> 19 are equal or edge already exists
+Couldn't add 17 or 20 (bounds: [0, 19])
+edgeExists(0,12): 1
+0 --> 12 are equal or edge already exists
+edgeExists(1,12): 1
+1 --> 12 are equal or edge already exists
+edgeExists(17,9): 1
+17 --> 9 are equal or edge already exists
+edgeExists(2,19): 1
+2 --> 19 are equal or edge already exists
+edgeExists(7,16): 1
+7 --> 16 are equal or edge already exists
+edgeExists(9,17): 1
+9 --> 17 are equal or edge already exists
+Couldn't add 20 or 9 (bounds: [0, 19])
+edgeExists(9,18): 1
+9 --> 18 are equal or edge already exists
+edgeExists(17,9): 1
+17 --> 9 are equal or edge already exists
+edgeExists(19,12): 1
+19 --> 12 are equal or edge already exists
+Couldn't add 1 or 20 (bounds: [0, 19])
+edgeExists(4,15): 1
+4 --> 15 are equal or edge already exists
+edgeExists(16,9): 1
+16 --> 9 are equal or edge already exists
+edgeExists(2,11): 1
+2 --> 11 are equal or edge already exists
+Couldn't add 13 or 21 (bounds: [0, 19])
+edgeExists(2,18): 1
+2 --> 18 are equal or edge already exists
+edgeExists(12,18): 1
+12 --> 18 are equal or edge already exists
+edgeExists(2,11): 1
+2 --> 11 are equal or edge already exists
+edgeExists(19,16): 1
+19 --> 16 are equal or edge already exists
+Couldn't add 9 or 21 (bounds: [0, 19])
+edgeExists(16,14): 1
+16 --> 14 are equal or edge already exists
+edgeExists(18,9): 1
+18 --> 9 are equal or edge already exists
+edgeExists(3,13): 1
+3 --> 13 are equal or edge already exists
+edgeExists(13,15): 1
+13 --> 15 are equal or edge already exists
+edgeExists(0,16): 1
+0 --> 16 are equal or edge already exists
+edgeExists(7,16): 1
+7 --> 16 are equal or edge already exists
+edgeExists(16,14): 1
+16 --> 14 are equal or edge already exists
+edgeExists(9,16): 1
+9 --> 16 are equal or edge already exists
+edgeExists(14,16): 1
+14 --> 16 are equal or edge already exists
+edgeExists(3,14): 1
+3 --> 14 are equal or edge already exists
+Couldn't add -2 or 17 (bounds: [0, 19])
+edgeExists(4,16): 1
+4 --> 16 are equal or edge already exists
+edgeExists(17,15): 1
+17 --> 15 are equal or edge already exists
+Couldn't add 6 or 20 (bounds: [0, 19])
+Couldn't add 17 or 20 (bounds: [0, 19])
+Couldn't add 17 or 20 (bounds: [0, 19])
+edgeExists(6,18): 1
+6 --> 18 are equal or edge already exists
+edgeExists(7,16): 1
+7 --> 16 are equal or edge already exists
+Couldn't add 20 or 17 (bounds: [0, 19])
+edgeExists(2,19): 1
+2 --> 19 are equal or edge already exists
+edgeExists(6,18): 1
+6 --> 18 are equal or edge already exists
+Couldn't add 20 or 12 (bounds: [0, 19])
+edgeExists(9,19): 1
+9 --> 19 are equal or edge already exists
+edgeExists(9,19): 1
+9 --> 19 are equal or edge already exists
+edgeExists(15,13): 1
+15 --> 13 are equal or edge already exists
+Couldn't add 17 or 20 (bounds: [0, 19])
+Couldn't add -2 or 17 (bounds: [0, 19])
+edgeExists(0,12): 1
+0 --> 12 are equal or edge already exists
+edgeExists(16,14): 1
+16 --> 14 are equal or edge already exists
+edgeExists(2,19): 1
+2 --> 19 are equal or edge already exists
+edgeExists(16,18): 1
+16 --> 18 are equal or edge already exists
+edgeExists(9,19): 1
+9 --> 19 are equal or edge already exists
+edgeExists(9,17): 1
+9 --> 17 are equal or edge already exists
+Couldn't add 12 or 20 (bounds: [0, 19])
+edgeExists(9,19): 1
+9 --> 19 are equal or edge already exists
+Couldn't add 12 or 20 (bounds: [0, 19])
+edgeExists(3,13): 1
+3 --> 13 are equal or edge already exists
+edgeExists(15,17): 1
+15 --> 17 are equal or edge already exists
+edgeExists(6,17): 1
+6 --> 17 are equal or edge already exists
+Couldn't add 21 or 9 (bounds: [0, 19])
+edgeExists(16,9): 1
+16 --> 9 are equal or edge already exists
+edgeExists(12,19): 1
+12 --> 19 are equal or edge already exists
+edgeExists(9,19): 1
+9 --> 19 are equal or edge already exists
+Couldn't add -1 or 16 (bounds: [0, 19])
+edgeExists(1,15): 1
+1 --> 15 are equal or edge already exists
+edgeExists(19,12): 1
+19 --> 12 are equal or edge already exists
+edgeExists(14,15): 1
+14 --> 15 are equal or edge already exists
+edgeExists(15,17): 1
+15 --> 17 are equal or edge already exists
+edgeExists(9,19): 1
+9 --> 19 are equal or edge already exists
+edgeExists(1,15): 1
+1 --> 15 are equal or edge already exists
+edgeExists(16,9): 1
+16 --> 9 are equal or edge already exists
+Couldn't add 9 or 23 (bounds: [0, 19])
+edgeExists(12,18): 1
+12 --> 18 are equal or edge already exists
+Couldn't add 13 or 22 (bounds: [0, 19])
+edgeExists(11,16): 1
+11 --> 16 are equal or edge already exists
+edgeExists(0,12): 1
+0 --> 12 are equal or edge already exists
+edgeExists(12,18): 1
+12 --> 18 are equal or edge already exists
+Couldn't add 20 or 17 (bounds: [0, 19])
+edgeExists(2,18): 1
+2 --> 18 are equal or edge already exists
+Couldn't add 20 or 17 (bounds: [0, 19])
+edgeExists(17,12): 1
+17 --> 12 are equal or edge already exists
+edgeExists(17,9): 1
+17 --> 9 are equal or edge already exists
+Couldn't add -3 or 13 (bounds: [0, 19])
+edgeExists(9,17): 1
+9 --> 17 are equal or edge already exists
+edgeExists(17,15): 1
+17 --> 15 are equal or edge already exists
+edgeExists(12,17): 1
+12 --> 17 are equal or edge already exists
+edgeExists(3,17): 1
+3 --> 17 are equal or edge already exists
+edgeExists(4,16): 1
+4 --> 16 are equal or edge already exists
+edgeExists(18,12): 1
+18 --> 12 are equal or edge already exists
+edgeExists(16,11): 1
+16 --> 11 are equal or edge already exists
+edgeExists(9,19): 1
+9 --> 19 are equal or edge already exists
+edgeExists(2,14): 1
+2 --> 14 are equal or edge already exists
+edgeExists(1,15): 1
+1 --> 15 are equal or edge already exists
+Couldn't add 23 or 9 (bounds: [0, 19])
+edgeExists(9,17): 1
+9 --> 17 are equal or edge already exists
+edgeExists(16,18): 1
+16 --> 18 are equal or edge already exists
+edgeExists(17,9): 1
+17 --> 9 are equal or edge already exists
+edgeExists(2,19): 1
+2 --> 19 are equal or edge already exists
+edgeExists(19,12): 1
+19 --> 12 are equal or edge already exists
+Couldn't add -4 or 13 (bounds: [0, 19])
+edgeExists(6,19): 1
+6 --> 19 are equal or edge already exists
+edgeExists(15,17): 1
+15 --> 17 are equal or edge already exists
+Couldn't add 6 or 20 (bounds: [0, 19])
+Couldn't add 20 or 12 (bounds: [0, 19])
+edgeExists(12,19): 1
+12 --> 19 are equal or edge already exists
+Couldn't add 21 or 9 (bounds: [0, 19])
+edgeExists(16,18): 1
+16 --> 18 are equal or edge already exists
+edgeExists(18,12): 1
+18 --> 12 are equal or edge already exists
+edgeExists(9,17): 1
+9 --> 17 are equal or edge already exists
+edgeExists(4,16): 1
+4 --> 16 are equal or edge already exists
+edgeExists(18,12): 1
+18 --> 12 are equal or edge already exists
+edgeExists(9,19): 1
+9 --> 19 are equal or edge already exists
+edgeExists(2,11): 1
+2 --> 11 are equal or edge already exists
+Couldn't add -1 or 12 (bounds: [0, 19])
+edgeExists(16,19): 1
+16 --> 19 are equal or edge already exists
+edgeExists(17,15): 1
+17 --> 15 are equal or edge already exists
+Couldn't add 13 or 22 (bounds: [0, 19])
+edgeExists(2,11): 1
+2 --> 11 are equal or edge already exists
+edgeExists(15,17): 1
+15 --> 17 are equal or edge already exists
+edgeExists(15,17): 1
+15 --> 17 are equal or edge already exists
+Couldn't add 20 or 9 (bounds: [0, 19])
+edgeExists(6,18): 1
+6 --> 18 are equal or edge already exists
+edgeExists(1,15): 1
+1 --> 15 are equal or edge already exists
+edgeExists(19,16): 1
+19 --> 16 are equal or edge already exists
+edgeExists(6,17): 1
+6 --> 17 are equal or edge already exists
+edgeExists(15,13): 1
+15 --> 13 are equal or edge already exists
+edgeExists(9,16): 1
+9 --> 16 are equal or edge already exists
+edgeExists(18,12): 1
+18 --> 12 are equal or edge already exists
+edgeExists(11,16): 1
+11 --> 16 are equal or edge already exists
+Couldn't add 9 or 23 (bounds: [0, 19])
+edgeExists(1,12): 1
+1 --> 12 are equal or edge already exists
+Couldn't add -4 or 13 (bounds: [0, 19])
+edgeExists(2,18): 1
+2 --> 18 are equal or edge already exists
+edgeExists(4,16): 1
+4 --> 16 are equal or edge already exists
+edgeExists(15,17): 1
+15 --> 17 are equal or edge already exists
+edgeExists(16,14): 1
+16 --> 14 are equal or edge already exists
+edgeExists(9,19): 1
+9 --> 19 are equal or edge already exists
+edgeExists(17,9): 1
+17 --> 9 are equal or edge already exists
+edgeExists(6,18): 1
+6 --> 18 are equal or edge already exists
+edgeExists(11,16): 1
+11 --> 16 are equal or edge already exists
+edgeExists(18,12): 1
+18 --> 12 are equal or edge already exists
+edgeExists(17,12): 1
+17 --> 12 are equal or edge already exists
+edgeExists(18,12): 1
+18 --> 12 are equal or edge already exists
+Couldn't add 21 or 13 (bounds: [0, 19])
+edgeExists(9,19): 1
+9 --> 19 are equal or edge already exists
+edgeExists(17,15): 1
+17 --> 15 are equal or edge already exists
+edgeExists(15,13): 1
+15 --> 13 are equal or edge already exists
+edgeExists(7,16): 1
+7 --> 16 are equal or edge already exists
+Couldn't add 21 or 9 (bounds: [0, 19])
+edgeExists(15,13): 1
+15 --> 13 are equal or edge already exists
+edgeExists(19,16): 1
+19 --> 16 are equal or edge already exists
+Couldn't add 20 or 12 (bounds: [0, 19])
+edgeExists(16,14): 1
+16 --> 14 are equal or edge already exists
+edgeExists(7,16): 1
+7 --> 16 are equal or edge already exists
+edgeExists(1,15): 1
+1 --> 15 are equal or edge already exists
+Couldn't add 20 or 17 (bounds: [0, 19])
+edgeExists(9,17): 1
+9 --> 17 are equal or edge already exists
+edgeExists(2,14): 1
+2 --> 14 are equal or edge already exists
+edgeExists(16,18): 1
+16 --> 18 are equal or edge already exists
+Couldn't add 21 or 9 (bounds: [0, 19])
+edgeExists(4,16): 1
+4 --> 16 are equal or edge already exists
+edgeExists(6,19): 1
+6 --> 19 are equal or edge already exists
+edgeExists(19,9): 1
+19 --> 9 are equal or edge already exists
+edgeExists(3,14): 1
+3 --> 14 are equal or edge already exists
+edgeExists(15,13): 1
+15 --> 13 are equal or edge already exists
+edgeExists(0,16): 1
+0 --> 16 are equal or edge already exists
+Couldn't add -2 or 12 (bounds: [0, 19])
+edgeExists(12,18): 1
+12 --> 18 are equal or edge already exists
+Couldn't add 17 or 20 (bounds: [0, 19])
+Couldn't add -2 or 17 (bounds: [0, 19])
+edgeExists(16,9): 1
+16 --> 9 are equal or edge already exists
+edgeExists(16,18): 1
+16 --> 18 are equal or edge already exists
+edgeExists(12,19): 1
+12 --> 19 are equal or edge already exists
+edgeExists(16,14): 1
+16 --> 14 are equal or edge already exists
+edgeExists(6,17): 1
+6 --> 17 are equal or edge already exists
+edgeExists(6,18): 1
+6 --> 18 are equal or edge already exists
+edgeExists(16,14): 1
+16 --> 14 are equal or edge already exists
+edgeExists(19,9): 1
+19 --> 9 are equal or edge already exists
+Couldn't add 6 or 20 (bounds: [0, 19])
+edgeExists(2,11): 1
+2 --> 11 are equal or edge already exists
+edgeExists(14,16): 1
+14 --> 16 are equal or edge already exists
+edgeExists(13,15): 1
+13 --> 15 are equal or edge already exists
+edgeExists(19,16): 1
+19 --> 16 are equal or edge already exists
+edgeExists(3,17): 1
+3 --> 17 are equal or edge already exists
+edgeExists(16,9): 1
+16 --> 9 are equal or edge already exists
+edgeExists(6,17): 1
+6 --> 17 are equal or edge already exists
+edgeExists(16,11): 1
+16 --> 11 are equal or edge already exists
+Couldn't add -1 or 12 (bounds: [0, 19])
+edgeExists(4,16): 1
+4 --> 16 are equal or edge already exists
+Couldn't add 21 or 9 (bounds: [0, 19])
+Couldn't add 22 or 13 (bounds: [0, 19])
+edgeExists(15,17): 1
+15 --> 17 are equal or edge already exists
+Couldn't add -2 or 12 (bounds: [0, 19])
+edgeExists(1,15): 1
+1 --> 15 are equal or edge already exists
+edgeExists(6,18): 1
+6 --> 18 are equal or edge already exists
+edgeExists(17,9): 1
+17 --> 9 are equal or edge already exists
+edgeExists(16,9): 1
+16 --> 9 are equal or edge already exists
+edgeExists(19,9): 1
+19 --> 9 are equal or edge already exists
+Couldn't add 12 or 20 (bounds: [0, 19])
+edgeExists(4,16): 1
+4 --> 16 are equal or edge already exists
+edgeExists(15,17): 1
+15 --> 17 are equal or edge already exists
+Couldn't add -3 or 13 (bounds: [0, 19])
+edgeExists(2,11): 1
+2 --> 11 are equal or edge already exists
+edgeExists(0,12): 1
+0 --> 12 are equal or edge already exists
+edgeExists(16,19): 1
+16 --> 19 are equal or edge already exists
+Couldn't add -1 or 12 (bounds: [0, 19])
+edgeExists(16,11): 1
+16 --> 11 are equal or edge already exists
+edgeExists(2,18): 1
+2 --> 18 are equal or edge already exists
+Couldn't add -2 or 17 (bounds: [0, 19])
+edgeExists(4,15): 1
+4 --> 15 are equal or edge already exists
+Couldn't add 9 or 20 (bounds: [0, 19])
+edgeExists(18,16): 1
+18 --> 16 are equal or edge already exists
+Couldn't add 1 or 20 (bounds: [0, 19])
+edgeExists(3,17): 1
+3 --> 17 are equal or edge already exists
+edgeExists(7,16): 1
+7 --> 16 are equal or edge already exists
+edgeExists(6,19): 1
+6 --> 19 are equal or edge already exists
+edgeExists(12,19): 1
+12 --> 19 are equal or edge already exists
+edgeExists(6,18): 1
+6 --> 18 are equal or edge already exists
+edgeExists(18,12): 1
+18 --> 12 are equal or edge already exists
+Couldn't add 20 or 9 (bounds: [0, 19])
+edgeExists(17,9): 1
+17 --> 9 are equal or edge already exists
+edgeExists(16,11): 1
+16 --> 11 are equal or edge already exists
+edgeExists(19,16): 1
+19 --> 16 are equal or edge already exists
+Couldn't add 9 or 20 (bounds: [0, 19])
+edgeExists(18,16): 1
+18 --> 16 are equal or edge already exists
+edgeExists(9,17): 1
+9 --> 17 are equal or edge already exists
+edgeExists(16,14): 1
+16 --> 14 are equal or edge already exists
+Couldn't add -1 or 12 (bounds: [0, 19])
+edgeExists(3,13): 1
+3 --> 13 are equal or edge already exists
+Couldn't add 20 or 12 (bounds: [0, 19])
+edgeExists(17,15): 1
+17 --> 15 are equal or edge already exists
+edgeExists(1,15): 1
+1 --> 15 are equal or edge already exists
+edgeExists(18,9): 1
+18 --> 9 are equal or edge already exists
+Couldn't add 23 or 9 (bounds: [0, 19])
+edgeExists(1,15): 1
+1 --> 15 are equal or edge already exists
+edgeExists(16,14): 1
+16 --> 14 are equal or edge already exists
+edgeExists(18,12): 1
+18 --> 12 are equal or edge already exists
+edgeExists(4,16): 1
+4 --> 16 are equal or edge already exists
+Couldn't add 9 or 23 (bounds: [0, 19])
+edgeExists(17,15): 1
+17 --> 15 are equal or edge already exists
+edgeExists(12,18): 1
+12 --> 18 are equal or edge already exists
+Couldn't add 23 or 9 (bounds: [0, 19])
+edgeExists(19,9): 1
+19 --> 9 are equal or edge already exists
+Couldn't add 17 or 20 (bounds: [0, 19])
+Couldn't add 13 or 21 (bounds: [0, 19])
+Couldn't add 22 or 13 (bounds: [0, 19])
+edgeExists(7,16): 1
+7 --> 16 are equal or edge already exists
+edgeExists(6,17): 1
+6 --> 17 are equal or edge already exists
+edgeExists(2,11): 1
+2 --> 11 are equal or edge already exists
+edgeExists(0,12): 1
+0 --> 12 are equal or edge already exists
+edgeExists(16,14): 1
+16 --> 14 are equal or edge already exists
+edgeExists(19,16): 1
+19 --> 16 are equal or edge already exists
+edgeExists(6,17): 1
+6 --> 17 are equal or edge already exists
+Couldn't add 5 or 22 (bounds: [0, 19])
+Couldn't add 9 or 20 (bounds: [0, 19])
+edgeExists(17,9): 1
+17 --> 9 are equal or edge already exists
+edgeExists(9,16): 1
+9 --> 16 are equal or edge already exists
+Couldn't add 17 or 20 (bounds: [0, 19])
+Couldn't add 22 or 13 (bounds: [0, 19])
+edgeExists(4,16): 1
+4 --> 16 are equal or edge already exists
+Couldn't add -2 or 17 (bounds: [0, 19])
+edgeExists(4,16): 1
+4 --> 16 are equal or edge already exists
+edgeExists(9,18): 1
+9 --> 18 are equal or edge already exists
+edgeExists(2,14): 1
+2 --> 14 are equal or edge already exists
+Couldn't add 20 or 9 (bounds: [0, 19])
+Couldn't add 20 or 17 (bounds: [0, 19])
+edgeExists(3,17): 1
+3 --> 17 are equal or edge already exists
+edgeExists(15,13): 1
+15 --> 13 are equal or edge already exists
+edgeExists(9,16): 1
+9 --> 16 are equal or edge already exists
+edgeExists(17,12): 1
+17 --> 12 are equal or edge already exists
+Couldn't add 9 or 20 (bounds: [0, 19])
+edgeExists(15,17): 1
+15 --> 17 are equal or edge already exists
+edgeExists(5,15): 1
+5 --> 15 are equal or edge already exists
+Couldn't add -2 or 12 (bounds: [0, 19])
+edgeExists(19,16): 1
+19 --> 16 are equal or edge already exists
+edgeExists(19,12): 1
+19 --> 12 are equal or edge already exists
+Couldn't add 9 or 23 (bounds: [0, 19])
+edgeExists(2,19): 1
+2 --> 19 are equal or edge already exists
+edgeExists(9,19): 1
+9 --> 19 are equal or edge already exists
+Couldn't add 21 or 13 (bounds: [0, 19])
+Couldn't add -2 or 12 (bounds: [0, 19])
+edgeExists(16,14): 1
+16 --> 14 are equal or edge already exists
+edgeExists(14,15): 1
+14 --> 15 are equal or edge already exists
+edgeExists(9,19): 1
+9 --> 19 are equal or edge already exists
+Couldn't add -1 or 16 (bounds: [0, 19])
+edgeExists(3,14): 1
+3 --> 14 are equal or edge already exists
+edgeExists(3,17): 1
+3 --> 17 are equal or edge already exists
+edgeExists(11,16): 1
+11 --> 16 are equal or edge already exists
+edgeExists(2,11): 1
+2 --> 11 are equal or edge already exists
+edgeExists(18,12): 1
+18 --> 12 are equal or edge already exists
+edgeExists(5,15): 1
+5 --> 15 are equal or edge already exists
+edgeExists(14,16): 1
+14 --> 16 are equal or edge already exists
+Couldn't add 23 or 9 (bounds: [0, 19])
+edgeExists(18,12): 1
+18 --> 12 are equal or edge already exists
+Couldn't add -3 or 13 (bounds: [0, 19])
+edgeExists(9,17): 1
+9 --> 17 are equal or edge already exists
+edgeExists(4,16): 1
+4 --> 16 are equal or edge already exists
+Couldn't add -2 or 17 (bounds: [0, 19])
+Couldn't add 5 or 21 (bounds: [0, 19])
+edgeExists(3,17): 1
+3 --> 17 are equal or edge already exists
+edgeExists(2,14): 1
+2 --> 14 are equal or edge already exists
+edgeExists(15,17): 1
+15 --> 17 are equal or edge already exists
+edgeExists(19,16): 1
+19 --> 16 are equal or edge already exists
+edgeExists(4,16): 1
+4 --> 16 are equal or edge already exists
+edgeExists(3,17): 1
+3 --> 17 are equal or edge already exists
+edgeExists(12,19): 1
+12 --> 19 are equal or edge already exists
+Couldn't add 5 or 22 (bounds: [0, 19])
+edgeExists(9,17): 1
+9 --> 17 are equal or edge already exists
+Couldn't add 9 or 20 (bounds: [0, 19])
+edgeExists(14,15): 1
+14 --> 15 are equal or edge already exists
+edgeExists(11,16): 1
+11 --> 16 are equal or edge already exists
+edgeExists(6,18): 1
+6 --> 18 are equal or edge already exists
+edgeExists(6,18): 1
+6 --> 18 are equal or edge already exists
+edgeExists(3,17): 1
+3 --> 17 are equal or edge already exists
+edgeExists(3,14): 1
+3 --> 14 are equal or edge already exists
+edgeExists(0,16): 1
+0 --> 16 are equal or edge already exists
+Couldn't add 20 or 17 (bounds: [0, 19])
+Couldn't add 1 or 20 (bounds: [0, 19])
+edgeExists(9,19): 1
+9 --> 19 are equal or edge already exists
+edgeExists(6,18): 1
+6 --> 18 are equal or edge already exists
+Couldn't add 1 or 20 (bounds: [0, 19])
+Couldn't add 6 or 20 (bounds: [0, 19])
+edgeExists(3,14): 1
+3 --> 14 are equal or edge already exists
+edgeExists(17,9): 1
+17 --> 9 are equal or edge already exists
+edgeExists(16,19): 1
+16 --> 19 are equal or edge already exists
+Couldn't add -1 or 16 (bounds: [0, 19])
+Couldn't add 21 or 9 (bounds: [0, 19])
+Couldn't add 20 or 17 (bounds: [0, 19])
+edgeExists(3,14): 1
+3 --> 14 are equal or edge already exists
+edgeExists(16,14): 1
+16 --> 14 are equal or edge already exists
+edgeExists(15,17): 1
+15 --> 17 are equal or edge already exists
+edgeExists(17,12): 1
+17 --> 12 are equal or edge already exists
+edgeExists(17,15): 1
+17 --> 15 are equal or edge already exists
+edgeExists(11,16): 1
+11 --> 16 are equal or edge already exists
+Couldn't add 9 or 21 (bounds: [0, 19])
+edgeExists(5,15): 1
+5 --> 15 are equal or edge already exists
+Couldn't add 9 or 20 (bounds: [0, 19])
+edgeExists(7,16): 1
+7 --> 16 are equal or edge already exists
+edgeExists(11,16): 1
+11 --> 16 are equal or edge already exists
+edgeExists(19,9): 1
+19 --> 9 are equal or edge already exists
+edgeExists(1,15): 1
+1 --> 15 are equal or edge already exists
+edgeExists(9,18): 1
+9 --> 18 are equal or edge already exists
+edgeExists(14,15): 1
+14 --> 15 are equal or edge already exists
+edgeExists(18,16): 1
+18 --> 16 are equal or edge already exists
+edgeExists(15,13): 1
+15 --> 13 are equal or edge already exists
+edgeExists(15,17): 1
+15 --> 17 are equal or edge already exists
+edgeExists(9,17): 1
+9 --> 17 are equal or edge already exists
+Couldn't add 22 or 13 (bounds: [0, 19])
+edgeExists(15,17): 1
+15 --> 17 are equal or edge already exists
+Couldn't add -2 or 17 (bounds: [0, 19])
+Couldn't add 21 or 9 (bounds: [0, 19])
+Couldn't add 21 or 9 (bounds: [0, 19])
+edgeExists(4,16): 1
+4 --> 16 are equal or edge already exists
+Couldn't add 22 or 13 (bounds: [0, 19])
+edgeExists(6,18): 1
+6 --> 18 are equal or edge already exists
+edgeExists(2,11): 1
+2 --> 11 are equal or edge already exists
+edgeExists(2,19): 1
+2 --> 19 are equal or edge already exists
+edgeExists(2,14): 1
+2 --> 14 are equal or edge already exists
+edgeExists(18,16): 1
+18 --> 16 are equal or edge already exists
+edgeExists(12,17): 1
+12 --> 17 are equal or edge already exists
+edgeExists(5,15): 1
+5 --> 15 are equal or edge already exists
+edgeExists(3,13): 1
+3 --> 13 are equal or edge already exists
+edgeExists(16,11): 1
+16 --> 11 are equal or edge already exists
+edgeExists(0,12): 1
+0 --> 12 are equal or edge already exists
+edgeExists(4,16): 1
+4 --> 16 are equal or edge already exists
+edgeExists(3,17): 1
+3 --> 17 are equal or edge already exists
+edgeExists(19,9): 1
+19 --> 9 are equal or edge already exists
+edgeExists(18,12): 1
+18 --> 12 are equal or edge already exists
+Couldn't add 12 or 20 (bounds: [0, 19])
+Couldn't add 20 or 9 (bounds: [0, 19])
+Couldn't add 9 or 23 (bounds: [0, 19])
+edgeExists(18,16): 1
+18 --> 16 are equal or edge already exists
+edgeExists(17,12): 1
+17 --> 12 are equal or edge already exists
+edgeExists(4,15): 1
+4 --> 15 are equal or edge already exists
+edgeExists(2,18): 1
+2 --> 18 are equal or edge already exists
+edgeExists(16,18): 1
+16 --> 18 are equal or edge already exists
+edgeExists(4,16): 1
+4 --> 16 are equal or edge already exists
+edgeExists(12,18): 1
+12 --> 18 are equal or edge already exists
+Couldn't add 5 or 22 (bounds: [0, 19])
+edgeExists(9,17): 1
+9 --> 17 are equal or edge already exists
+edgeExists(16,9): 1
+16 --> 9 are equal or edge already exists
+edgeExists(5,15): 1
+5 --> 15 are equal or edge already exists
+edgeExists(14,15): 1
+14 --> 15 are equal or edge already exists
+Couldn't add -3 or 13 (bounds: [0, 19])
+edgeExists(3,13): 1
+3 --> 13 are equal or edge already exists
+edgeExists(14,15): 1
+14 --> 15 are equal or edge already exists
+edgeExists(3,13): 1
+3 --> 13 are equal or edge already exists
+edgeExists(6,19): 1
+6 --> 19 are equal or edge already exists
+edgeExists(19,9): 1
+19 --> 9 are equal or edge already exists
+edgeExists(6,18): 1
+6 --> 18 are equal or edge already exists
+edgeExists(18,12): 1
+18 --> 12 are equal or edge already exists
+edgeExists(11,16): 1
+11 --> 16 are equal or edge already exists
+edgeExists(12,18): 1
+12 --> 18 are equal or edge already exists
+edgeExists(7,16): 1
+7 --> 16 are equal or edge already exists
+edgeExists(6,19): 1
+6 --> 19 are equal or edge already exists
+Couldn't add -4 or 13 (bounds: [0, 19])
+Couldn't add 22 or 13 (bounds: [0, 19])
+Couldn't add 21 or 9 (bounds: [0, 19])
+edgeExists(7,16): 1
+7 --> 16 are equal or edge already exists
+edgeExists(14,16): 1
+14 --> 16 are equal or edge already exists
+edgeExists(0,12): 1
+0 --> 12 are equal or edge already exists
+Couldn't add 20 or 12 (bounds: [0, 19])
+Couldn't add 5 or 21 (bounds: [0, 19])
+edgeExists(14,15): 1
+14 --> 15 are equal or edge already exists
+Couldn't add 13 or 21 (bounds: [0, 19])
+Couldn't add -3 or 13 (bounds: [0, 19])
+Couldn't add 13 or 21 (bounds: [0, 19])
+edgeExists(12,18): 1
+12 --> 18 are equal or edge already exists
+edgeExists(18,12): 1
+18 --> 12 are equal or edge already exists
+edgeExists(4,15): 1
+4 --> 15 are equal or edge already exists
+edgeExists(3,17): 1
+3 --> 17 are equal or edge already exists
+Couldn't add -1 or 16 (bounds: [0, 19])
+edgeExists(11,16): 1
+11 --> 16 are equal or edge already exists
+edgeExists(16,18): 1
+16 --> 18 are equal or edge already exists
+edgeExists(7,16): 1
+7 --> 16 are equal or edge already exists
+edgeExists(17,12): 1
+17 --> 12 are equal or edge already exists
+edgeExists(6,18): 1
+6 --> 18 are equal or edge already exists
+edgeExists(3,17): 1
+3 --> 17 are equal or edge already exists
+edgeExists(3,14): 1
+3 --> 14 are equal or edge already exists
+Couldn't add 1 or 20 (bounds: [0, 19])
+edgeExists(6,18): 1
+6 --> 18 are equal or edge already exists
+edgeExists(6,18): 1
+6 --> 18 are equal or edge already exists
+Couldn't add -4 or 13 (bounds: [0, 19])
+edgeExists(14,15): 1
+14 --> 15 are equal or edge already exists
+edgeExists(2,11): 1
+2 --> 11 are equal or edge already exists
+Couldn't add 22 or 13 (bounds: [0, 19])
+edgeExists(12,18): 1
+12 --> 18 are equal or edge already exists
+Couldn't add 12 or 20 (bounds: [0, 19])
+edgeExists(11,16): 1
+11 --> 16 are equal or edge already exists
+edgeExists(19,9): 1
+19 --> 9 are equal or edge already exists
+edgeExists(12,17): 1
+12 --> 17 are equal or edge already exists
+edgeExists(17,9): 1
+17 --> 9 are equal or edge already exists
+edgeExists(18,12): 1
+18 --> 12 are equal or edge already exists
+edgeExists(1,12): 1
+1 --> 12 are equal or edge already exists
+edgeExists(1,12): 1
+1 --> 12 are equal or edge already exists
+edgeExists(17,15): 1
+17 --> 15 are equal or edge already exists
+edgeExists(17,9): 1
+17 --> 9 are equal or edge already exists
+edgeExists(9,17): 1
+9 --> 17 are equal or edge already exists
+edgeExists(16,18): 1
+16 --> 18 are equal or edge already exists
+edgeExists(9,18): 1
+9 --> 18 are equal or edge already exists
+edgeExists(15,14): 1
+15 --> 14 are equal or edge already exists
+edgeExists(17,9): 1
+17 --> 9 are equal or edge already exists
+edgeExists(6,18): 1
+6 --> 18 are equal or edge already exists
+edgeExists(17,15): 1
+17 --> 15 are equal or edge already exists
+edgeExists(12,18): 1
+12 --> 18 are equal or edge already exists
+edgeExists(15,17): 1
+15 --> 17 are equal or edge already exists
+edgeExists(4,16): 1
+4 --> 16 are equal or edge already exists
+edgeExists(19,9): 1
+19 --> 9 are equal or edge already exists
+edgeExists(18,16): 1
+18 --> 16 are equal or edge already exists
+Couldn't add 1 or 20 (bounds: [0, 19])
+edgeExists(17,12): 1
+17 --> 12 are equal or edge already exists
+edgeExists(16,11): 1
+16 --> 11 are equal or edge already exists
+Couldn't add -2 or 17 (bounds: [0, 19])
+Couldn't add -2 or 12 (bounds: [0, 19])
+edgeExists(5,15): 1
+5 --> 15 are equal or edge already exists
+edgeExists(12,19): 1
+12 --> 19 are equal or edge already exists
+edgeExists(11,16): 1
+11 --> 16 are equal or edge already exists
+edgeExists(11,16): 1
+11 --> 16 are equal or edge already exists
+edgeExists(19,9): 1
+19 --> 9 are equal or edge already exists
+Couldn't add 21 or 13 (bounds: [0, 19])
+edgeExists(7,16): 1
+7 --> 16 are equal or edge already exists
+edgeExists(0,12): 1
+0 --> 12 are equal or edge already exists
+Couldn't add -2 or 17 (bounds: [0, 19])
+edgeExists(7,16): 1
+7 --> 16 are equal or edge already exists
+Couldn't add -2 or 12 (bounds: [0, 19])
+Couldn't add 20 or 12 (bounds: [0, 19])
+edgeExists(15,13): 1
+15 --> 13 are equal or edge already exists
+edgeExists(17,15): 1
+17 --> 15 are equal or edge already exists
+edgeExists(16,14): 1
+16 --> 14 are equal or edge already exists
+edgeExists(11,16): 1
+11 --> 16 are equal or edge already exists
+edgeExists(6,19): 1
+6 --> 19 are equal or edge already exists
+edgeExists(3,17): 1
+3 --> 17 are equal or edge already exists
+edgeExists(9,17): 1
+9 --> 17 are equal or edge already exists
+edgeExists(17,15): 1
+17 --> 15 are equal or edge already exists
+edgeExists(6,17): 1
+6 --> 17 are equal or edge already exists
+edgeExists(6,18): 1
+6 --> 18 are equal or edge already exists
+edgeExists(18,9): 1
+18 --> 9 are equal or edge already exists
+edgeExists(16,11): 1
+16 --> 11 are equal or edge already exists
+edgeExists(2,19): 1
+2 --> 19 are equal or edge already exists
+edgeExists(16,14): 1
+16 --> 14 are equal or edge already exists
+Couldn't add 1 or 20 (bounds: [0, 19])
+Couldn't add -2 or 12 (bounds: [0, 19])
+edgeExists(17,9): 1
+17 --> 9 are equal or edge already exists
+edgeExists(6,17): 1
+6 --> 17 are equal or edge already exists
+edgeExists(1,15): 1
+1 --> 15 are equal or edge already exists
+Couldn't add -2 or 17 (bounds: [0, 19])
+edgeExists(12,18): 1
+12 --> 18 are equal or edge already exists
+edgeExists(14,16): 1
+14 --> 16 are equal or edge already exists
+edgeExists(3,13): 1
+3 --> 13 are equal or edge already exists
+Couldn't add -2 or 17 (bounds: [0, 19])
+edgeExists(14,16): 1
+14 --> 16 are equal or edge already exists
+Couldn't add 9 or 20 (bounds: [0, 19])
+Couldn't add -2 or 12 (bounds: [0, 19])
+Couldn't add 9 or 23 (bounds: [0, 19])
+edgeExists(15,17): 1
+15 --> 17 are equal or edge already exists
+edgeExists(2,11): 1
+2 --> 11 are equal or edge already exists
+edgeExists(6,19): 1
+6 --> 19 are equal or edge already exists
+edgeExists(15,13): 1
+15 --> 13 are equal or edge already exists
+edgeExists(17,9): 1
+17 --> 9 are equal or edge already exists
+edgeExists(12,18): 1
+12 --> 18 are equal or edge already exists
+edgeExists(19,12): 1
+19 --> 12 are equal or edge already exists
+edgeExists(14,16): 1
+14 --> 16 are equal or edge already exists
+Couldn't add -4 or 13 (bounds: [0, 19])
+edgeExists(15,17): 1
+15 --> 17 are equal or edge already exists
+Couldn't add 21 or 9 (bounds: [0, 19])
+Couldn't add 17 or 20 (bounds: [0, 19])
+edgeExists(2,19): 1
+2 --> 19 are equal or edge already exists
+edgeExists(2,14): 1
+2 --> 14 are equal or edge already exists
+edgeExists(1,15): 1
+1 --> 15 are equal or edge already exists
+edgeExists(9,18): 1
+9 --> 18 are equal or edge already exists
+edgeExists(1,15): 1
+1 --> 15 are equal or edge already exists
+edgeExists(3,13): 1
+3 --> 13 are equal or edge already exists
+edgeExists(18,16): 1
+18 --> 16 are equal or edge already exists
+edgeExists(9,17): 1
+9 --> 17 are equal or edge already exists
+edgeExists(12,18): 1
+12 --> 18 are equal or edge already exists
+edgeExists(19,12): 1
+19 --> 12 are equal or edge already exists
+Couldn't add -2 or 12 (bounds: [0, 19])
+edgeExists(6,19): 1
+6 --> 19 are equal or edge already exists
+edgeExists(13,15): 1
+13 --> 15 are equal or edge already exists
+Couldn't add 6 or 20 (bounds: [0, 19])
+edgeExists(16,18): 1
+16 --> 18 are equal or edge already exists
+edgeExists(16,18): 1
+16 --> 18 are equal or edge already exists
+edgeExists(19,16): 1
+19 --> 16 are equal or edge already exists
+Couldn't add 20 or 12 (bounds: [0, 19])
+edgeExists(13,15): 1
+13 --> 15 are equal or edge already exists
+edgeExists(15,17): 1
+15 --> 17 are equal or edge already exists
+edgeExists(2,18): 1
+2 --> 18 are equal or edge already exists
+edgeExists(4,16): 1
+4 --> 16 are equal or edge already exists
+edgeExists(14,16): 1
+14 --> 16 are equal or edge already exists
+edgeExists(19,9): 1
+19 --> 9 are equal or edge already exists
+edgeExists(14,15): 1
+14 --> 15 are equal or edge already exists
+edgeExists(17,15): 1
+17 --> 15 are equal or edge already exists
+Couldn't add 12 or 20 (bounds: [0, 19])
+edgeExists(6,18): 1
+6 --> 18 are equal or edge already exists
+edgeExists(9,19): 1
+9 --> 19 are equal or edge already exists
+edgeExists(0,12): 1
+0 --> 12 are equal or edge already exists
+Couldn't add 20 or 17 (bounds: [0, 19])
+Couldn't add -1 or 16 (bounds: [0, 19])
+Couldn't add -1 or 12 (bounds: [0, 19])
+edgeExists(15,17): 1
+15 --> 17 are equal or edge already exists
+edgeExists(16,14): 1
+16 --> 14 are equal or edge already exists
+Couldn't add 20 or 17 (bounds: [0, 19])
+edgeExists(0,12): 1
+0 --> 12 are equal or edge already exists
+edgeExists(7,16): 1
+7 --> 16 are equal or edge already exists
+edgeExists(2,14): 1
+2 --> 14 are equal or edge already exists
+edgeExists(12,17): 1
+12 --> 17 are equal or edge already exists
+edgeExists(9,17): 1
+9 --> 17 are equal or edge already exists
+Couldn't add -2 or 12 (bounds: [0, 19])
+edgeExists(9,19): 1
+9 --> 19 are equal or edge already exists
+edgeExists(2,11): 1
+2 --> 11 are equal or edge already exists
+edgeExists(9,19): 1
+9 --> 19 are equal or edge already exists
+edgeExists(9,17): 1
+9 --> 17 are equal or edge already exists
+edgeExists(5,15): 1
+5 --> 15 are equal or edge already exists
+Couldn't add -2 or 17 (bounds: [0, 19])
+Couldn't add 12 or 20 (bounds: [0, 19])
+edgeExists(17,15): 1
+17 --> 15 are equal or edge already exists
+edgeExists(4,15): 1
+4 --> 15 are equal or edge already exists
+Couldn't add 9 or 21 (bounds: [0, 19])
+edgeExists(7,16): 1
+7 --> 16 are equal or edge already exists
+edgeExists(0,16): 1
+0 --> 16 are equal or edge already exists
+edgeExists(16,11): 1
+16 --> 11 are equal or edge already exists
+Couldn't add 21 or 9 (bounds: [0, 19])
+edgeExists(16,11): 1
+16 --> 11 are equal or edge already exists
+edgeExists(12,18): 1
+12 --> 18 are equal or edge already exists
+edgeExists(16,11): 1
+16 --> 11 are equal or edge already exists
+Couldn't add -4 or 13 (bounds: [0, 19])
+Couldn't add 20 or 12 (bounds: [0, 19])
+edgeExists(15,17): 1
+15 --> 17 are equal or edge already exists
+Couldn't add -1 or 12 (bounds: [0, 19])
+edgeExists(11,16): 1
+11 --> 16 are equal or edge already exists
+Couldn't add -2 or 17 (bounds: [0, 19])
+edgeExists(3,17): 1
+3 --> 17 are equal or edge already exists
+edgeExists(17,15): 1
+17 --> 15 are equal or edge already exists
+edgeExists(14,16): 1
+14 --> 16 are equal or edge already exists
+edgeExists(16,18): 1
+16 --> 18 are equal or edge already exists
+edgeExists(12,17): 1
+12 --> 17 are equal or edge already exists
+edgeExists(9,16): 1
+9 --> 16 are equal or edge already exists
+edgeExists(19,9): 1
+19 --> 9 are equal or edge already exists
+Couldn't add 21 or 13 (bounds: [0, 19])
+edgeExists(15,14): 1
+15 --> 14 are equal or edge already exists
+edgeExists(18,9): 1
+18 --> 9 are equal or edge already exists
+edgeExists(9,16): 1
+9 --> 16 are equal or edge already exists
+edgeExists(15,17): 1
+15 --> 17 are equal or edge already exists
+edgeExists(14,15): 1
+14 --> 15 are equal or edge already exists
+edgeExists(4,16): 1
+4 --> 16 are equal or edge already exists
+Couldn't add 23 or 9 (bounds: [0, 19])
+edgeExists(9,19): 1
+9 --> 19 are equal or edge already exists
+edgeExists(0,12): 1
+0 --> 12 are equal or edge already exists
+Couldn't add -1 or 12 (bounds: [0, 19])
+edgeExists(16,11): 1
+16 --> 11 are equal or edge already exists
+edgeExists(16,9): 1
+16 --> 9 are equal or edge already exists
+edgeExists(15,17): 1
+15 --> 17 are equal or edge already exists
+edgeExists(19,12): 1
+19 --> 12 are equal or edge already exists
+Couldn't add 5 or 22 (bounds: [0, 19])
+edgeExists(4,15): 1
+4 --> 15 are equal or edge already exists
+edgeExists(15,17): 1
+15 --> 17 are equal or edge already exists
+Couldn't add 9 or 23 (bounds: [0, 19])
+Couldn't add 1 or 20 (bounds: [0, 19])
+edgeExists(2,19): 1
+2 --> 19 are equal or edge already exists
+Couldn't add 20 or 9 (bounds: [0, 19])
+edgeExists(16,14): 1
+16 --> 14 are equal or edge already exists
+edgeExists(15,13): 1
+15 --> 13 are equal or edge already exists
+edgeExists(12,19): 1
+12 --> 19 are equal or edge already exists
+edgeExists(18,16): 1
+18 --> 16 are equal or edge already exists
+edgeExists(14,16): 1
+14 --> 16 are equal or edge already exists
+edgeExists(18,12): 1
+18 --> 12 are equal or edge already exists
+edgeExists(2,14): 1
+2 --> 14 are equal or edge already exists
+edgeExists(9,16): 1
+9 --> 16 are equal or edge already exists
+Couldn't add 17 or 20 (bounds: [0, 19])
+edgeExists(11,16): 1
+11 --> 16 are equal or edge already exists
+edgeExists(11,16): 1
+11 --> 16 are equal or edge already exists
+edgeExists(4,16): 1
+4 --> 16 are equal or edge already exists
+edgeExists(16,11): 1
+16 --> 11 are equal or edge already exists
+Couldn't add 6 or 20 (bounds: [0, 19])
+Couldn't add 17 or 20 (bounds: [0, 19])
+Couldn't add -2 or 17 (bounds: [0, 19])
+edgeExists(17,15): 1
+17 --> 15 are equal or edge already exists
+edgeExists(16,14): 1
+16 --> 14 are equal or edge already exists
+edgeExists(9,19): 1
+9 --> 19 are equal or edge already exists
+Couldn't add 13 or 21 (bounds: [0, 19])
+Couldn't add -3 or 13 (bounds: [0, 19])
+edgeExists(3,17): 1
+3 --> 17 are equal or edge already exists
+edgeExists(19,12): 1
+19 --> 12 are equal or edge already exists
+edgeExists(4,15): 1
+4 --> 15 are equal or edge already exists
+Couldn't add 21 or 9 (bounds: [0, 19])
+Couldn't add 23 or 9 (bounds: [0, 19])
+edgeExists(5,15): 1
+5 --> 15 are equal or edge already exists
+edgeExists(2,19): 1
+2 --> 19 are equal or edge already exists
+edgeExists(2,11): 1
+2 --> 11 are equal or edge already exists
+edgeExists(2,14): 1
+2 --> 14 are equal or edge already exists
+edgeExists(18,12): 1
+18 --> 12 are equal or edge already exists
+edgeExists(1,12): 1
+1 --> 12 are equal or edge already exists
+edgeExists(16,9): 1
+16 --> 9 are equal or edge already exists
+Couldn't add 9 or 20 (bounds: [0, 19])
+edgeExists(9,19): 1
+9 --> 19 are equal or edge already exists
+Couldn't add 9 or 21 (bounds: [0, 19])
+edgeExists(5,15): 1
+5 --> 15 are equal or edge already exists
+edgeExists(12,19): 1
+12 --> 19 are equal or edge already exists
+edgeExists(16,18): 1
+16 --> 18 are equal or edge already exists
+edgeExists(9,17): 1
+9 --> 17 are equal or edge already exists
+edgeExists(4,15): 1
+4 --> 15 are equal or edge already exists
+Couldn't add 9 or 23 (bounds: [0, 19])
+edgeExists(17,9): 1
+17 --> 9 are equal or edge already exists
+edgeExists(4,16): 1
+4 --> 16 are equal or edge already exists
+edgeExists(4,16): 1
+4 --> 16 are equal or edge already exists
+edgeExists(18,9): 1
+18 --> 9 are equal or edge already exists
+Couldn't add 13 or 22 (bounds: [0, 19])
+edgeExists(15,13): 1
+15 --> 13 are equal or edge already exists
+edgeExists(16,11): 1
+16 --> 11 are equal or edge already exists
+edgeExists(4,16): 1
+4 --> 16 are equal or edge already exists
+edgeExists(3,17): 1
+3 --> 17 are equal or edge already exists
+edgeExists(3,13): 1
+3 --> 13 are equal or edge already exists
+edgeExists(17,9): 1
+17 --> 9 are equal or edge already exists
+edgeExists(16,14): 1
+16 --> 14 are equal or edge already exists
+edgeExists(6,18): 1
+6 --> 18 are equal or edge already exists
+edgeExists(14,15): 1
+14 --> 15 are equal or edge already exists
+edgeExists(1,15): 1
+1 --> 15 are equal or edge already exists
+edgeExists(6,18): 1
+6 --> 18 are equal or edge already exists
+edgeExists(2,11): 1
+2 --> 11 are equal or edge already exists
+Couldn't add 12 or 20 (bounds: [0, 19])
+edgeExists(18,9): 1
+18 --> 9 are equal or edge already exists
+edgeExists(2,14): 1
+2 --> 14 are equal or edge already exists
+edgeExists(18,9): 1
+18 --> 9 are equal or edge already exists
+edgeExists(17,9): 1
+17 --> 9 are equal or edge already exists
+edgeExists(13,15): 1
+13 --> 15 are equal or edge already exists
+edgeExists(6,18): 1
+6 --> 18 are equal or edge already exists
+Couldn't add -3 or 13 (bounds: [0, 19])
+edgeExists(2,14): 1
+2 --> 14 are equal or edge already exists
+Couldn't add 13 or 22 (bounds: [0, 19])
+edgeExists(6,18): 1
+6 --> 18 are equal or edge already exists
+edgeExists(19,9): 1
+19 --> 9 are equal or edge already exists
+Couldn't add 20 or 17 (bounds: [0, 19])
+edgeExists(15,13): 1
+15 --> 13 are equal or edge already exists
+edgeExists(1,15): 1
+1 --> 15 are equal or edge already exists
+edgeExists(3,14): 1
+3 --> 14 are equal or edge already exists
+edgeExists(3,17): 1
+3 --> 17 are equal or edge already exists
+Couldn't add 20 or 17 (bounds: [0, 19])
+edgeExists(17,12): 1
+17 --> 12 are equal or edge already exists
+edgeExists(2,11): 1
+2 --> 11 are equal or edge already exists
+edgeExists(3,17): 1
+3 --> 17 are equal or edge already exists
+edgeExists(18,12): 1
+18 --> 12 are equal or edge already exists
+edgeExists(0,12): 1
+0 --> 12 are equal or edge already exists
+edgeExists(3,17): 1
+3 --> 17 are equal or edge already exists
+Couldn't add 22 or 13 (bounds: [0, 19])
+Couldn't add 9 or 23 (bounds: [0, 19])
+edgeExists(12,19): 1
+12 --> 19 are equal or edge already exists
+Couldn't add 20 or 9 (bounds: [0, 19])
+edgeExists(14,16): 1
+14 --> 16 are equal or edge already exists
+edgeExists(9,17): 1
+9 --> 17 are equal or edge already exists
+Couldn't add 21 or 13 (bounds: [0, 19])
+edgeExists(5,15): 1
+5 --> 15 are equal or edge already exists
+edgeExists(2,18): 1
+2 --> 18 are equal or edge already exists
+edgeExists(6,17): 1
+6 --> 17 are equal or edge already exists
+edgeExists(0,16): 1
+0 --> 16 are equal or edge already exists
+edgeExists(16,14): 1
+16 --> 14 are equal or edge already exists
+edgeExists(9,17): 1
+9 --> 17 are equal or edge already exists
+edgeExists(5,15): 1
+5 --> 15 are equal or edge already exists
+edgeExists(9,19): 1
+9 --> 19 are equal or edge already exists
+edgeExists(17,15): 1
+17 --> 15 are equal or edge already exists
+edgeExists(9,17): 1
+9 --> 17 are equal or edge already exists
+edgeExists(9,16): 1
+9 --> 16 are equal or edge already exists
+edgeExists(0,16): 1
+0 --> 16 are equal or edge already exists
+Couldn't add 20 or 12 (bounds: [0, 19])
+Couldn't add -1 or 16 (bounds: [0, 19])
+edgeExists(2,11): 1
+2 --> 11 are equal or edge already exists
+edgeExists(6,18): 1
+6 --> 18 are equal or edge already exists
+edgeExists(17,15): 1
+17 --> 15 are equal or edge already exists
+edgeExists(2,11): 1
+2 --> 11 are equal or edge already exists
+edgeExists(6,18): 1
+6 --> 18 are equal or edge already exists
+edgeExists(9,17): 1
+9 --> 17 are equal or edge already exists
+edgeExists(13,15): 1
+13 --> 15 are equal or edge already exists
+Couldn't add 22 or 13 (bounds: [0, 19])
+edgeExists(0,16): 1
+0 --> 16 are equal or edge already exists
+edgeExists(12,18): 1
+12 --> 18 are equal or edge already exists
+Couldn't add 20 or 12 (bounds: [0, 19])
+edgeExists(1,12): 1
+1 --> 12 are equal or edge already exists
+edgeExists(7,16): 1
+7 --> 16 are equal or edge already exists
+edgeExists(18,12): 1
+18 --> 12 are equal or edge already exists
+Couldn't add 21 or 9 (bounds: [0, 19])
+Couldn't add -2 or 17 (bounds: [0, 19])
+Couldn't add 21 or 13 (bounds: [0, 19])
+Couldn't add -1 or 16 (bounds: [0, 19])
+Couldn't add 21 or 13 (bounds: [0, 19])
+edgeExists(19,12): 1
+19 --> 12 are equal or edge already exists
+Couldn't add 23 or 9 (bounds: [0, 19])
+Couldn't add 9 or 23 (bounds: [0, 19])
+edgeExists(12,17): 1
+12 --> 17 are equal or edge already exists
+edgeExists(4,16): 1
+4 --> 16 are equal or edge already exists
+edgeExists(12,18): 1
+12 --> 18 are equal or edge already exists
+edgeExists(4,16): 1
+4 --> 16 are equal or edge already exists
+edgeExists(15,13): 1
+15 --> 13 are equal or edge already exists
+Couldn't add 9 or 21 (bounds: [0, 19])
+edgeExists(16,14): 1
+16 --> 14 are equal or edge already exists
+edgeExists(19,16): 1
+19 --> 16 are equal or edge already exists
+edgeExists(2,11): 1
+2 --> 11 are equal or edge already exists
+edgeExists(18,12): 1
+18 --> 12 are equal or edge already exists
+edgeExists(12,18): 1
+12 --> 18 are equal or edge already exists
+edgeExists(16,18): 1
+16 --> 18 are equal or edge already exists
+Couldn't add 23 or 9 (bounds: [0, 19])
+edgeExists(12,17): 1
+12 --> 17 are equal or edge already exists
+edgeExists(12,17): 1
+12 --> 17 are equal or edge already exists
+Couldn't add 20 or 12 (bounds: [0, 19])
+Couldn't add 20 or 9 (bounds: [0, 19])
+edgeExists(7,16): 1
+7 --> 16 are equal or edge already exists
+edgeExists(4,15): 1
+4 --> 15 are equal or edge already exists
+edgeExists(2,11): 1
+2 --> 11 are equal or edge already exists
+Couldn't add 9 or 20 (bounds: [0, 19])
+edgeExists(12,17): 1
+12 --> 17 are equal or edge already exists
+edgeExists(11,16): 1
+11 --> 16 are equal or edge already exists
+Couldn't add 9 or 20 (bounds: [0, 19])
+edgeExists(15,17): 1
+15 --> 17 are equal or edge already exists
+edgeExists(17,15): 1
+17 --> 15 are equal or edge already exists
+edgeExists(15,17): 1
+15 --> 17 are equal or edge already exists
+edgeExists(2,14): 1
+2 --> 14 are equal or edge already exists
+edgeExists(12,19): 1
+12 --> 19 are equal or edge already exists
+Couldn't add 20 or 12 (bounds: [0, 19])
+edgeExists(15,17): 1
+15 --> 17 are equal or edge already exists
+edgeExists(0,16): 1
+0 --> 16 are equal or edge already exists
+edgeExists(16,11): 1
+16 --> 11 are equal or edge already exists
+Couldn't add 5 or 22 (bounds: [0, 19])
+edgeExists(18,12): 1
+18 --> 12 are equal or edge already exists
+edgeExists(9,17): 1
+9 --> 17 are equal or edge already exists
+Couldn't add 9 or 21 (bounds: [0, 19])
+edgeExists(12,17): 1
+12 --> 17 are equal or edge already exists
+edgeExists(6,18): 1
+6 --> 18 are equal or edge already exists
+edgeExists(1,15): 1
+1 --> 15 are equal or edge already exists
+Couldn't add 22 or 13 (bounds: [0, 19])
+edgeExists(2,14): 1
+2 --> 14 are equal or edge already exists
+edgeExists(0,12): 1
+0 --> 12 are equal or edge already exists
+edgeExists(1,15): 1
+1 --> 15 are equal or edge already exists
+edgeExists(17,15): 1
+17 --> 15 are equal or edge already exists
+Couldn't add 5 or 22 (bounds: [0, 19])
+edgeExists(6,18): 1
+6 --> 18 are equal or edge already exists
+Couldn't add 23 or 9 (bounds: [0, 19])
+edgeExists(19,9): 1
+19 --> 9 are equal or edge already exists
+edgeExists(5,15): 1
+5 --> 15 are equal or edge already exists
+Couldn't add 17 or 20 (bounds: [0, 19])
+Couldn't add 20 or 12 (bounds: [0, 19])
+edgeExists(18,9): 1
+18 --> 9 are equal or edge already exists
+edgeExists(7,16): 1
+7 --> 16 are equal or edge already exists
+edgeExists(2,19): 1
+2 --> 19 are equal or edge already exists
+edgeExists(12,17): 1
+12 --> 17 are equal or edge already exists
+Couldn't add 13 or 22 (bounds: [0, 19])
+edgeExists(16,9): 1
+16 --> 9 are equal or edge already exists
+edgeExists(9,17): 1
+9 --> 17 are equal or edge already exists
+edgeExists(15,17): 1
+15 --> 17 are equal or edge already exists
+edgeExists(0,16): 1
+0 --> 16 are equal or edge already exists
+Couldn't add 13 or 21 (bounds: [0, 19])
+edgeExists(1,15): 1
+1 --> 15 are equal or edge already exists
+edgeExists(2,19): 1
+2 --> 19 are equal or edge already exists
+edgeExists(9,17): 1
+9 --> 17 are equal or edge already exists
+edgeExists(0,12): 1
+0 --> 12 are equal or edge already exists
+edgeExists(5,15): 1
+5 --> 15 are equal or edge already exists
+edgeExists(11,16): 1
+11 --> 16 are equal or edge already exists
+Couldn't add 9 or 23 (bounds: [0, 19])
+Couldn't add -2 or 12 (bounds: [0, 19])
+Couldn't add -3 or 13 (bounds: [0, 19])
+Couldn't add -3 or 13 (bounds: [0, 19])
+edgeExists(19,9): 1
+19 --> 9 are equal or edge already exists
+edgeExists(2,14): 1
+2 --> 14 are equal or edge already exists
+edgeExists(16,9): 1
+16 --> 9 are equal or edge already exists
+edgeExists(0,12): 1
+0 --> 12 are equal or edge already exists
+Couldn't add -2 or 12 (bounds: [0, 19])
+Couldn't add 21 or 13 (bounds: [0, 19])
+edgeExists(1,15): 1
+1 --> 15 are equal or edge already exists
+edgeExists(4,15): 1
+4 --> 15 are equal or edge already exists
+edgeExists(9,18): 1
+9 --> 18 are equal or edge already exists
+Couldn't add 9 or 23 (bounds: [0, 19])
+edgeExists(6,18): 1
+6 --> 18 are equal or edge already exists
+edgeExists(19,9): 1
+19 --> 9 are equal or edge already exists
+edgeExists(18,9): 1
+18 --> 9 are equal or edge already exists
+edgeExists(16,19): 1
+16 --> 19 are equal or edge already exists
+edgeExists(2,18): 1
+2 --> 18 are equal or edge already exists
+edgeExists(2,11): 1
+2 --> 11 are equal or edge already exists
+edgeExists(9,17): 1
+9 --> 17 are equal or edge already exists
+edgeExists(0,12): 1
+0 --> 12 are equal or edge already exists
+edgeExists(1,15): 1
+1 --> 15 are equal or edge already exists
+Couldn't add 20 or 17 (bounds: [0, 19])
+edgeExists(16,14): 1
+16 --> 14 are equal or edge already exists
+edgeExists(11,16): 1
+11 --> 16 are equal or edge already exists
+edgeExists(6,18): 1
+6 --> 18 are equal or edge already exists
+edgeExists(14,16): 1
+14 --> 16 are equal or edge already exists
+Couldn't add 17 or 20 (bounds: [0, 19])
+Couldn't add 21 or 9 (bounds: [0, 19])
+edgeExists(14,16): 1
+14 --> 16 are equal or edge already exists
+edgeExists(17,15): 1
+17 --> 15 are equal or edge already exists
+Couldn't add 9 or 23 (bounds: [0, 19])
+edgeExists(12,18): 1
+12 --> 18 are equal or edge already exists
+edgeExists(0,12): 1
+0 --> 12 are equal or edge already exists
+Couldn't add 5 or 22 (bounds: [0, 19])
+edgeExists(2,11): 1
+2 --> 11 are equal or edge already exists
+edgeExists(16,11): 1
+16 --> 11 are equal or edge already exists
+edgeExists(16,11): 1
+16 --> 11 are equal or edge already exists
+edgeExists(16,11): 1
+16 --> 11 are equal or edge already exists
+edgeExists(18,16): 1
+18 --> 16 are equal or edge already exists
+edgeExists(1,15): 1
+1 --> 15 are equal or edge already exists
+edgeExists(12,17): 1
+12 --> 17 are equal or edge already exists
+Couldn't add 9 or 21 (bounds: [0, 19])
+edgeExists(7,16): 1
+7 --> 16 are equal or edge already exists
+edgeExists(16,11): 1
+16 --> 11 are equal or edge already exists
+Couldn't add 5 or 22 (bounds: [0, 19])
+edgeExists(16,18): 1
+16 --> 18 are equal or edge already exists
+Couldn't add 20 or 12 (bounds: [0, 19])
+edgeExists(9,19): 1
+9 --> 19 are equal or edge already exists
+edgeExists(18,12): 1
+18 --> 12 are equal or edge already exists
+edgeExists(14,16): 1
+14 --> 16 are equal or edge already exists
+Couldn't add 9 or 23 (bounds: [0, 19])
+edgeExists(17,15): 1
+17 --> 15 are equal or edge already exists
+edgeExists(19,16): 1
+19 --> 16 are equal or edge already exists
+edgeExists(4,16): 1
+4 --> 16 are equal or edge already exists
+edgeExists(16,14): 1
+16 --> 14 are equal or edge already exists
+Couldn't add 9 or 21 (bounds: [0, 19])
+Couldn't add 20 or 9 (bounds: [0, 19])
+edgeExists(17,9): 1
+17 --> 9 are equal or edge already exists
+Couldn't add 20 or 17 (bounds: [0, 19])
+Couldn't add 21 or 13 (bounds: [0, 19])
+edgeExists(19,9): 1
+19 --> 9 are equal or edge already exists
+edgeExists(19,9): 1
+19 --> 9 are equal or edge already exists
+edgeExists(2,18): 1
+2 --> 18 are equal or edge already exists
+edgeExists(3,17): 1
+3 --> 17 are equal or edge already exists
+edgeExists(16,18): 1
+16 --> 18 are equal or edge already exists
+edgeExists(6,18): 1
+6 --> 18 are equal or edge already exists
+Couldn't add -4 or 13 (bounds: [0, 19])
+Couldn't add -2 or 12 (bounds: [0, 19])
+Couldn't add 21 or 13 (bounds: [0, 19])
+edgeExists(9,16): 1
+9 --> 16 are equal or edge already exists
+edgeExists(9,18): 1
+9 --> 18 are equal or edge already exists
+edgeExists(14,16): 1
+14 --> 16 are equal or edge already exists
+edgeExists(17,15): 1
+17 --> 15 are equal or edge already exists
+Couldn't add 13 or 22 (bounds: [0, 19])
+edgeExists(9,18): 1
+9 --> 18 are equal or edge already exists
+edgeExists(14,16): 1
+14 --> 16 are equal or edge already exists
+edgeExists(3,17): 1
+3 --> 17 are equal or edge already exists
+Couldn't add 9 or 20 (bounds: [0, 19])
+edgeExists(18,12): 1
+18 --> 12 are equal or edge already exists
+edgeExists(2,19): 1
+2 --> 19 are equal or edge already exists
+edgeExists(15,17): 1
+15 --> 17 are equal or edge already exists
+edgeExists(9,19): 1
+9 --> 19 are equal or edge already exists
+edgeExists(9,18): 1
+9 --> 18 are equal or edge already exists
+edgeExists(18,9): 1
+18 --> 9 are equal or edge already exists
+edgeExists(3,14): 1
+3 --> 14 are equal or edge already exists
+Couldn't add 17 or 20 (bounds: [0, 19])
+edgeExists(14,16): 1
+14 --> 16 are equal or edge already exists
+edgeExists(4,16): 1
+4 --> 16 are equal or edge already exists
+Couldn't add -4 or 13 (bounds: [0, 19])
+edgeExists(2,19): 1
+2 --> 19 are equal or edge already exists
+edgeExists(0,12): 1
+0 --> 12 are equal or edge already exists
+Couldn't add -4 or 13 (bounds: [0, 19])
+edgeExists(15,17): 1
+15 --> 17 are equal or edge already exists
+edgeExists(18,9): 1
+18 --> 9 are equal or edge already exists
+Couldn't add 13 or 22 (bounds: [0, 19])
+edgeExists(11,16): 1
+11 --> 16 are equal or edge already exists
+edgeExists(16,18): 1
+16 --> 18 are equal or edge already exists
+edgeExists(14,15): 1
+14 --> 15 are equal or edge already exists
+edgeExists(2,14): 1
+2 --> 14 are equal or edge already exists
+edgeExists(12,18): 1
+12 --> 18 are equal or edge already exists
+edgeExists(17,15): 1
+17 --> 15 are equal or edge already exists
+edgeExists(9,16): 1
+9 --> 16 are equal or edge already exists
+edgeExists(9,17): 1
+9 --> 17 are equal or edge already exists
+Couldn't add 1 or 20 (bounds: [0, 19])
+edgeExists(16,14): 1
+16 --> 14 are equal or edge already exists
+edgeExists(18,12): 1
+18 --> 12 are equal or edge already exists
+edgeExists(2,11): 1
+2 --> 11 are equal or edge already exists
+edgeExists(9,16): 1
+9 --> 16 are equal or edge already exists
+Couldn't add 13 or 22 (bounds: [0, 19])
+edgeExists(17,15): 1
+17 --> 15 are equal or edge already exists
+edgeExists(16,9): 1
+16 --> 9 are equal or edge already exists
+edgeExists(9,18): 1
+9 --> 18 are equal or edge already exists
+Couldn't add 5 or 22 (bounds: [0, 19])
+edgeExists(5,15): 1
+5 --> 15 are equal or edge already exists
+edgeExists(16,9): 1
+16 --> 9 are equal or edge already exists
+Couldn't add 5 or 22 (bounds: [0, 19])
+Couldn't add 1 or 20 (bounds: [0, 19])
+Couldn't add 9 or 20 (bounds: [0, 19])
+Couldn't add 23 or 9 (bounds: [0, 19])
+Couldn't add -4 or 13 (bounds: [0, 19])
+edgeExists(18,16): 1
+18 --> 16 are equal or edge already exists
+edgeExists(16,14): 1
+16 --> 14 are equal or edge already exists
+edgeExists(0,12): 1
+0 --> 12 are equal or edge already exists
+edgeExists(19,9): 1
+19 --> 9 are equal or edge already exists
+Couldn't add 1 or 20 (bounds: [0, 19])
+edgeExists(9,18): 1
+9 --> 18 are equal or edge already exists
+edgeExists(2,19): 1
+2 --> 19 are equal or edge already exists
+Couldn't add 5 or 21 (bounds: [0, 19])
+edgeExists(16,11): 1
+16 --> 11 are equal or edge already exists
+edgeExists(1,15): 1
+1 --> 15 are equal or edge already exists
+Couldn't add -2 or 12 (bounds: [0, 19])
+edgeExists(3,13): 1
+3 --> 13 are equal or edge already exists
+Couldn't add 23 or 9 (bounds: [0, 19])
+edgeExists(15,17): 1
+15 --> 17 are equal or edge already exists
+edgeExists(18,12): 1
+18 --> 12 are equal or edge already exists
+edgeExists(9,17): 1
+9 --> 17 are equal or edge already exists
+edgeExists(4,16): 1
+4 --> 16 are equal or edge already exists
+edgeExists(17,15): 1
+17 --> 15 are equal or edge already exists
+Couldn't add 6 or 20 (bounds: [0, 19])
+edgeExists(3,17): 1
+3 --> 17 are equal or edge already exists
+edgeExists(17,9): 1
+17 --> 9 are equal or edge already exists
+edgeExists(9,16): 1
+9 --> 16 are equal or edge already exists
+edgeExists(1,12): 1
+1 --> 12 are equal or edge already exists
+edgeExists(3,17): 1
+3 --> 17 are equal or edge already exists
+edgeExists(3,17): 1
+3 --> 17 are equal or edge already exists
+edgeExists(9,17): 1
+9 --> 17 are equal or edge already exists
+edgeExists(2,19): 1
+2 --> 19 are equal or edge already exists
+edgeExists(18,12): 1
+18 --> 12 are equal or edge already exists
+edgeExists(6,17): 1
+6 --> 17 are equal or edge already exists
+edgeExists(4,15): 1
+4 --> 15 are equal or edge already exists
+edgeExists(9,19): 1
+9 --> 19 are equal or edge already exists
+edgeExists(3,14): 1
+3 --> 14 are equal or edge already exists
+Couldn't add 9 or 20 (bounds: [0, 19])
+edgeExists(17,9): 1
+17 --> 9 are equal or edge already exists
+edgeExists(16,11): 1
+16 --> 11 are equal or edge already exists
+Couldn't add -1 or 16 (bounds: [0, 19])
+edgeExists(2,11): 1
+2 --> 11 are equal or edge already exists
+Couldn't add 6 or 20 (bounds: [0, 19])
+edgeExists(3,13): 1
+3 --> 13 are equal or edge already exists
+edgeExists(3,17): 1
+3 --> 17 are equal or edge already exists
+edgeExists(9,19): 1
+9 --> 19 are equal or edge already exists
+edgeExists(17,12): 1
+17 --> 12 are equal or edge already exists
+edgeExists(15,17): 1
+15 --> 17 are equal or edge already exists
+edgeExists(3,14): 1
+3 --> 14 are equal or edge already exists
+edgeExists(13,15): 1
+13 --> 15 are equal or edge already exists
+edgeExists(1,12): 1
+1 --> 12 are equal or edge already exists
+edgeExists(17,12): 1
+17 --> 12 are equal or edge already exists
+edgeExists(2,19): 1
+2 --> 19 are equal or edge already exists
+edgeExists(3,13): 1
+3 --> 13 are equal or edge already exists
+edgeExists(6,19): 1
+6 --> 19 are equal or edge already exists
+edgeExists(16,9): 1
+16 --> 9 are equal or edge already exists
+Couldn't add 23 or 9 (bounds: [0, 19])
+edgeExists(16,14): 1
+16 --> 14 are equal or edge already exists
+edgeExists(3,17): 1
+3 --> 17 are equal or edge already exists
+Couldn't add 23 or 9 (bounds: [0, 19])
+edgeExists(3,17): 1
+3 --> 17 are equal or edge already exists
+edgeExists(3,14): 1
+3 --> 14 are equal or edge already exists
+edgeExists(2,14): 1
+2 --> 14 are equal or edge already exists
+edgeExists(15,14): 1
+15 --> 14 are equal or edge already exists
+edgeExists(4,15): 1
+4 --> 15 are equal or edge already exists
+edgeExists(5,15): 1
+5 --> 15 are equal or edge already exists
+edgeExists(3,17): 1
+3 --> 17 are equal or edge already exists
+edgeExists(15,17): 1
+15 --> 17 are equal or edge already exists
+edgeExists(4,16): 1
+4 --> 16 are equal or edge already exists
+edgeExists(7,16): 1
+7 --> 16 are equal or edge already exists
+edgeExists(17,15): 1
+17 --> 15 are equal or edge already exists
+edgeExists(4,15): 1
+4 --> 15 are equal or edge already exists
+edgeExists(16,19): 1
+16 --> 19 are equal or edge already exists
+edgeExists(0,12): 1
+0 --> 12 are equal or edge already exists
+edgeExists(17,12): 1
+17 --> 12 are equal or edge already exists
+edgeExists(2,11): 1
+2 --> 11 are equal or edge already exists
+edgeExists(9,18): 1
+9 --> 18 are equal or edge already exists
+edgeExists(2,18): 1
+2 --> 18 are equal or edge already exists
+edgeExists(11,16): 1
+11 --> 16 are equal or edge already exists
+edgeExists(15,17): 1
+15 --> 17 are equal or edge already exists
+edgeExists(14,16): 1
+14 --> 16 are equal or edge already exists
+edgeExists(19,16): 1
+19 --> 16 are equal or edge already exists
+edgeExists(11,16): 1
+11 --> 16 are equal or edge already exists
+Couldn't add 20 or 17 (bounds: [0, 19])
+Couldn't add -1 or 12 (bounds: [0, 19])
+Couldn't add 20 or 12 (bounds: [0, 19])
+edgeExists(3,17): 1
+3 --> 17 are equal or edge already exists
+Couldn't add -1 or 16 (bounds: [0, 19])
+edgeExists(19,12): 1
+19 --> 12 are equal or edge already exists
+edgeExists(16,18): 1
+16 --> 18 are equal or edge already exists
+edgeExists(16,14): 1
+16 --> 14 are equal or edge already exists
+edgeExists(17,15): 1
+17 --> 15 are equal or edge already exists
+edgeExists(4,16): 1
+4 --> 16 are equal or edge already exists
+edgeExists(12,18): 1
+12 --> 18 are equal or edge already exists
+edgeExists(18,9): 1
+18 --> 9 are equal or edge already exists
+edgeExists(2,14): 1
+2 --> 14 are equal or edge already exists
+edgeExists(18,9): 1
+18 --> 9 are equal or edge already exists
+edgeExists(16,11): 1
+16 --> 11 are equal or edge already exists
+Couldn't add 13 or 21 (bounds: [0, 19])
+edgeExists(18,16): 1
+18 --> 16 are equal or edge already exists
+edgeExists(1,15): 1
+1 --> 15 are equal or edge already exists
+edgeExists(1,12): 1
+1 --> 12 are equal or edge already exists
+edgeExists(16,9): 1
+16 --> 9 are equal or edge already exists
+Couldn't add -2 or 17 (bounds: [0, 19])
+edgeExists(9,18): 1
+9 --> 18 are equal or edge already exists
+edgeExists(7,16): 1
+7 --> 16 are equal or edge already exists
+edgeExists(3,13): 1
+3 --> 13 are equal or edge already exists
+edgeExists(16,9): 1
+16 --> 9 are equal or edge already exists
+edgeExists(18,12): 1
+18 --> 12 are equal or edge already exists
+Couldn't add 13 or 21 (bounds: [0, 19])
+edgeExists(16,14): 1
+16 --> 14 are equal or edge already exists
+edgeExists(17,15): 1
+17 --> 15 are equal or edge already exists
+Couldn't add -1 or 12 (bounds: [0, 19])
+Couldn't add -2 or 12 (bounds: [0, 19])
+edgeExists(4,16): 1
+4 --> 16 are equal or edge already exists
+edgeExists(15,13): 1
+15 --> 13 are equal or edge already exists
+edgeExists(11,16): 1
+11 --> 16 are equal or edge already exists
+edgeExists(17,15): 1
+17 --> 15 are equal or edge already exists
+edgeExists(5,15): 1
+5 --> 15 are equal or edge already exists
+edgeExists(9,17): 1
+9 --> 17 are equal or edge already exists
+edgeExists(14,16): 1
+14 --> 16 are equal or edge already exists
+edgeExists(0,12): 1
+0 --> 12 are equal or edge already exists
+Couldn't add 1 or 20 (bounds: [0, 19])
+edgeExists(6,17): 1
+6 --> 17 are equal or edge already exists
+edgeExists(15,13): 1
+15 --> 13 are equal or edge already exists
+edgeExists(12,18): 1
+12 --> 18 are equal or edge already exists
+edgeExists(15,17): 1
+15 --> 17 are equal or edge already exists
+Couldn't add -2 or 12 (bounds: [0, 19])
+edgeExists(1,15): 1
+1 --> 15 are equal or edge already exists
+Couldn't add -4 or 13 (bounds: [0, 19])
+Couldn't add 12 or 20 (bounds: [0, 19])
+edgeExists(6,17): 1
+6 --> 17 are equal or edge already exists
+edgeExists(16,11): 1
+16 --> 11 are equal or edge already exists
+edgeExists(12,18): 1
+12 --> 18 are equal or edge already exists
+Couldn't add 17 or 20 (bounds: [0, 19])
+Couldn't add -3 or 13 (bounds: [0, 19])
+edgeExists(15,14): 1
+15 --> 14 are equal or edge already exists
+edgeExists(17,15): 1
+17 --> 15 are equal or edge already exists
+edgeExists(9,19): 1
+9 --> 19 are equal or edge already exists
+edgeExists(3,14): 1
+3 --> 14 are equal or edge already exists
+edgeExists(19,12): 1
+19 --> 12 are equal or edge already exists
+edgeExists(7,16): 1
+7 --> 16 are equal or edge already exists
+edgeExists(17,15): 1
+17 --> 15 are equal or edge already exists
+edgeExists(14,15): 1
+14 --> 15 are equal or edge already exists
+edgeExists(14,16): 1
+14 --> 16 are equal or edge already exists
+Couldn't add 22 or 13 (bounds: [0, 19])
+Couldn't add 21 or 13 (bounds: [0, 19])
+edgeExists(2,18): 1
+2 --> 18 are equal or edge already exists
+Couldn't add 5 or 21 (bounds: [0, 19])
+Couldn't add 17 or 20 (bounds: [0, 19])
+edgeExists(6,18): 1
+6 --> 18 are equal or edge already exists
+edgeExists(14,15): 1
+14 --> 15 are equal or edge already exists
+edgeExists(12,17): 1
+12 --> 17 are equal or edge already exists
+edgeExists(19,16): 1
+19 --> 16 are equal or edge already exists
+edgeExists(19,12): 1
+19 --> 12 are equal or edge already exists
+Couldn't add -2 or 12 (bounds: [0, 19])
+Couldn't add 17 or 20 (bounds: [0, 19])
+edgeExists(2,14): 1
+2 --> 14 are equal or edge already exists
+edgeExists(17,9): 1
+17 --> 9 are equal or edge already exists
+edgeExists(9,18): 1
+9 --> 18 are equal or edge already exists
+Couldn't add 20 or 12 (bounds: [0, 19])
+Couldn't add 9 or 21 (bounds: [0, 19])
+edgeExists(16,14): 1
+16 --> 14 are equal or edge already exists
+Couldn't add 17 or 20 (bounds: [0, 19])
+Couldn't add 9 or 21 (bounds: [0, 19])
+edgeExists(3,13): 1
+3 --> 13 are equal or edge already exists
+Couldn't add 1 or 20 (bounds: [0, 19])
+Couldn't add 13 or 21 (bounds: [0, 19])
+edgeExists(14,16): 1
+14 --> 16 are equal or edge already exists
+edgeExists(2,14): 1
+2 --> 14 are equal or edge already exists
+edgeExists(7,16): 1
+7 --> 16 are equal or edge already exists
+Couldn't add 6 or 20 (bounds: [0, 19])
+Couldn't add 9 or 20 (bounds: [0, 19])
+edgeExists(6,18): 1
+6 --> 18 are equal or edge already exists
+edgeExists(7,16): 1
+7 --> 16 are equal or edge already exists
+edgeExists(1,12): 1
+1 --> 12 are equal or edge already exists
+edgeExists(1,12): 1
+1 --> 12 are equal or edge already exists
+edgeExists(14,16): 1
+14 --> 16 are equal or edge already exists
+edgeExists(0,12): 1
+0 --> 12 are equal or edge already exists
+edgeExists(6,18): 1
+6 --> 18 are equal or edge already exists
+edgeExists(12,18): 1
+12 --> 18 are equal or edge already exists
+edgeExists(9,19): 1
+9 --> 19 are equal or edge already exists
+edgeExists(16,11): 1
+16 --> 11 are equal or edge already exists
+edgeExists(0,16): 1
+0 --> 16 are equal or edge already exists
+edgeExists(2,14): 1
+2 --> 14 are equal or edge already exists
+edgeExists(9,18): 1
+9 --> 18 are equal or edge already exists
+Couldn't add 17 or 20 (bounds: [0, 19])
+edgeExists(12,18): 1
+12 --> 18 are equal or edge already exists
+edgeExists(16,19): 1
+16 --> 19 are equal or edge already exists
+Couldn't add 1 or 20 (bounds: [0, 19])
+edgeExists(7,16): 1
+7 --> 16 are equal or edge already exists
+edgeExists(2,11): 1
+2 --> 11 are equal or edge already exists
+Couldn't add -3 or 13 (bounds: [0, 19])
+Couldn't add 9 or 23 (bounds: [0, 19])
+edgeExists(18,16): 1
+18 --> 16 are equal or edge already exists
+edgeExists(17,9): 1
+17 --> 9 are equal or edge already exists
+edgeExists(7,16): 1
+7 --> 16 are equal or edge already exists
+Couldn't add 21 or 9 (bounds: [0, 19])
+edgeExists(16,11): 1
+16 --> 11 are equal or edge already exists
+edgeExists(1,12): 1
+1 --> 12 are equal or edge already exists
+edgeExists(1,12): 1
+1 --> 12 are equal or edge already exists
+edgeExists(0,12): 1
+0 --> 12 are equal or edge already exists
+Couldn't add 9 or 21 (bounds: [0, 19])
+Couldn't add 5 or 22 (bounds: [0, 19])
+edgeExists(9,19): 1
+9 --> 19 are equal or edge already exists
+Couldn't add -1 or 16 (bounds: [0, 19])
+edgeExists(15,13): 1
+15 --> 13 are equal or edge already exists
+edgeExists(9,18): 1
+9 --> 18 are equal or edge already exists
+edgeExists(11,16): 1
+11 --> 16 are equal or edge already exists
+edgeExists(6,17): 1
+6 --> 17 are equal or edge already exists
+edgeExists(17,15): 1
+17 --> 15 are equal or edge already exists
+edgeExists(0,16): 1
+0 --> 16 are equal or edge already exists
+edgeExists(2,14): 1
+2 --> 14 are equal or edge already exists
+edgeExists(16,14): 1
+16 --> 14 are equal or edge already exists
+edgeExists(2,11): 1
+2 --> 11 are equal or edge already exists
+Couldn't add 6 or 20 (bounds: [0, 19])
+edgeExists(9,17): 1
+9 --> 17 are equal or edge already exists
+edgeExists(3,17): 1
+3 --> 17 are equal or edge already exists
+edgeExists(11,16): 1
+11 --> 16 are equal or edge already exists
+edgeExists(6,17): 1
+6 --> 17 are equal or edge already exists
+edgeExists(1,15): 1
+1 --> 15 are equal or edge already exists
+edgeExists(18,12): 1
+18 --> 12 are equal or edge already exists
+edgeExists(9,17): 1
+9 --> 17 are equal or edge already exists
+Couldn't add -2 or 17 (bounds: [0, 19])
+edgeExists(2,11): 1
+2 --> 11 are equal or edge already exists
+Couldn't add 21 or 9 (bounds: [0, 19])
+edgeExists(0,16): 1
+0 --> 16 are equal or edge already exists
+edgeExists(6,19): 1
+6 --> 19 are equal or edge already exists
+edgeExists(3,14): 1
+3 --> 14 are equal or edge already exists
+Couldn't add -4 or 13 (bounds: [0, 19])
+edgeExists(16,11): 1
+16 --> 11 are equal or edge already exists
+Couldn't add 23 or 9 (bounds: [0, 19])
+edgeExists(3,14): 1
+3 --> 14 are equal or edge already exists
+edgeExists(15,14): 1
+15 --> 14 are equal or edge already exists
+edgeExists(6,19): 1
+6 --> 19 are equal or edge already exists
+edgeExists(0,16): 1
+0 --> 16 are equal or edge already exists
+edgeExists(17,9): 1
+17 --> 9 are equal or edge already exists
+edgeExists(0,12): 1
+0 --> 12 are equal or edge already exists
+edgeExists(2,18): 1
+2 --> 18 are equal or edge already exists
+Couldn't add 9 or 21 (bounds: [0, 19])
+edgeExists(0,12): 1
+0 --> 12 are equal or edge already exists
+Couldn't add 9 or 23 (bounds: [0, 19])
+edgeExists(4,15): 1
+4 --> 15 are equal or edge already exists
+Couldn't add -3 or 13 (bounds: [0, 19])
+edgeExists(15,17): 1
+15 --> 17 are equal or edge already exists
+edgeExists(1,15): 1
+1 --> 15 are equal or edge already exists
+edgeExists(3,14): 1
+3 --> 14 are equal or edge already exists
+edgeExists(14,16): 1
+14 --> 16 are equal or edge already exists
+edgeExists(3,17): 1
+3 --> 17 are equal or edge already exists
+edgeExists(6,18): 1
+6 --> 18 are equal or edge already exists
+Couldn't add -3 or 13 (bounds: [0, 19])
+Couldn't add 23 or 9 (bounds: [0, 19])
+edgeExists(15,17): 1
+15 --> 17 are equal or edge already exists
+Couldn't add -2 or 12 (bounds: [0, 19])
+edgeExists(9,19): 1
+9 --> 19 are equal or edge already exists
+edgeExists(19,16): 1
+19 --> 16 are equal or edge already exists
+Couldn't add -3 or 13 (bounds: [0, 19])
+edgeExists(16,11): 1
+16 --> 11 are equal or edge already exists
+Couldn't add 5 or 21 (bounds: [0, 19])
+edgeExists(19,12): 1
+19 --> 12 are equal or edge already exists
+Couldn't add 13 or 21 (bounds: [0, 19])
+Couldn't add 20 or 9 (bounds: [0, 19])
+edgeExists(13,15): 1
+13 --> 15 are equal or edge already exists
+Couldn't add 1 or 20 (bounds: [0, 19])
+edgeExists(19,9): 1
+19 --> 9 are equal or edge already exists
+edgeExists(2,11): 1
+2 --> 11 are equal or edge already exists
+edgeExists(7,16): 1
+7 --> 16 are equal or edge already exists
+edgeExists(12,18): 1
+12 --> 18 are equal or edge already exists
+edgeExists(18,9): 1
+18 --> 9 are equal or edge already exists
+Couldn't add -4 or 13 (bounds: [0, 19])
+Couldn't add 5 or 22 (bounds: [0, 19])
+Couldn't add 21 or 13 (bounds: [0, 19])
+edgeExists(16,14): 1
+16 --> 14 are equal or edge already exists
+Couldn't add 9 or 21 (bounds: [0, 19])
+edgeExists(0,12): 1
+0 --> 12 are equal or edge already exists
+edgeExists(12,18): 1
+12 --> 18 are equal or edge already exists
+Couldn't add 21 or 9 (bounds: [0, 19])
+Couldn't add 9 or 21 (bounds: [0, 19])
+edgeExists(19,9): 1
+19 --> 9 are equal or edge already exists
+edgeExists(1,12): 1
+1 --> 12 are equal or edge already exists
+edgeExists(9,19): 1
+9 --> 19 are equal or edge already exists
+edgeExists(16,19): 1
+16 --> 19 are equal or edge already exists
+edgeExists(16,19): 1
+16 --> 19 are equal or edge already exists
+edgeExists(15,17): 1
+15 --> 17 are equal or edge already exists
+edgeExists(17,15): 1
+17 --> 15 are equal or edge already exists
+edgeExists(19,9): 1
+19 --> 9 are equal or edge already exists
+edgeExists(9,19): 1
+9 --> 19 are equal or edge already exists
+Couldn't add 20 or 9 (bounds: [0, 19])
+edgeExists(9,19): 1
+9 --> 19 are equal or edge already exists
+edgeExists(18,9): 1
+18 --> 9 are equal or edge already exists
+edgeExists(19,12): 1
+19 --> 12 are equal or edge already exists
+edgeExists(18,12): 1
+18 --> 12 are equal or edge already exists
+edgeExists(16,9): 1
+16 --> 9 are equal or edge already exists
+edgeExists(16,19): 1
+16 --> 19 are equal or edge already exists
+edgeExists(16,14): 1
+16 --> 14 are equal or edge already exists
+edgeExists(19,12): 1
+19 --> 12 are equal or edge already exists
+Couldn't add -1 or 16 (bounds: [0, 19])
+edgeExists(11,16): 1
+11 --> 16 are equal or edge already exists
+edgeExists(15,14): 1
+15 --> 14 are equal or edge already exists
+edgeExists(6,17): 1
+6 --> 17 are equal or edge already exists
+edgeExists(1,15): 1
+1 --> 15 are equal or edge already exists
+edgeExists(19,9): 1
+19 --> 9 are equal or edge already exists
+Couldn't add 9 or 23 (bounds: [0, 19])
+edgeExists(6,17): 1
+6 --> 17 are equal or edge already exists
+edgeExists(6,18): 1
+6 --> 18 are equal or edge already exists
+edgeExists(14,16): 1
+14 --> 16 are equal or edge already exists
+edgeExists(12,18): 1
+12 --> 18 are equal or edge already exists
+edgeExists(0,16): 1
+0 --> 16 are equal or edge already exists
+edgeExists(1,12): 1
+1 --> 12 are equal or edge already exists
+edgeExists(14,16): 1
+14 --> 16 are equal or edge already exists
+Couldn't add 12 or 20 (bounds: [0, 19])
+Couldn't add -1 or 12 (bounds: [0, 19])
+edgeExists(3,17): 1
+3 --> 17 are equal or edge already exists
+Couldn't add -2 or 17 (bounds: [0, 19])
+edgeExists(3,17): 1
+3 --> 17 are equal or edge already exists
+Couldn't add 1 or 20 (bounds: [0, 19])
+edgeExists(2,11): 1
+2 --> 11 are equal or edge already exists
+edgeExists(19,12): 1
+19 --> 12 are equal or edge already exists
+edgeExists(11,16): 1
+11 --> 16 are equal or edge already exists
+Couldn't add 22 or 13 (bounds: [0, 19])
+edgeExists(17,15): 1
+17 --> 15 are equal or edge already exists
+edgeExists(16,18): 1
+16 --> 18 are equal or edge already exists
+Couldn't add 20 or 12 (bounds: [0, 19])
+edgeExists(1,15): 1
+1 --> 15 are equal or edge already exists
+edgeExists(19,9): 1
+19 --> 9 are equal or edge already exists
+edgeExists(1,12): 1
+1 --> 12 are equal or edge already exists
+edgeExists(19,16): 1
+19 --> 16 are equal or edge already exists
+edgeExists(13,15): 1
+13 --> 15 are equal or edge already exists
+Couldn't add 6 or 20 (bounds: [0, 19])
+edgeExists(11,16): 1
+11 --> 16 are equal or edge already exists
+Couldn't add -4 or 13 (bounds: [0, 19])
+edgeExists(19,16): 1
+19 --> 16 are equal or edge already exists
+edgeExists(4,16): 1
+4 --> 16 are equal or edge already exists
+edgeExists(6,19): 1
+6 --> 19 are equal or edge already exists
+edgeExists(13,15): 1
+13 --> 15 are equal or edge already exists
+edgeExists(0,12): 1
+0 --> 12 are equal or edge already exists
+Couldn't add 13 or 21 (bounds: [0, 19])
+edgeExists(18,12): 1
+18 --> 12 are equal or edge already exists
+edgeExists(6,19): 1
+6 --> 19 are equal or edge already exists
+Couldn't add 12 or 20 (bounds: [0, 19])
+Couldn't add -1 or 12 (bounds: [0, 19])
+edgeExists(4,16): 1
+4 --> 16 are equal or edge already exists
+Couldn't add 9 or 20 (bounds: [0, 19])
+Couldn't add 9 or 23 (bounds: [0, 19])
+edgeExists(18,12): 1
+18 --> 12 are equal or edge already exists
+edgeExists(6,19): 1
+6 --> 19 are equal or edge already exists
+edgeExists(4,16): 1
+4 --> 16 are equal or edge already exists
+Couldn't add -2 or 12 (bounds: [0, 19])
+Couldn't add 20 or 12 (bounds: [0, 19])
+edgeExists(6,17): 1
+6 --> 17 are equal or edge already exists
+edgeExists(1,12): 1
+1 --> 12 are equal or edge already exists
+edgeExists(2,19): 1
+2 --> 19 are equal or edge already exists
+Couldn't add 5 or 21 (bounds: [0, 19])
+edgeExists(14,16): 1
+14 --> 16 are equal or edge already exists
+Couldn't add -1 or 12 (bounds: [0, 19])
+Couldn't add 9 or 20 (bounds: [0, 19])
+edgeExists(2,18): 1
+2 --> 18 are equal or edge already exists
+Couldn't add 12 or 20 (bounds: [0, 19])
+edgeExists(17,12): 1
+17 --> 12 are equal or edge already exists
+edgeExists(6,19): 1
+6 --> 19 are equal or edge already exists
+edgeExists(6,18): 1
+6 --> 18 are equal or edge already exists
+edgeExists(2,11): 1
+2 --> 11 are equal or edge already exists
+edgeExists(0,16): 1
+0 --> 16 are equal or edge already exists
+edgeExists(5,15): 1
+5 --> 15 are equal or edge already exists
+Couldn't add 23 or 9 (bounds: [0, 19])
+edgeExists(12,17): 1
+12 --> 17 are equal or edge already exists
+Couldn't add 9 or 20 (bounds: [0, 19])
+edgeExists(1,15): 1
+1 --> 15 are equal or edge already exists
+edgeExists(17,9): 1
+17 --> 9 are equal or edge already exists
+edgeExists(11,16): 1
+11 --> 16 are equal or edge already exists
+edgeExists(7,16): 1
+7 --> 16 are equal or edge already exists
+edgeExists(17,15): 1
+17 --> 15 are equal or edge already exists
+edgeExists(0,12): 1
+0 --> 12 are equal or edge already exists
+edgeExists(16,14): 1
+16 --> 14 are equal or edge already exists
+edgeExists(7,16): 1
+7 --> 16 are equal or edge already exists
+Couldn't add 12 or 20 (bounds: [0, 19])
+edgeExists(3,17): 1
+3 --> 17 are equal or edge already exists
+edgeExists(15,17): 1
+15 --> 17 are equal or edge already exists
+edgeExists(12,17): 1
+12 --> 17 are equal or edge already exists
+edgeExists(6,18): 1
+6 --> 18 are equal or edge already exists
+edgeExists(6,17): 1
+6 --> 17 are equal or edge already exists
+edgeExists(2,19): 1
+2 --> 19 are equal or edge already exists
+edgeExists(7,16): 1
+7 --> 16 are equal or edge already exists
+edgeExists(11,16): 1
+11 --> 16 are equal or edge already exists
+edgeExists(19,16): 1
+19 --> 16 are equal or edge already exists
+edgeExists(15,13): 1
+15 --> 13 are equal or edge already exists
+edgeExists(19,16): 1
+19 --> 16 are equal or edge already exists
+edgeExists(18,16): 1
+18 --> 16 are equal or edge already exists
+edgeExists(9,18): 1
+9 --> 18 are equal or edge already exists
+Couldn't add 23 or 9 (bounds: [0, 19])
+edgeExists(14,16): 1
+14 --> 16 are equal or edge already exists
+Couldn't add 20 or 9 (bounds: [0, 19])
+Couldn't add 20 or 12 (bounds: [0, 19])
+edgeExists(1,12): 1
+1 --> 12 are equal or edge already exists
+Couldn't add 12 or 20 (bounds: [0, 19])
+Couldn't add 9 or 20 (bounds: [0, 19])
+Couldn't add -4 or 13 (bounds: [0, 19])
+Couldn't add 12 or 20 (bounds: [0, 19])
+edgeExists(9,18): 1
+9 --> 18 are equal or edge already exists
+edgeExists(12,18): 1
+12 --> 18 are equal or edge already exists
+edgeExists(4,15): 1
+4 --> 15 are equal or edge already exists
+edgeExists(15,17): 1
+15 --> 17 are equal or edge already exists
+Couldn't add -4 or 13 (bounds: [0, 19])
+edgeExists(16,18): 1
+16 --> 18 are equal or edge already exists
+edgeExists(16,9): 1
+16 --> 9 are equal or edge already exists
+edgeExists(11,16): 1
+11 --> 16 are equal or edge already exists
+edgeExists(17,9): 1
+17 --> 9 are equal or edge already exists
+edgeExists(9,19): 1
+9 --> 19 are equal or edge already exists
+Couldn't add -1 or 16 (bounds: [0, 19])
+edgeExists(1,15): 1
+1 --> 15 are equal or edge already exists
+edgeExists(5,15): 1
+5 --> 15 are equal or edge already exists
+Couldn't add 6 or 20 (bounds: [0, 19])
+Couldn't add -1 or 12 (bounds: [0, 19])
+edgeExists(11,16): 1
+11 --> 16 are equal or edge already exists
+Couldn't add 21 or 13 (bounds: [0, 19])
+edgeExists(16,11): 1
+16 --> 11 are equal or edge already exists
+edgeExists(9,17): 1
+9 --> 17 are equal or edge already exists
+edgeExists(9,19): 1
+9 --> 19 are equal or edge already exists
+edgeExists(6,18): 1
+6 --> 18 are equal or edge already exists
+edgeExists(17,15): 1
+17 --> 15 are equal or edge already exists
+edgeExists(9,17): 1
+9 --> 17 are equal or edge already exists
+edgeExists(17,9): 1
+17 --> 9 are equal or edge already exists
+edgeExists(16,11): 1
+16 --> 11 are equal or edge already exists
+edgeExists(15,17): 1
+15 --> 17 are equal or edge already exists
+edgeExists(9,19): 1
+9 --> 19 are equal or edge already exists
+edgeExists(11,16): 1
+11 --> 16 are equal or edge already exists
+edgeExists(15,17): 1
+15 --> 17 are equal or edge already exists
+edgeExists(6,19): 1
+6 --> 19 are equal or edge already exists
+edgeExists(2,14): 1
+2 --> 14 are equal or edge already exists
+edgeExists(17,12): 1
+17 --> 12 are equal or edge already exists
+edgeExists(9,19): 1
+9 --> 19 are equal or edge already exists
+Couldn't add 13 or 22 (bounds: [0, 19])
+edgeExists(16,14): 1
+16 --> 14 are equal or edge already exists
+edgeExists(2,18): 1
+2 --> 18 are equal or edge already exists
+Couldn't add 12 or 20 (bounds: [0, 19])
+Couldn't add 21 or 9 (bounds: [0, 19])
+edgeExists(9,16): 1
+9 --> 16 are equal or edge already exists
+Couldn't add 23 or 9 (bounds: [0, 19])
+edgeExists(9,17): 1
+9 --> 17 are equal or edge already exists
+edgeExists(3,17): 1
+3 --> 17 are equal or edge already exists
+edgeExists(12,19): 1
+12 --> 19 are equal or edge already exists
+edgeExists(17,9): 1
+17 --> 9 are equal or edge already exists
+edgeExists(19,12): 1
+19 --> 12 are equal or edge already exists
+edgeExists(6,18): 1
+6 --> 18 are equal or edge already exists
+Couldn't add -2 or 17 (bounds: [0, 19])
+edgeExists(2,19): 1
+2 --> 19 are equal or edge already exists
+edgeExists(9,17): 1
+9 --> 17 are equal or edge already exists
+edgeExists(18,16): 1
+18 --> 16 are equal or edge already exists
+edgeExists(9,17): 1
+9 --> 17 are equal or edge already exists
+edgeExists(0,12): 1
+0 --> 12 are equal or edge already exists
+edgeExists(9,19): 1
+9 --> 19 are equal or edge already exists
+edgeExists(0,12): 1
+0 --> 12 are equal or edge already exists
+edgeExists(2,14): 1
+2 --> 14 are equal or edge already exists
+edgeExists(2,19): 1
+2 --> 19 are equal or edge already exists
+edgeExists(12,18): 1
+12 --> 18 are equal or edge already exists
+edgeExists(0,12): 1
+0 --> 12 are equal or edge already exists
+edgeExists(17,15): 1
+17 --> 15 are equal or edge already exists
+edgeExists(17,15): 1
+17 --> 15 are equal or edge already exists
+edgeExists(0,12): 1
+0 --> 12 are equal or edge already exists
+Couldn't add -2 or 12 (bounds: [0, 19])
+edgeExists(6,17): 1
+6 --> 17 are equal or edge already exists
+Couldn't add 5 or 21 (bounds: [0, 19])
+edgeExists(16,14): 1
+16 --> 14 are equal or edge already exists
+edgeExists(17,15): 1
+17 --> 15 are equal or edge already exists
+edgeExists(2,18): 1
+2 --> 18 are equal or edge already exists
+edgeExists(15,13): 1
+15 --> 13 are equal or edge already exists
+edgeExists(3,13): 1
+3 --> 13 are equal or edge already exists
+edgeExists(16,9): 1
+16 --> 9 are equal or edge already exists
+Couldn't add -1 or 16 (bounds: [0, 19])
+edgeExists(6,18): 1
+6 --> 18 are equal or edge already exists
+edgeExists(9,19): 1
+9 --> 19 are equal or edge already exists
+Couldn't add -1 or 12 (bounds: [0, 19])
+Couldn't add 20 or 17 (bounds: [0, 19])
+edgeExists(3,17): 1
+3 --> 17 are equal or edge already exists
+Couldn't add 20 or 9 (bounds: [0, 19])
+edgeExists(16,14): 1
+16 --> 14 are equal or edge already exists
+Couldn't add -2 or 12 (bounds: [0, 19])
+edgeExists(16,14): 1
+16 --> 14 are equal or edge already exists
+Couldn't add 6 or 20 (bounds: [0, 19])
+edgeExists(17,15): 1
+17 --> 15 are equal or edge already exists
+edgeExists(4,15): 1
+4 --> 15 are equal or edge already exists
+edgeExists(19,9): 1
+19 --> 9 are equal or edge already exists
+edgeExists(15,17): 1
+15 --> 17 are equal or edge already exists
+edgeExists(1,15): 1
+1 --> 15 are equal or edge already exists
+edgeExists(17,12): 1
+17 --> 12 are equal or edge already exists
+Couldn't add -2 or 12 (bounds: [0, 19])
+Couldn't add -2 or 12 (bounds: [0, 19])
+Couldn't add -4 or 13 (bounds: [0, 19])
+Couldn't add 21 or 9 (bounds: [0, 19])
+edgeExists(9,17): 1
+9 --> 17 are equal or edge already exists
+edgeExists(19,12): 1
+19 --> 12 are equal or edge already exists
+Couldn't add 9 or 20 (bounds: [0, 19])
+Couldn't add 21 or 9 (bounds: [0, 19])
+edgeExists(6,17): 1
+6 --> 17 are equal or edge already exists
+edgeExists(15,17): 1
+15 --> 17 are equal or edge already exists
+Couldn't add -2 or 17 (bounds: [0, 19])
+Couldn't add 17 or 20 (bounds: [0, 19])
+edgeExists(18,16): 1
+18 --> 16 are equal or edge already exists
+edgeExists(7,16): 1
+7 --> 16 are equal or edge already exists
+edgeExists(17,15): 1
+17 --> 15 are equal or edge already exists
+Couldn't add 20 or 17 (bounds: [0, 19])
+edgeExists(15,17): 1
+15 --> 17 are equal or edge already exists
+edgeExists(3,17): 1
+3 --> 17 are equal or edge already exists
+edgeExists(16,19): 1
+16 --> 19 are equal or edge already exists
+edgeExists(0,16): 1
+0 --> 16 are equal or edge already exists
+edgeExists(15,14): 1
+15 --> 14 are equal or edge already exists
+edgeExists(2,19): 1
+2 --> 19 are equal or edge already exists
+edgeExists(2,19): 1
+2 --> 19 are equal or edge already exists
+edgeExists(7,16): 1
+7 --> 16 are equal or edge already exists
+edgeExists(9,18): 1
+9 --> 18 are equal or edge already exists
+Couldn't add -2 or 17 (bounds: [0, 19])
+Couldn't add 23 or 9 (bounds: [0, 19])
+edgeExists(9,19): 1
+9 --> 19 are equal or edge already exists
+edgeExists(4,16): 1
+4 --> 16 are equal or edge already exists
+edgeExists(18,12): 1
+18 --> 12 are equal or edge already exists
+edgeExists(16,11): 1
+16 --> 11 are equal or edge already exists
+edgeExists(14,15): 1
+14 --> 15 are equal or edge already exists
+edgeExists(17,15): 1
+17 --> 15 are equal or edge already exists
+edgeExists(19,12): 1
+19 --> 12 are equal or edge already exists
+Couldn't add 21 or 13 (bounds: [0, 19])
+edgeExists(19,9): 1
+19 --> 9 are equal or edge already exists
+Couldn't add 5 or 22 (bounds: [0, 19])
+edgeExists(2,18): 1
+2 --> 18 are equal or edge already exists
+Couldn't add 21 or 9 (bounds: [0, 19])
+edgeExists(0,12): 1
+0 --> 12 are equal or edge already exists
+edgeExists(16,19): 1
+16 --> 19 are equal or edge already exists
+edgeExists(4,15): 1
+4 --> 15 are equal or edge already exists
+edgeExists(6,17): 1
+6 --> 17 are equal or edge already exists
+edgeExists(4,16): 1
+4 --> 16 are equal or edge already exists
+edgeExists(3,17): 1
+3 --> 17 are equal or edge already exists
+edgeExists(18,16): 1
+18 --> 16 are equal or edge already exists
+Couldn't add 9 or 20 (bounds: [0, 19])
+Couldn't add 20 or 9 (bounds: [0, 19])
+Couldn't add 21 or 13 (bounds: [0, 19])
+edgeExists(3,17): 1
+3 --> 17 are equal or edge already exists
+Couldn't add -4 or 13 (bounds: [0, 19])
+edgeExists(15,14): 1
+15 --> 14 are equal or edge already exists
+edgeExists(19,9): 1
+19 --> 9 are equal or edge already exists
+edgeExists(7,16): 1
+7 --> 16 are equal or edge already exists
+edgeExists(9,17): 1
+9 --> 17 are equal or edge already exists
+edgeExists(6,17): 1
+6 --> 17 are equal or edge already exists
+Couldn't add 12 or 20 (bounds: [0, 19])
+edgeExists(18,12): 1
+18 --> 12 are equal or edge already exists
+edgeExists(0,12): 1
+0 --> 12 are equal or edge already exists
+edgeExists(1,15): 1
+1 --> 15 are equal or edge already exists
+Couldn't add 13 or 22 (bounds: [0, 19])
+edgeExists(18,9): 1
+18 --> 9 are equal or edge already exists
+edgeExists(16,19): 1
+16 --> 19 are equal or edge already exists
+Couldn't add 21 or 9 (bounds: [0, 19])
+edgeExists(16,18): 1
+16 --> 18 are equal or edge already exists
+edgeExists(18,12): 1
+18 --> 12 are equal or edge already exists
+edgeExists(5,15): 1
+5 --> 15 are equal or edge already exists
+Couldn't add 1 or 20 (bounds: [0, 19])
+edgeExists(14,16): 1
+14 --> 16 are equal or edge already exists
+edgeExists(19,16): 1
+19 --> 16 are equal or edge already exists
+edgeExists(19,16): 1
+19 --> 16 are equal or edge already exists
+edgeExists(1,15): 1
+1 --> 15 are equal or edge already exists
+edgeExists(3,14): 1
+3 --> 14 are equal or edge already exists
+edgeExists(11,16): 1
+11 --> 16 are equal or edge already exists
+edgeExists(17,9): 1
+17 --> 9 are equal or edge already exists
+Couldn't add 6 or 20 (bounds: [0, 19])
+edgeExists(17,15): 1
+17 --> 15 are equal or edge already exists
+edgeExists(11,16): 1
+11 --> 16 are equal or edge already exists
+edgeExists(2,14): 1
+2 --> 14 are equal or edge already exists
+edgeExists(15,17): 1
+15 --> 17 are equal or edge already exists
+edgeExists(6,18): 1
+6 --> 18 are equal or edge already exists
+Couldn't add 9 or 23 (bounds: [0, 19])
+edgeExists(19,16): 1
+19 --> 16 are equal or edge already exists
+edgeExists(3,17): 1
+3 --> 17 are equal or edge already exists
+edgeExists(1,15): 1
+1 --> 15 are equal or edge already exists
+edgeExists(19,12): 1
+19 --> 12 are equal or edge already exists
+Couldn't add 23 or 9 (bounds: [0, 19])
+Couldn't add 9 or 21 (bounds: [0, 19])
+edgeExists(2,14): 1
+2 --> 14 are equal or edge already exists
+Couldn't add 6 or 20 (bounds: [0, 19])
+edgeExists(15,17): 1
+15 --> 17 are equal or edge already exists
+edgeExists(18,9): 1
+18 --> 9 are equal or edge already exists
+edgeExists(7,16): 1
+7 --> 16 are equal or edge already exists
+edgeExists(12,18): 1
+12 --> 18 are equal or edge already exists
+edgeExists(16,19): 1
+16 --> 19 are equal or edge already exists
+edgeExists(9,17): 1
+9 --> 17 are equal or edge already exists
+edgeExists(17,9): 1
+17 --> 9 are equal or edge already exists
+edgeExists(2,18): 1
+2 --> 18 are equal or edge already exists
+edgeExists(4,15): 1
+4 --> 15 are equal or edge already exists
+edgeExists(13,15): 1
+13 --> 15 are equal or edge already exists
+edgeExists(9,19): 1
+9 --> 19 are equal or edge already exists
+edgeExists(19,9): 1
+19 --> 9 are equal or edge already exists
+edgeExists(14,15): 1
+14 --> 15 are equal or edge already exists
+Couldn't add 9 or 21 (bounds: [0, 19])
+edgeExists(19,9): 1
+19 --> 9 are equal or edge already exists
+edgeExists(13,15): 1
+13 --> 15 are equal or edge already exists
+Couldn't add 9 or 20 (bounds: [0, 19])
+edgeExists(1,12): 1
+1 --> 12 are equal or edge already exists
+edgeExists(17,9): 1
+17 --> 9 are equal or edge already exists
+edgeExists(1,15): 1
+1 --> 15 are equal or edge already exists
+edgeExists(3,17): 1
+3 --> 17 are equal or edge already exists
+edgeExists(0,12): 1
+0 --> 12 are equal or edge already exists
+edgeExists(12,19): 1
+12 --> 19 are equal or edge already exists
+edgeExists(4,16): 1
