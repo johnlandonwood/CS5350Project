@@ -505,7 +505,7 @@ void uniformRandomOrdering(Vertex vertices[], LinkedList* ordering, int V) {
     std::uniform_int_distribution<int> uniform_distribution(0,V-1);
     int rand;
     int ctr = 0;
-    while (ctr != V) { // Until all edges have been added to the ordering:
+    while (ctr != V) { // Until all vertices have been added to the ordering:
         rand = uniform_distribution(rng); // Generate a random vertex id [0, V-1]
         if (!vertices[rand].deleted) { // If the vertex has not been added to the ordering yet,
             vertices[rand].deleted = true; // Mark it as deleted
@@ -544,10 +544,22 @@ void largestOriginalDegreeLastOrdering(Vertex vertices[], DoublyLinkedList degre
 void colorVertices(Vertex vertices[], int coloring_order[], int V) {
     int max_color = INT_MIN;
 
-//    cout << "Coloring order: ";
-//    for (int i = 0; i < V; i++) {
-//        cout << coloring_order[i] << " ";
-//    }
+    cout << "Coloring order: ";
+    for (int i = 0; i < V; i++) {
+        cout << coloring_order[i] << endl;
+    }
+
+    cout << "---------------order colored----------------" << endl;
+    for (int i = 0; i < V; i++) {
+        cout << i +1<< " " << endl;
+    }
+    cout << endl;
+
+    cout << "---------------degree when deleted----------------" << endl;
+    for (int i = 0; i < V; i++) {
+        cout << vertices[coloring_order[i]].degree_when_deleted << endl;
+    }
+    cout << endl;
 //    cout << endl;
 
     // Set the first vertex in the ordering to the first color
@@ -653,47 +665,47 @@ int main(int argc, char** argv) {
         degree_DLLs[i] = DLL;
     }
 
-//    // Generate the graph specified by the command line arguments.
-//    generateGraph(vertices, degree_DLLs, V, E, G, DIST);
+    // Generate the graph specified by the command line arguments.
+    generateGraph(vertices, degree_DLLs, V, E, G, DIST);
+
+    // Display the adjacency list describing the graph.
+    printAdjList(vertices, V);
+
+    // Print the degree-indexed doubly linked list for the graph.
+    printDegreeDLLs(degree_DLLs, V);
+
+//   //  Panopto example
+//   vertices[0].edges.insert(1);
+//   vertices[0].degree = 1;
+//   vertices[0].original_degree = 1;
+//   vertices[0].degree_DLL = &degree_DLLs[1];
 //
-//    // Display the adjacency list describing the graph.
-//    printAdjList(vertices, V);
+//   vertices[1].edges.insert(0);
+//   vertices[1].edges.insert(2);
+//   vertices[1].edges.insert(3);
+//   vertices[1].degree = 3;
+//   vertices[1].original_degree = 3;
+//   vertices[1].degree_DLL = &degree_DLLs[3];
 //
-//    // Print the degree-indexed doubly linked list for the graph.
-//    printDegreeDLLs(degree_DLLs, V);
-
-   //  Panopto example
-   vertices[0].edges.insert(1);
-   vertices[0].degree = 1;
-   vertices[0].original_degree = 1;
-   vertices[0].degree_DLL = &degree_DLLs[1];
-
-   vertices[1].edges.insert(0);
-   vertices[1].edges.insert(2);
-   vertices[1].edges.insert(3);
-   vertices[1].degree = 3;
-   vertices[1].original_degree = 3;
-   vertices[1].degree_DLL = &degree_DLLs[3];
-
-   vertices[2].edges.insert(1);
-   vertices[2].edges.insert(3);
-   vertices[2].degree = 2;
-   vertices[2].original_degree = 2;
-   vertices[2].degree_DLL = &degree_DLLs[2];
-
-   vertices[3].edges.insert(1);
-   vertices[3].edges.insert(2);
-   vertices[3].degree = 2;
-   vertices[3].original_degree = 2;
-   vertices[3].degree_DLL = &degree_DLLs[2];
-
-   degree_DLLs[1].insert(0);
-   degree_DLLs[2].insert(3);
-   degree_DLLs[2].insert(2);
-   degree_DLLs[3].insert(1);
-
-   printAdjList(vertices, V);
-   printDegreeDLLs(degree_DLLs, V);
+//   vertices[2].edges.insert(1);
+//   vertices[2].edges.insert(3);
+//   vertices[2].degree = 2;
+//   vertices[2].original_degree = 2;
+//   vertices[2].degree_DLL = &degree_DLLs[2];
+//
+//   vertices[3].edges.insert(1);
+//   vertices[3].edges.insert(2);
+//   vertices[3].degree = 2;
+//   vertices[3].original_degree = 2;
+//   vertices[3].degree_DLL = &degree_DLLs[2];
+//
+//   degree_DLLs[1].insert(0);
+//   degree_DLLs[2].insert(3);
+//   degree_DLLs[2].insert(2);
+//   degree_DLLs[3].insert(1);
+//
+//   printAdjList(vertices, V);
+//   printDegreeDLLs(degree_DLLs, V);
 
  // Perform the ordering algorithm specified by the command line argument.
     if (ORDERING == "SMALLEST_LAST") {
@@ -752,8 +764,6 @@ int main(int argc, char** argv) {
     recordOrderingAndColoring(output, vertices, V, ORDERING);
     output.close();
 
-
-    // TODO: Coloring algorithm
     // TODO: Vertex Ordering capabilities
     // TODO: Proofread and format
     // TODO: Clean up source code
