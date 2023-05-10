@@ -1,6 +1,6 @@
 100, 1000, COMPLETE, UNIFORM, SMALLEST_LAST
 Vertex, Color, Original degree, Degree when deleted, Total colors used, Avg. original degree, Max degree when deleted, Terminal clique size, Ordering runtime
-0, 0, 99, 0, 1e+02, 99, 1e+02, 1e+02, 8631359900
+0, 0, 99, 0, 1e+02, 99, 1e+02, 1e+02, 8439348600
 1, 1, 99, 1
 2, 2, 99, 2
 3, 3, 99, 3
