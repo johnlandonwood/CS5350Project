@@ -44,8 +44,8 @@ void printAdjList(Vertex vertices[], int V) {
     for (int i = 0; i < V; i++) {
         cout << i << " --> ";
         vertices[i].edges.print();
-        cout << " | degree: " << vertices[i].degree;
-        cout << " | original_degree: " << vertices[i].original_degree;
+//        cout << " | degree: " << vertices[i].degree;
+//        cout << " | original_degree: " << vertices[i].original_degree;
         cout << endl;
     }
     cout << endl;
@@ -54,7 +54,8 @@ void printAdjList(Vertex vertices[], int V) {
 // Method to print the degree-indexed doubly linked lists.
 void printDegreeDLLs(DoublyLinkedList degree_DLLs[], int V) {
     for (int i = 0; i < V; i++) {
-        cout << i << ": " << &degree_DLLs[i] << " | ";
+        cout << "Degree " << i  << ": ";
+//        cout << i << ": " << &degree_DLLs[i] << " | ";
         degree_DLLs[i].print();
         cout << endl;
     }
@@ -394,11 +395,11 @@ void smallestLastVertexOrdering(Vertex vertices[], DoublyLinkedList degree_DLLs[
     Vertex v, c;
     auto time_start = std::chrono::high_resolution_clock::now(); // For runtime analysis data
     while (deleted_ctr != V) { // While the graph is not empty:
-        //cout << "----------------Start: " << start << "----------------"<< endl;
+        cout << "----------------Start: " << start << "----------------"<< endl;
         DLLNode *curr = degree_DLLs[start].head; // Find vertex of smallest degree, v, at start index
         if (curr != nullptr) {
             v = vertices[curr->data];
-            // << "Vertex of smallest degree: " << v.id << endl;
+             cout << "Vertex of smallest degree: " << v.id << endl;
             vertices[v.id].deleted = true; // Mark v as deleted
             vertices[v.id].degree_when_deleted = v.degree;
             if (vertices[v.id].degree_when_deleted > max_degree_when_deleted) { // Update max_degree_when_deleted if necessary
@@ -408,31 +409,31 @@ void smallestLastVertexOrdering(Vertex vertices[], DoublyLinkedList degree_DLLs[
             // vertices[v.id].ordering->insert(v.id); // Add v to the ordering list
             ordering->insert(v.id);
             vertices[v.id].degree_DLL->remove(v.id); // Remove v from its degree_DLL list
-            //cout << "Removing " << v.id << " from degree_DLLs[" << v.degree << "]" << endl;
+            cout << "Removing " << v.id << " from degree_DLLs[" << v.degree << "]" << endl;
 
             // For each vertex c connected to v:
             Node* temp = v.edges.head;
             while (temp != nullptr) {
                 c = vertices[temp->data];
-                //cout << "----Adjusting " << c.id << "----" << endl;
+                cout << "----Adjusting " << c.id << "----" << endl;
                 if (!c.deleted) { // If c has not already been deleted:
-                    //cout << "Removing " << c.id << " from degree_DLLs[" << c.degree << "]" << endl;
+                    cout << "Removing " << c.id << " from degree_DLLs[" << c.degree << "]" << endl;
                     vertices[c.id].degree_DLL->remove(c.id); // Remove c from previous degree_DLL list
 
-                    //cout << "Degree of " << vertices[c.id].id << " decremented: " << vertices[c.id].degree;
+//                    cout << "Degree of " << vertices[c.id].id << " decremented: " << vertices[c.id].degree;
                     vertices[c.id].degree--;  // Update c's degree
-                    //cout << " -> " << vertices[c.id].degree << endl;
+//                    cout << " -> " << vertices[c.id].degree << endl;
 
-                    //cout << "degree_DLL pointer updated: " << vertices[c.id].degree_DLL;
+//                    cout << "degree_DLL pointer updated: " << vertices[c.id].degree_DLL;
                     vertices[c.id].degree_DLL = &degree_DLLs[vertices[c.id].degree]; // Update c's degree_DLL pointer
-                   // cout << " -> " << vertices[c.id].degree_DLL << endl;
+//                    cout << " -> " << vertices[c.id].degree_DLL << endl;
 
-                    //cout << "Adding " << c.id << " to degree_DLL[" << vertices[c.id].degree << "]" << endl;
+                    cout << "Adding " << c.id << " to degree_DLL[" << vertices[c.id].degree << "]" << endl;
                     vertices[c.id].degree_DLL->insert(c.id); // Add current vertex to updated degree_DLL list
                     temp = temp->next;
                 }
                 else { // c has already been deleted, so ignore it
-                    //cout << c.id << " has already been deleted, skipping" << endl;
+                    cout << c.id << " has already been deleted, skipping" << endl;
                     temp = temp->next;
                 }
             }
@@ -444,15 +445,31 @@ void smallestLastVertexOrdering(Vertex vertices[], DoublyLinkedList degree_DLLs[
             }
 
             deleted_ctr++;
-            //cout << endl;
-            // printDegreeDLLs(degree_DLLs, V);
-            // cout << endl;
+            cout << endl;
+//             printDegreeDLLs(degree_DLLs, V);
+//             cout << endl;
         }
         else { // No vertices at current degree list, move on
-            //cout << "No vertices of degree " << start << endl;
+            cout << "No vertices of degree " << start << ", continuing to degree " << start+1 <<  endl;
             start++;
         }
     }
+
+    cout << "Graph is empty." << endl;
+    cout << "Ordering: ";
+    Node* temp = ordering->head;
+    while (temp != nullptr) {
+        cout << temp->data << " ";
+        temp = temp->next;
+    }
+    cout << endl;
+//
+//    for (int i = V-1; i >= 0; i--) {
+//        if (temp != nullptr) {
+//            cout << temp->data
+//        }
+//        temp = temp->next;
+//    }
 
     auto time_stop = std::chrono::high_resolution_clock::now();
     auto time_elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(time_stop - time_start).count();
@@ -600,362 +617,371 @@ void colorVertices(Vertex vertices[], int coloring_order[], int V) {
 
 
 int main(int argc, char** argv) {
+    const int V = atoi(argv[1]); // MAX = 10,000
+    const int E = atoi(argv[2]); // MAX = 2,000,000
+    const string G = argv[3]; // COMPLETE | CYCLE | RANDOM (with DIST below)
+    const string DIST = argv[4]; // UNIFORM | SKEWED | YOURS
+    const string ORDERING = argv[5]; // SMALLEST_LAST| SMALLEST_ORIGINAL_DEGREE_LAST | RANDOM | LARGEST_ORIGINAL_DEGREE_LAST
+    cout << V << " " << E << " " << G << " " << DIST << " " << ORDERING << endl;
 
-    long smallest_last_runtimes[12] = {};
-    double smallest_last_total_colors_used[12] = { -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0 };
-    double smallest_last_avg_original_degree[12] = { -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0 };
-    double smallest_last_max_degree_when_deleted[12] = { -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0 };
-    double smallest_last_terminal_clique_size[12] = { -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0 };
+    // Array of structs to hold vertex information
+    Vertex vertices[V];
+    // Array of doubly linked lists to be indexed by degree. Each list contains integer IDs
+    // Each DLL node only holds an integer corresponding to the vertex's ID.
+    DoublyLinkedList degree_DLLs[V];
+    // Linked list to keep track of order vertices are deleted in
+    LinkedList ordering;
 
-    //TODO: need avg original degree for all of these as well? meh
-    double smallest_original_degree_last_total_colors_used[12] = { -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0 };
-    double random_total_colors_used[12] = { -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0 };
-    double largest_original_degree_last_total_colors_used[12] = { -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0 };
-
-    string filename_orderings[4] ={"0_SMALLEST_LAST", "1_SMALLEST_ORIGINAL_DEGREE_LAST", "2_RANDOM", "3_LARGEST_ORIGINAL_DEGREE_LAST"};
-    string graph_types[12] = {"0_SPARSE", "1_CYCLE", "2_SRU", "3_SRS", "4_SRN", "5_MRU", "6_MRS", "7_MRN", "8_LRU", "9_LRS", "10_LRN", "11_COMPLETE"};
-    ofstream outputs[12][4];
-
-    for (int i = 0; i < 12; i++) {
-        string path = R"(\\wsl$\Ubuntu\home\landon\classes\CS5350\project\cmake-build-debug\output\)";
-        path += graph_types[i];
-        path += '\\';
-        for (int j = 0; j < 4; j++) {
-            string file = path + filename_orderings[j];
-            file += ".csv";
-            outputs[i][j].open(file);
-            if(!outputs[i][j].is_open()) {
-                cout << "Couldn't open " << file << endl;
-            }
-        }
+    // Allocate and initialize V vertices
+    for (int i = 0; i < V; i++) {
+        Vertex v;
+        v.id = i;
+        v.edges.head = nullptr;
+        v.degree = 0;
+        v.color = -1;
+        v.deleted = false;
+        v.degree_when_deleted = -1;
+        v.original_degree = 0;
+        v.degree_DLL = nullptr;
+        v.ordering = &ordering;
+        vertices[i] = v;
     }
 
-//        int V_values[12] = { 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100 };
-//        int E_values[12] = { 5, 100, 1250, 1250, 1250, 2500, 2500, 2500, 4000, 4000, 4000, 4950};
-//        string G_values[12] = { "RANDOM", "CYCLE", "RANDOM", "RANDOM", "RANDOM", "RANDOM", "RANDOM", "RANDOM", "RANDOM", "RANDOM", "RANDOM", "COMPLETE"};
-//        string DIST_values[12] = { "UNIFORM", "UNIFORM",  "UNIFORM", "SKEWED", "YOURS", "UNIFORM", "SKEWED", "YOURS", "UNIFORM", "SKEWED", "YOURS", "UNIFORM"};
-//        string orderings[4] = {"SMALLEST_LAST", "SMALLEST_ORIGINAL_DEGREE_LAST", "RANDOM", "LARGEST_ORIGINAL_DEGREE_LAST"};
-
-    int V_values[12] = { 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000 };
-    int E_values[12] = { 50, 1000, 125000, 125000, 125000, 250000, 250000, 250000, 400000, 400000, 400000, 499500};
-    string G_values[12] = { "RANDOM", "CYCLE", "RANDOM", "RANDOM", "RANDOM", "RANDOM", "RANDOM", "RANDOM", "RANDOM", "RANDOM", "RANDOM", "COMPLETE"};
-    string DIST_values[12] = { "UNIFORM", "UNIFORM",  "UNIFORM", "SKEWED", "YOURS", "UNIFORM", "SKEWED", "YOURS", "UNIFORM", "SKEWED", "YOURS", "UNIFORM"};
-    string orderings[4] = {"SMALLEST_LAST", "SMALLEST_ORIGINAL_DEGREE_LAST", "RANDOM", "LARGEST_ORIGINAL_DEGREE_LAST"};
-
-    int n;
-    for (n = 0; n < 12; n++) {
-        int V = V_values[n];
-        int E = E_values[n];
-        string G = G_values[n];
-        string DIST = DIST_values[n];
-
-        //Skip normal graphs for now and get timing data for them later
-        if (DIST == "YOURS") { // TODO: Change yours to normal, i dont like it
-            cout << "**************************************************************** Skipping normal ****************************************************************" << endl;
-            continue;
-        }
-        cout << "****************************************************************  " << V << " " << E << " " << G << " " << DIST << " ****************************************************************" << endl;
-
-        Vertex vertices[V];
-        DoublyLinkedList degree_DLLs[V];
-        LinkedList ordering_lists[4];
-
-        // Initialize vertices and degree DLLs
-        for (int i = 0; i < V; i++) {
-            Vertex v;
-            v.id = i;
-            v.edges.head = nullptr;
-            v.degree = 0;
-            v.color = -1;
-            v.deleted = false;
-            v.degree_when_deleted = -1;
-            v.original_degree = 0;
-            v.degree_DLL = nullptr;
-            v.ordering = ordering_lists;
-            vertices[i] = v;
-        }
-        for (int i = 0; i < V; i++) {
-            DoublyLinkedList DLL;
-            degree_DLLs[i] = DLL;
-        }
-
-        cout << "Generating graph..." << endl;
-        generateGraph(vertices, degree_DLLs, V, E, G, DIST);
-
-        int k;
-        for (k = 0; k < 4; k++) {
-            string ORDERING = orderings[k];
-            cout << "-------------------------------- " << ORDERING << " --------------------------------" << endl;
-            LinkedList ordering;
-
-            cout << "Ordering..." << endl;
-            if (ORDERING == "SMALLEST_LAST") {
-                smallestLastVertexOrdering(vertices, degree_DLLs, &ordering, V);
-            }
-            else if (ORDERING == "SMALLEST_ORIGINAL_DEGREE_LAST") {
-                smallestOriginalDegreeLastOrdering(vertices, degree_DLLs, &ordering, V);
-            }
-            else if (ORDERING == "RANDOM") {
-                uniformRandomOrdering(vertices, &ordering, V);
-            }
-            else if (ORDERING == "LARGEST_ORIGINAL_DEGREE_LAST") {
-                largestOriginalDegreeLastOrdering(vertices, degree_DLLs, &ordering, V);
-            }
-
-            cout << "Coloring..." << endl;
-            // Generate array for coloring order (reverse of ordering).
-            int coloring_order[V];
-            Node* temp = ordering.head;
-            for (int i = V-1; i >= 0; i--) {
-                if (temp != nullptr) {
-                    coloring_order[i] = temp->data;
-
-                }
-                temp = temp->next;
-            }
-            // Color vertices.
-            colorVertices(vertices, coloring_order, V);
-
-            cout << "Calculating stats & recording..." << endl;
-            // Calculate average original degree.
-            double sum = 0.0;
-            for (int i = 0; i < V; i++) {
-                sum += static_cast<double>(vertices[i].original_degree);
-            }
-            double avg_original_degree = sum / static_cast<double>(V);
-            stats[1] = avg_original_degree;
-
-            // Calculate size of terminal clique for smallest last vertex ordering.
-            if (ORDERING == "SMALLEST_LAST") {
-                int terminal_clique_size = 1;
-                for (int i = 1; i < V; i++) {
-                    // cout << "Comparing " << vertices[coloring_order[i-1]].degree_when_deleted << ", " << vertices[coloring_order[i]].degree_when_deleted << endl;
-                    if (vertices[coloring_order[i]].degree_when_deleted <= vertices[coloring_order[i-1]].degree_when_deleted) {
-                        break;
-                    }
-                    else {
-                        terminal_clique_size++;
-                    }
-                }
-                stats[3] = static_cast<double>(terminal_clique_size);
-            }
-
-            // arrays for convenient data recording
-            if (ORDERING == "SMALLEST_LAST") {
-                smallest_last_runtimes[n] = runtimes[1];
-                smallest_last_total_colors_used[n] = stats[0];
-                smallest_last_avg_original_degree[n] = stats[1];
-                smallest_last_max_degree_when_deleted[n] = stats[2];
-                smallest_last_terminal_clique_size[n] = stats[3];
-            }
-            else if (ORDERING == "SMALLEST_ORIGINAL_DEGREE_LAST") {
-                smallest_original_degree_last_total_colors_used[n] = stats[0];
-            }
-            else if (ORDERING == "RANDOM") {
-                random_total_colors_used[n] = stats[0];
-            }
-            else if (ORDERING == "LARGEST_ORIGINAL_DEGREE_LAST") {
-                largest_original_degree_last_total_colors_used[n] = stats[0];
-            }
-
-
-            // Record final information in corresponding output file.
-            outputs[n][k] << V << ", " << E << ", " << G << ", " << DIST << ", " << ORDERING << '\n';
-            recordOrderingAndColoring(outputs[n][k], vertices, V, ORDERING);
-            outputs[n][k].close();
-
-            // Reset coloring and ordering related fields for next ordering method.
-            resetDeleted(vertices, V);
-            resetColor(vertices, V);
-            if (ORDERING == "SMALLEST_LAST") {
-                resetDegreeDLLs(vertices, degree_DLLs, V);
-            }
-
-        }
+    // Allocate and initialize V doubly linked lists
+    for (int i = 0; i < V; i++) {
+        DoublyLinkedList DLL;
+        degree_DLLs[i] = DLL;
     }
 
-    // now make program do 1 normal run at a time, printing stats a different line
+//    // Generate the graph specified by the command line arguments.
+//    generateGraph(vertices, degree_DLLs, V, E, G, DIST);
+//
+//    // Display the adjacency list describing the graph.
+//    printAdjList(vertices, V);
+//
+//    // Print the degree-indexed doubly linked list for the graph.
+//    printDegreeDLLs(degree_DLLs, V);
+
+   //  Panopto example
+   vertices[0].edges.insert(1);
+   vertices[0].degree = 1;
+   vertices[0].original_degree = 1;
+   vertices[0].degree_DLL = &degree_DLLs[1];
+
+   vertices[1].edges.insert(0);
+   vertices[1].edges.insert(2);
+   vertices[1].edges.insert(3);
+   vertices[1].degree = 3;
+   vertices[1].original_degree = 3;
+   vertices[1].degree_DLL = &degree_DLLs[3];
+
+   vertices[2].edges.insert(1);
+   vertices[2].edges.insert(3);
+   vertices[2].degree = 2;
+   vertices[2].original_degree = 2;
+   vertices[2].degree_DLL = &degree_DLLs[2];
+
+   vertices[3].edges.insert(1);
+   vertices[3].edges.insert(2);
+   vertices[3].degree = 2;
+   vertices[3].original_degree = 2;
+   vertices[3].degree_DLL = &degree_DLLs[2];
+
+   degree_DLLs[1].insert(0);
+   degree_DLLs[2].insert(3);
+   degree_DLLs[2].insert(2);
+   degree_DLLs[3].insert(1);
+
+   printAdjList(vertices, V);
+   printDegreeDLLs(degree_DLLs, V);
+
+ // Perform the ordering algorithm specified by the command line argument.
+    if (ORDERING == "SMALLEST_LAST") {
+        smallestLastVertexOrdering(vertices, degree_DLLs, &ordering, V);
+    }
+    else if (ORDERING == "SMALLEST_ORIGINAL_DEGREE_LAST") {
+        smallestOriginalDegreeLastOrdering(vertices, degree_DLLs, &ordering, V);
+    }
+    else if (ORDERING == "RANDOM") {
+        uniformRandomOrdering(vertices, &ordering, V);
+    }
+    else if (ORDERING == "LARGEST_ORIGINAL_DEGREE_LAST") {
+        largestOriginalDegreeLastOrdering(vertices, degree_DLLs, &ordering, V);
+    }
+
+    // Generate array for coloring order (reverse of ordering).
+    int coloring_order[V];
+    Node* temp = ordering.head;
+    for (int i = V-1; i >= 0; i--) {
+        if (temp != nullptr) {
+            coloring_order[i] = temp->data;
+        }
+        temp = temp->next;
+    }
+
+    // Perform greedy coloring algorithm on the graph and get the highest color value used.
+    colorVertices(vertices, coloring_order, V);
     cout << endl;
-    cout << "------------ SMALLEST_LAST RUNTIMES ------------" << endl;
-    for (int i = 0; i < 12; i++) {
-        cout << smallest_last_runtimes[i] << endl;
+
+    // Calculate average original degree.
+    double sum = 0.0;
+    for (int i = 0; i < V; i++) {
+        sum += static_cast<double>(vertices[i].original_degree);
     }
-    cout << "------------------------------------------------------------" << endl;
-    cout << "------------ SMALLEST_LAST TOTAL COLORS USED ------------" << endl;
-    for (int i = 0; i < 12; i++) {
-        cout << smallest_last_total_colors_used[i] << endl;
+    double avg_original_degree = sum / static_cast<double>(V);
+    stats[1] = avg_original_degree;
+
+    // Calculate size of terminal clique for smallest last vertex ordering.
+    if (ORDERING == "SMALLEST_LAST") {
+        int terminal_clique_size = 1;
+        for (int i = 1; i < V; i++) {
+            cout << "Comparing " << vertices[coloring_order[i-1]].degree_when_deleted << ", " << vertices[coloring_order[i]].degree_when_deleted << endl;
+            if (vertices[coloring_order[i]].degree_when_deleted <= vertices[coloring_order[i-1]].degree_when_deleted) {
+                break;
+            }
+            else {
+                terminal_clique_size++;
+            }
+        }
+        stats[3] = static_cast<double>(terminal_clique_size);
     }
-    cout << "------------------------------------------------------------" << endl;
-    cout << "------------ SMALLEST_LAST AVG ORIGINAL DEGREE ------------" << endl;
-    for (int i = 0; i < 12; i++) {
-        cout << smallest_last_avg_original_degree[i] << endl;
-    }
-    cout << "------------------------------------------------------------" << endl;
-    cout << "------------ SMALLEST_LAST MAX DEGREE WHEN DELETED ------------" << endl;
-    for (int i = 0; i < 12; i++) {
-        cout << smallest_last_max_degree_when_deleted[i] << endl;
-    }
-    cout << "------------------------------------------------------------" << endl;
-    cout << "------------ SMALLEST_LAST TERMINAL CLIQUE SIZE ------------" << endl;
-    for (int i = 0; i < 12; i++) {
-        cout << smallest_last_terminal_clique_size[i] << endl;
-    }
-    cout << "------------------------------------------------------------" << endl;
-    cout << "------------ SMALLEST_ORIGINAL_DEGREE_LAST TOTAL COLORS USED ------------" << endl;
-    for (int i = 0; i < 12; i++) {
-        cout << smallest_original_degree_last_total_colors_used[i] << endl;
-    }
-    cout << "------------------------------------------------------------" << endl;
-    cout << "------------ RANDOM TOTAL COLORS USED------------" << endl;
-    for (int i = 0; i < 12; i++) {
-        cout << random_total_colors_used[i] << endl;
-    }
-    cout << "------------------------------------------------------------" << endl;
-    cout << "------------ LARGEST_ORIGINAL_DEGREE_LAST TOTAL COLORS USED ------------" << endl;
-    for (int i = 0; i < 12; i++) {
-        cout << largest_original_degree_last_total_colors_used[i] << endl;
-    }
-    cout << "------------------------------------------------------------" << endl;
+
+    ofstream output("output.csv");
+    output << V << ", " << E << ", " << G << ", " << DIST << ", " << ORDERING << '\n';
+    // Record ordering, coloring order, and colors assigned to the graph.
+    recordOrderingAndColoring(output, vertices, V, ORDERING);
+    output.close();
+
+
+    // TODO: Coloring algorithm
+    // TODO: Vertex Ordering capabilities
+    // TODO: Proofread and format
+    // TODO: Clean up source code
+    // TODO: submit
 
     cout << '\n' << "Done" << endl;
     return 0;
+}
 
-    //    const int V = atoi(argv[1]); // MAX = 10,000
-    //    const int E = atoi(argv[2]); // MAX = 2,000,000
-    //    const string G = argv[3]; // COMPLETE | CYCLE | RANDOM (with DIST below)
-    //    const string DIST = argv[4]; // UNIFORM | SKEWED | YOURS
-    //    const string ORDERING = argv[5]; // SMALLEST_LAST| SMALLEST_ORIGINAL_DEGREE_LAST | RANDOM | LARGEST_ORIGINAL_DEGREE_LAST
-    //    cout << V << " " << E << " " << G << " " << DIST << " " << ORDERING << endl;
-    //
-    //    // Array of structs to hold vertex information
-    //    Vertex vertices[V];
-    //    // Array of doubly linked lists to be indexed by degree. Each list contains integer IDs
-    //    // Each DLL node only holds an integer corresponding to the vertex's ID.
-    //    DoublyLinkedList degree_DLLs[V];
-    //    // Linked list to keep track of order vertices are deleted in
-    //    LinkedList ordering;
-    //
-    //    // Allocate and initialize V vertices
-    //    for (int i = 0; i < V; i++) {
-    //        Vertex v;
-    //        v.id = i;
-    //        v.edges.head = nullptr;
-    //        v.degree = 0;
-    //        v.color = -1;
-    //        v.deleted = false;
-    //        v.degree_when_deleted = -1;
-    //        v.original_degree = 0;
-    //        v.degree_DLL = nullptr;
-    //        v.ordering = &ordering;
-    //        vertices[i] = v;
-    //    }
-    //
-    //    // Allocate and initialize V doubly linked lists
-    //    for (int i = 0; i < V; i++) {
-    //        DoublyLinkedList DLL;
-    //        degree_DLLs[i] = DLL;
-    //    }
-    //
-    //    // Generate the graph specified by the command line arguments.
-    //    generateGraph(vertices, degree_DLLs, V, E, G, DIST);
 
-    //    // Display the adjacency list describing the graph.
-    //    printAdjList(vertices, V);
-    //
-    //    // Print the degree-indexed doubly linked list for the graph.
-    //    printDegreeDLLs(degree_DLLs, V);
 
-    //   //  Panopto example
+//    long smallest_last_runtimes[12] = {};
+//    double smallest_last_total_colors_used[12] = { -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0 };
+//    double smallest_last_avg_original_degree[12] = { -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0 };
+//    double smallest_last_max_degree_when_deleted[12] = { -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0 };
+//    double smallest_last_terminal_clique_size[12] = { -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0 };
+//
+//    //TODO: need avg original degree for all of these as well? meh
+//    double smallest_original_degree_last_total_colors_used[12] = { -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0 };
+//    double random_total_colors_used[12] = { -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0 };
+//    double largest_original_degree_last_total_colors_used[12] = { -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0 };
+//
+//    string filename_orderings[4] ={"0_SMALLEST_LAST", "1_SMALLEST_ORIGINAL_DEGREE_LAST", "2_RANDOM", "3_LARGEST_ORIGINAL_DEGREE_LAST"};
+//    string graph_types[12] = {"0_SPARSE", "1_CYCLE", "2_SRU", "3_SRS", "4_SRN", "5_MRU", "6_MRS", "7_MRN", "8_LRU", "9_LRS", "10_LRN", "11_COMPLETE"};
+//    ofstream outputs[12][4];
+//
+//    for (int i = 0; i < 12; i++) {
+//        string path = R"(\\wsl$\Ubuntu\home\landon\classes\CS5350\project\cmake-build-debug\output\)";
+//        path += graph_types[i];
+//        path += '\\';
+//        for (int j = 0; j < 4; j++) {
+//            string file = path + filename_orderings[j];
+//            file += ".csv";
+//            outputs[i][j].open(file);
+//            if(!outputs[i][j].is_open()) {
+//                cout << "Couldn't open " << file << endl;
+//            }
+//        }
+//    }
+//
+////        int V_values[12] = { 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100 };
+////        int E_values[12] = { 5, 100, 1250, 1250, 1250, 2500, 2500, 2500, 4000, 4000, 4000, 4950};
+////        string G_values[12] = { "RANDOM", "CYCLE", "RANDOM", "RANDOM", "RANDOM", "RANDOM", "RANDOM", "RANDOM", "RANDOM", "RANDOM", "RANDOM", "COMPLETE"};
+////        string DIST_values[12] = { "UNIFORM", "UNIFORM",  "UNIFORM", "SKEWED", "YOURS", "UNIFORM", "SKEWED", "YOURS", "UNIFORM", "SKEWED", "YOURS", "UNIFORM"};
+////        string orderings[4] = {"SMALLEST_LAST", "SMALLEST_ORIGINAL_DEGREE_LAST", "RANDOM", "LARGEST_ORIGINAL_DEGREE_LAST"};
+//
+//    int V_values[12] = { 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000 };
+//    int E_values[12] = { 50, 1000, 125000, 125000, 125000, 250000, 250000, 250000, 400000, 400000, 400000, 499500};
+//    string G_values[12] = { "RANDOM", "CYCLE", "RANDOM", "RANDOM", "RANDOM", "RANDOM", "RANDOM", "RANDOM", "RANDOM", "RANDOM", "RANDOM", "COMPLETE"};
+//    string DIST_values[12] = { "UNIFORM", "UNIFORM",  "UNIFORM", "SKEWED", "YOURS", "UNIFORM", "SKEWED", "YOURS", "UNIFORM", "SKEWED", "YOURS", "UNIFORM"};
+//    string orderings[4] = {"SMALLEST_LAST", "SMALLEST_ORIGINAL_DEGREE_LAST", "RANDOM", "LARGEST_ORIGINAL_DEGREE_LAST"};
+//
+//    int n;
+//    for (n = 0; n < 12; n++) {
+//        int V = V_values[n];
+//        int E = E_values[n];
+//        string G = G_values[n];
+//        string DIST = DIST_values[n];
+//
+//        //Skip normal graphs for now and get timing data for them later
+//        if (DIST == "YOURS") { // TODO: Change yours to normal, i dont like it
+//            cout << "**************************************************************** Skipping normal ****************************************************************" << endl;
+//            continue;
+//        }
+//        cout << "****************************************************************  " << V << " " << E << " " << G << " " << DIST << " ****************************************************************" << endl;
+//
+//        Vertex vertices[V];
+//        DoublyLinkedList degree_DLLs[V];
+//        LinkedList ordering_lists[4];
+//
+//        // Initialize vertices and degree DLLs
+//        for (int i = 0; i < V; i++) {
+//            Vertex v;
+//            v.id = i;
+//            v.edges.head = nullptr;
+//            v.degree = 0;
+//            v.color = -1;
+//            v.deleted = false;
+//            v.degree_when_deleted = -1;
+//            v.original_degree = 0;
+//            v.degree_DLL = nullptr;
+//            v.ordering = ordering_lists;
+//            vertices[i] = v;
+//        }
+//        for (int i = 0; i < V; i++) {
+//            DoublyLinkedList DLL;
+//            degree_DLLs[i] = DLL;
+//        }
+//
+//        cout << "Generating graph..." << endl;
+//        generateGraph(vertices, degree_DLLs, V, E, G, DIST);
+//
+//        int k;
+//        for (k = 0; k < 4; k++) {
+//            string ORDERING = orderings[k];
+//            cout << "-------------------------------- " << ORDERING << " --------------------------------" << endl;
+//            LinkedList ordering;
+//
+//            cout << "Ordering..." << endl;
+//            if (ORDERING == "SMALLEST_LAST") {
+//                smallestLastVertexOrdering(vertices, degree_DLLs, &ordering, V);
+//            }
+//            else if (ORDERING == "SMALLEST_ORIGINAL_DEGREE_LAST") {
+//                smallestOriginalDegreeLastOrdering(vertices, degree_DLLs, &ordering, V);
+//            }
+//            else if (ORDERING == "RANDOM") {
+//                uniformRandomOrdering(vertices, &ordering, V);
+//            }
+//            else if (ORDERING == "LARGEST_ORIGINAL_DEGREE_LAST") {
+//                largestOriginalDegreeLastOrdering(vertices, degree_DLLs, &ordering, V);
+//            }
+//
+//            cout << "Coloring..." << endl;
+//            // Generate array for coloring order (reverse of ordering).
+//            int coloring_order[V];
+//            Node* temp = ordering.head;
+//            for (int i = V-1; i >= 0; i--) {
+//                if (temp != nullptr) {
+//                    coloring_order[i] = temp->data;
+//
+//                }
+//                temp = temp->next;
+//            }
+//            // Color vertices.
+//            colorVertices(vertices, coloring_order, V);
+//
+//            cout << "Calculating stats & recording..." << endl;
+//            // Calculate average original degree.
+//            double sum = 0.0;
+//            for (int i = 0; i < V; i++) {
+//                sum += static_cast<double>(vertices[i].original_degree);
+//            }
+//            double avg_original_degree = sum / static_cast<double>(V);
+//            stats[1] = avg_original_degree;
+//
+//            // Calculate size of terminal clique for smallest last vertex ordering.
+//            if (ORDERING == "SMALLEST_LAST") {
+//                int terminal_clique_size = 1;
+//                for (int i = 1; i < V; i++) {
+//                    // cout << "Comparing " << vertices[coloring_order[i-1]].degree_when_deleted << ", " << vertices[coloring_order[i]].degree_when_deleted << endl;
+//                    if (vertices[coloring_order[i]].degree_when_deleted <= vertices[coloring_order[i-1]].degree_when_deleted) {
+//                        break;
+//                    }
+//                    else {
+//                        terminal_clique_size++;
+//                    }
+//                }
+//                stats[3] = static_cast<double>(terminal_clique_size);
+//            }
+//
+//            // arrays for convenient data recording
+//            if (ORDERING == "SMALLEST_LAST") {
+//                smallest_last_runtimes[n] = runtimes[1];
+//                smallest_last_total_colors_used[n] = stats[0];
+//                smallest_last_avg_original_degree[n] = stats[1];
+//                smallest_last_max_degree_when_deleted[n] = stats[2];
+//                smallest_last_terminal_clique_size[n] = stats[3];
+//            }
+//            else if (ORDERING == "SMALLEST_ORIGINAL_DEGREE_LAST") {
+//                smallest_original_degree_last_total_colors_used[n] = stats[0];
+//            }
+//            else if (ORDERING == "RANDOM") {
+//                random_total_colors_used[n] = stats[0];
+//            }
+//            else if (ORDERING == "LARGEST_ORIGINAL_DEGREE_LAST") {
+//                largest_original_degree_last_total_colors_used[n] = stats[0];
+//            }
+//
+//
+//            // Record final information in corresponding output file.
+//            outputs[n][k] << V << ", " << E << ", " << G << ", " << DIST << ", " << ORDERING << '\n';
+//            recordOrderingAndColoring(outputs[n][k], vertices, V, ORDERING);
+//            outputs[n][k].close();
+//
+//            // Reset coloring and ordering related fields for next ordering method.
+//            resetDeleted(vertices, V);
+//            resetColor(vertices, V);
+//            if (ORDERING == "SMALLEST_LAST") {
+//                resetDegreeDLLs(vertices, degree_DLLs, V);
+//            }
+//
+//        }
+//    }
+//
+//    // now make program do 1 normal run at a time, printing stats a different line
+//    cout << endl;
+//    cout << "------------ SMALLEST_LAST RUNTIMES ------------" << endl;
+//    for (int i = 0; i < 12; i++) {
+//        cout << smallest_last_runtimes[i] << endl;
+//    }
+//    cout << "------------------------------------------------------------" << endl;
+//    cout << "------------ SMALLEST_LAST TOTAL COLORS USED ------------" << endl;
+//    for (int i = 0; i < 12; i++) {
+//        cout << smallest_last_total_colors_used[i] << endl;
+//    }
+//    cout << "------------------------------------------------------------" << endl;
+//    cout << "------------ SMALLEST_LAST AVG ORIGINAL DEGREE ------------" << endl;
+//    for (int i = 0; i < 12; i++) {
+//        cout << smallest_last_avg_original_degree[i] << endl;
+//    }
+//    cout << "------------------------------------------------------------" << endl;
+//    cout << "------------ SMALLEST_LAST MAX DEGREE WHEN DELETED ------------" << endl;
+//    for (int i = 0; i < 12; i++) {
+//        cout << smallest_last_max_degree_when_deleted[i] << endl;
+//    }
+//    cout << "------------------------------------------------------------" << endl;
+//    cout << "------------ SMALLEST_LAST TERMINAL CLIQUE SIZE ------------" << endl;
+//    for (int i = 0; i < 12; i++) {
+//        cout << smallest_last_terminal_clique_size[i] << endl;
+//    }
+//    cout << "------------------------------------------------------------" << endl;
+//    cout << "------------ SMALLEST_ORIGINAL_DEGREE_LAST TOTAL COLORS USED ------------" << endl;
+//    for (int i = 0; i < 12; i++) {
+//        cout << smallest_original_degree_last_total_colors_used[i] << endl;
+//    }
+//    cout << "------------------------------------------------------------" << endl;
+//    cout << "------------ RANDOM TOTAL COLORS USED------------" << endl;
+//    for (int i = 0; i < 12; i++) {
+//        cout << random_total_colors_used[i] << endl;
+//    }
+//    cout << "------------------------------------------------------------" << endl;
+//    cout << "------------ LARGEST_ORIGINAL_DEGREE_LAST TOTAL COLORS USED ------------" << endl;
+//    for (int i = 0; i < 12; i++) {
+//        cout << largest_original_degree_last_total_colors_used[i] << endl;
+//    }
+//    cout << "------------------------------------------------------------" << endl;
 
-    //    vertices[0].edges.insert(1);
-    //    vertices[0].degree = 1;
-    //    vertices[0].original_degree = 1;
-    //    vertices[0].degree_DLL = &degree_DLLs[1];
-    //
-    //    vertices[1].edges.insert(0);
-    //    vertices[1].edges.insert(2);
-    //    vertices[1].edges.insert(3);
-    //    vertices[1].degree = 3;
-    //    vertices[1].original_degree = 3;
-    //    vertices[1].degree_DLL = &degree_DLLs[3];
-    //
-    //    vertices[2].edges.insert(1);
-    //    vertices[2].edges.insert(3);
-    //    vertices[2].degree = 2;
-    //    vertices[2].original_degree = 2;
-    //    vertices[2].degree_DLL = &degree_DLLs[2];
-    //
-    //    vertices[3].edges.insert(1);
-    //    vertices[3].edges.insert(2);
-    //    vertices[3].degree = 2;
-    //    vertices[3].original_degree = 2;
-    //    vertices[3].degree_DLL = &degree_DLLs[2];
-    //
-    //    degree_DLLs[1].insert(0);
-    //    degree_DLLs[2].insert(3);
-    //    degree_DLLs[2].insert(2);
-    //    degree_DLLs[3].insert(1);
-    //
-    //    printAdjList(vertices, V);
-    //    printDegreeDLLs(degree_DLLs, V);
-    //
-    // Perform the ordering algorithm specified by the command line argument.
-    //    if (ORDERING == "SMALLEST_LAST") {
-    //        smallestLastVertexOrdering(vertices, degree_DLLs, V);
-    //    }
-    //    else if (ORDERING == "SMALLEST_ORIGINAL_DEGREE_LAST") {
-    //        smallestOriginalDegreeLastOrdering(vertices, degree_DLLs, V);
-    //    }
-    //    else if (ORDERING == "RANDOM") {
-    //        uniformRandomOrdering(vertices, V);
-    //    }
-    //    else if (ORDERING == "LARGEST_ORIGINAL_DEGREE_LAST") {
-    //        largestOriginalDegreeLastOrdering(vertices, degree_DLLs, V);
-    //    }
-    //
-    //    // Generate array for coloring order (reverse of ordering).
-    //    int coloring_order[V];
-    //    Node* temp = ordering.head;
-    //    for (int i = V-1; i >= 0; i--) {
-    //        if (temp != nullptr) {
-    //            coloring_order[i] = temp->data;
-    //        }
-    //        temp = temp->next;
-    //    }
-    //
-    //    // Perform greedy coloring algorithm on the graph and get the highest color value used.
-    //    colorVertices(vertices, coloring_order, V);
-    //    cout << endl;
-    //
-    //    // Calculate average original degree.
-    //    double sum = 0.0;
-    //    for (int i = 0; i < V; i++) {
-    //        sum += static_cast<double>(vertices[i].original_degree);
-    //    }
-    //    double avg_original_degree = sum / static_cast<double>(V);
-    //    stats[1] = avg_original_degree;
-    //
-    //    // Calculate size of terminal clique for smallest last vertex ordering.
-    //    if (ORDERING == "SMALLEST_LAST") {
-    //        int terminal_clique_size = 1;
-    //        for (int i = 1; i < V; i++) {
-    //            cout << "Comparing " << vertices[coloring_order[i-1]].degree_when_deleted << ", " << vertices[coloring_order[i]].degree_when_deleted << endl;
-    //            if (vertices[coloring_order[i]].degree_when_deleted <= vertices[coloring_order[i-1]].degree_when_deleted) {
-    //                break;
-    //            }
-    //            else {
-    //                terminal_clique_size++;
-    //            }
-    //        }
-    //        stats[3] = static_cast<double>(terminal_clique_size);
-    //    }
-    //
-    //    ofstream output("output.csv");
-    //    output << V << ", " << E << ", " << G << ", " << DIST << ", " << ORDERING << '\n';
-    //    // Record ordering, coloring order, and colors assigned to the graph.
-    //    recordOrderingAndColoring(output, vertices, ordering, coloring_order, V, ORDERING);
-    //
-    //    output.close();
+
 
     // could make V 2000 if we have time
     // V = 1000; max E = 499500
@@ -1083,4 +1109,4 @@ int main(int argc, char** argv) {
 //         all_stats << stats[0] << ", " << stats[1] << ", " << stats[2] << ", " << stats[3] << ", " << runtimes[1] << '\n';
 //    }
 
-}
+
